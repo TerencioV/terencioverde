@@ -1,147 +1,1674 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Terencio Verde</title>
 
+  <meta
+    name="description"
+    content="Terencio Verde — interactive apparel, hometown designs, artist collaborations and Web3-inspired collections."
+  />
+
   <style>
+    :root {
+      --green-dark: #102d22;
+      --green: #1e503a;
+      --cream: #f2eadc;
+      --wood: #8e6b48;
+      --ink: #151814;
+      --gold: #c8a564;
+      --muted: #7c817c;
+      --cosmic-1: #07151d;
+      --cosmic-2: #13233c;
+      --cosmic-3: #3f1859;
+    }
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f6f7f4;
-      color: #1d2a22;
+      font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: var(--cream);
+      color: var(--ink);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    header {
-      background: #173d2b;
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* =====================================================
+       MUSIC INTRO
+    ====================================================== */
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(40, 91, 62, 0.25),
+          rgba(3, 12, 8, 0.95)
+        ),
+        #08150f;
+
       color: white;
-      padding: 24px 8%;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
-    }
-
-    header h1 {
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 24px;
-    }
-
-    .hero {
-      min-height: 70vh;
-      display: flex;
-      flex-direction: column;
       justify-content: center;
-      padding: 80px 8%;
-      max-width: 1000px;
+
+      transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
     }
 
-    .hero h2 {
-      font-size: clamp(2.5rem, 7vw, 5rem);
-      line-height: 1;
-      margin-bottom: 24px;
+    #intro.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 650px;
-      margin-bottom: 32px;
+    .intro-inner {
+      width: min(760px, 90vw);
+      text-align: center;
     }
 
-    .button {
-      display: inline-block;
-      width: fit-content;
-      background: #173d2b;
-      color: white;
-      padding: 14px 24px;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-
-    section {
-      padding: 70px 8%;
-      max-width: 1000px;
-    }
-
-    section h2 {
-      font-size: 2rem;
+    .intro-kicker {
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      opacity: 0.65;
       margin-bottom: 16px;
     }
 
-    footer {
-      background: #173d2b;
-      color: white;
-      padding: 30px 8%;
-      margin-top: 50px;
+    .intro-title {
+      font-family: Georgia, serif;
+      font-size: clamp(3rem, 9vw, 7rem);
+      line-height: 0.9;
+      margin-bottom: 22px;
     }
+
+    .intro-subtitle {
+      font-size: 1rem;
+      opacity: 0.75;
+      margin-bottom: 28px;
+    }
+
+    .intro-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      padding: 14px 24px;
+      border-radius: 4px;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--cream);
+      color: var(--green-dark);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      color: white;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.4);
+    }
+
+    .music-credit {
+      margin-top: 20px;
+      opacity: 0.5;
+      font-size: 0.75rem;
+    }
+
+    /* =====================================================
+       NAVIGATION
+    ====================================================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 16px 6%;
+
+      background: rgba(16,45,34,.95);
+      backdrop-filter: blur(12px);
+
+      color: white;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      letter-spacing: .12rem;
+      font-size: 1.15rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08rem;
+      opacity: .82;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    #shopNav {
+      display: none;
+    }
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+      min-height: 88vh;
+      position: relative;
+
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+
+      align-items: center;
+
+      padding: 80px 7%;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(241,232,215,.97),
+          rgba(241,232,215,.80)
+        ),
+
+        repeating-linear-gradient(
+          0deg,
+          #eee4d2,
+          #eee4d2 42px,
+          #d8c8af 43px,
+          #d8c8af 45px
+        );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: rgba(26,75,53,.08);
+      right: -250px;
+      top: -150px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .2rem;
+      font-size: .8rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: .83;
+      font-weight: 500;
+      color: var(--green-dark);
+    }
+
+    .hero-tagline {
+      max-width: 620px;
+      margin: 28px 0;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: #444b45;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-action {
+      text-decoration: none;
+      padding: 13px 20px;
+      background: var(--green-dark);
+      color: white;
+      border-radius: 4px;
+    }
+
+    .hero-character {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-character img {
+      width: min(500px, 90%);
+      max-height: 650px;
+      object-fit: contain;
+      filter: drop-shadow(0 28px 30px rgba(0,0,0,.16));
+    }
+
+    /* =====================================================
+       GENERAL SECTIONS
+    ====================================================== */
+
+    section {
+      padding: 95px 7%;
+    }
+
+    .section-heading {
+      max-width: 750px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading small {
+      text-transform: uppercase;
+      letter-spacing: .18rem;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 1;
+      margin: 12px 0;
+    }
+
+    .section-heading p {
+      color: #5b615c;
+      max-width: 650px;
+    }
+
+    /* =====================================================
+       COLLECTION CARDS
+    ====================================================== */
+
+    .collections {
+      background: #faf5eb;
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .collection-card {
+      min-height: 420px;
+      overflow: hidden;
+      position: relative;
+      background: #ddd;
+      border-radius: 5px;
+    }
+
+    .collection-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+    }
+
+    .collection-overlay {
+      position: absolute;
+      inset: 0;
+
+      padding: 30px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          transparent 35%,
+          rgba(0,0,0,.82)
+        );
+    }
+
+    .collection-overlay h3 {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+    }
+
+    /* =====================================================
+       ARTIST COLLABS
+    ====================================================== */
+
+    .collabs {
+      background: var(--green-dark);
+      color: white;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .collabs .section-heading p {
+      color: rgba(255,255,255,.66);
+    }
+
+    .collab-image img {
+      max-height: 560px;
+      margin: auto;
+      object-fit: contain;
+    }
+
+    /* =====================================================
+       WEB3
+    ====================================================== */
+
+    .web3 {
+      position: relative;
+      overflow: hidden;
+      color: white;
+
+      background:
+        radial-gradient(
+          circle at 70% 30%,
+          rgba(132,53,175,.35),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 15% 65%,
+          rgba(35,164,163,.25),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          var(--cosmic-1),
+          var(--cosmic-2),
+          var(--cosmic-3)
+        );
+    }
+
+    .web3::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 50%;
+      right: -150px;
+      top: -270px;
+      box-shadow:
+        0 0 80px rgba(92, 216, 222, .15),
+        inset 0 0 80px rgba(154, 87, 190, .18);
+    }
+
+    .web3-inner {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .web3 .section-heading small {
+      color: #81e1da;
+    }
+
+    .web3 .section-heading p {
+      color: rgba(255,255,255,.7);
+    }
+
+    .maria-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .maria-grid img {
+      border-radius: 6px;
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .cdb-links {
+      margin-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cdb-links a {
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 10px 16px;
+      border-radius: 3px;
+    }
+
+    /* =====================================================
+       NFC / TECHNOLOGY
+    ====================================================== */
+
+    .technology {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          #ede3d0,
+          #ede3d0 46px,
+          #d7c5ab 47px,
+          #d7c5ab 49px
+        );
+    }
+
+    .technology-card {
+      max-width: 1000px;
+      margin: auto;
+      padding: 55px;
+
+      border-radius: 6px;
+
+      background: rgba(255,255,255,.85);
+      backdrop-filter: blur(5px);
+    }
+
+    .technology-card h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.4rem,5vw,4rem);
+      color: var(--green-dark);
+      margin-bottom: 18px;
+    }
+
+    /* =====================================================
+       STORE
+       HIDDEN UNTIL STORE_ENABLED = true
+    ====================================================== */
+
+    #shop {
+      display: none;
+      background: #f7f4ed;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,.09);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #e7e7e7;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 5px;
+    }
+
+    .price {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       PRODUCT MODAL
+    ====================================================== */
+
+    dialog {
+      width: min(800px, 92vw);
+      border: none;
+      border-radius: 8px;
+      padding: 0;
+
+      box-shadow: 0 25px 90px rgba(0,0,0,.35);
+    }
+
+    dialog::backdrop {
+      background: rgba(0,0,0,.7);
+    }
+
+    .product-modal {
+      padding: 35px;
+    }
+
+    .close-modal {
+      float: right;
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .size-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .size {
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+    }
+
+    .buy-button {
+      padding: 14px 22px;
+      background: var(--green-dark);
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .buy-button:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+      padding: 55px 7%;
+      background: #091c14;
+      color: white;
+    }
+
+    .footer-brand {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-small {
+      opacity: .5;
+      font-size: .8rem;
+    }
+
+    /* =====================================================
+       MOBILE
+    ====================================================== */
+
+    @media (max-width: 850px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero,
+      .collabs,
+      .web3-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-character {
+        margin-top: 40px;
+      }
+
+      .collection-grid,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .maria-grid img {
+        height: 220px;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>TERENCIO VERDE</h1>
+<!-- ======================================================
+     MUSIC
+======================================================= -->
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<audio
+  id="siteMusic"
+  preload="metadata"
+  src="assets/do-you-remember.mp3">
+</audio>
 
-  <main>
-    <div class="hero">
-      <h2>Terencio Verde</h2>
 
-      <p>
-        Independent ideas, creative work, and professional services.
-        Welcome to Terencio Verde.
-      </p>
+<!-- ======================================================
+     INTRO SCREEN
+======================================================= -->
 
-      <a class="button" href="#contact">Get in Touch</a>
+<div id="intro">
+
+  <div class="intro-inner">
+
+    <div class="intro-kicker">
+      New Braunfels · Texas
     </div>
 
-    <section id="about">
-      <h2>About</h2>
+    <h1 class="intro-title">
+      TERENCIO<br>VERDE
+    </h1>
+
+    <p class="intro-subtitle">
+      Hometown roots. Worldwide ideas.
+    </p>
+
+    <div class="intro-buttons">
+
+      <button
+        class="btn btn-primary"
+        id="enterMusic">
+        Enter with music
+      </button>
+
+      <button
+        class="btn btn-outline"
+        id="enterQuiet">
+        Enter quietly
+      </button>
+
+    </div>
+
+    <div class="music-credit">
+      Music by Terence Green and the Loose Strings
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ======================================================
+     NAVIGATION
+======================================================= -->
+
+<header>
+
+  <div class="brand">
+    TERENCIO VERDE
+  </div>
+
+  <nav>
+
+    <a href="#hometown">Hometown</a>
+    <a href="#collabs">Collaborations</a>
+    <a href="#web3">Web3</a>
+    <a href="#technology">Interactive</a>
+
+    <a id="shopNav" href="#shop">
+      Shop
+    </a>
+
+  </nav>
+
+</header>
+
+
+<!-- ======================================================
+     HERO
+======================================================= -->
+
+<main>
+
+<section class="hero">
+
+  <div class="hero-copy">
+
+    <div class="eyebrow">
+      Independent Apparel · Texas
+    </div>
+
+    <h1>
+      TERENCIO<br>VERDE
+    </h1>
+
+    <p class="hero-tagline">
+      Apparel built around hometown culture,
+      independent artists, digital creativity,
+      music and a little bit of weird.
+    </p>
+
+    <div class="hero-actions">
+
+      <a href="#hometown" class="hero-action">
+        Explore the Collections
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="hero-character">
+
+    <!-- TERENCIO FRAME IMAGE -->
+
+    <img
+      src="assets/terencio-frame.jpg"
+      alt="Terencio Verde"
+    />
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     HOMETOWN
+======================================================= -->
+
+<section
+  class="collections"
+  id="hometown">
+
+  <div class="section-heading">
+
+    <small>
+      Hometown
+    </small>
+
+    <h2>
+      From around here.
+    </h2>
+
+    <p>
+      Local character without turning the whole thing
+      into a cowboy costume. Texas Hill Country,
+      Americana, music, towns, stories and places
+      worth putting on a shirt.
+    </p>
+
+  </div>
+
+
+  <div class="collection-grid">
+
+    <article class="collection-card">
+
+      <img
+        src="assets/terencio-standing.jpg"
+        alt="Terencio Verde hometown collection"
+      />
+
+      <div class="collection-overlay">
+
+        <small>
+          Collection 01
+        </small>
+
+        <h3>
+          Hometown
+        </h3>
+
+        <p>
+          Regional designs, local stories and Americana.
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <article class="collection-card">
+
+      <img
+        src="assets/terencio-pose.jpg"
+        alt="Terencio Verde originals"
+      />
+
+      <div class="collection-overlay">
+
+        <small>
+          Collection 02
+        </small>
+
+        <h3>
+          Originals
+        </h3>
+
+        <p>
+          Terencio Verde designs and limited releases.
+        </p>
+
+      </div>
+
+    </article>
+
+
+    <article class="collection-card">
+
+      <img
+        src="assets/terencio-frame.jpg"
+        alt="Terencio Verde special editions"
+      />
+
+      <div class="collection-overlay">
+
+        <small>
+          Limited
+        </small>
+
+        <h3>
+          Small Batch
+        </h3>
+
+        <p>
+          Limited apparel and experimental designs.
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     ARTIST COLLABORATIONS
+======================================================= -->
+
+<section
+  class="collabs"
+  id="collabs">
+
+  <div>
+
+    <div class="section-heading">
+
+      <small>
+        Artist Collaborations
+      </small>
+
+      <h2>
+        Local roots.
+        Global reach.
+      </h2>
 
       <p>
-        Terencio Verde is an independent business focused on thoughtful,
-        creative, and professional work. More information coming soon.
+        Terencio Verde collaborates with emerging,
+        independent and established artists from
+        around the world to turn original artwork
+        into wearable limited-edition pieces.
       </p>
-    </section>
 
-    <section id="services">
-      <h2>Services</h2>
+    </div>
+
+  </div>
+
+
+  <div class="collab-image">
+
+    <img
+      src="assets/terencio-globe.png"
+      alt="Terencio Verde global collaborations"
+    />
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     WEB3 / COSMIC DREAM BOG
+======================================================= -->
+
+<section
+  class="web3"
+  id="web3">
+
+  <div class="web3-inner">
+
+    <div>
+
+      <div class="section-heading">
+
+        <small>
+          Web3 Collection
+        </small>
+
+        <h2>
+          The strange side
+          of the closet.
+        </h2>
+
+        <p>
+          Characters, digital art and worlds born online
+          are transformed into physical apparel.
+          This collection includes work inspired by
+          Terencio Verde's digital characters,
+          NFT artwork and the world of Cosmic Dream Bog.
+        </p>
+
+      </div>
+
 
       <p>
-        Details about services and current projects will be added here.
+        <strong>Cosmic Dream Bog</strong> is a surreal
+        character-driven digital world exploring
+        imagination, identity and strange interconnected
+        stories across an expanding universe.
       </p>
-    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
 
-      <p>
-        Contact information coming soon.
-      </p>
-    </section>
-  </main>
+      <div class="cdb-links">
 
-  <footer>
-    <p>&copy; 2026 Terencio Verde. All rights reserved.</p>
-  </footer>
+        <a
+          href="https://cosmicdreambog.com"
+          target="_blank">
+          Cosmic Dream Bog
+        </a>
+
+        <!-- Replace these when you give me the actual links -->
+
+        <a
+          href="#"
+          id="discordLink">
+          Discord
+        </a>
+
+        <a
+          href="#"
+          id="xLink">
+          X
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="maria-grid">
+
+      <img
+        src="assets/maria-01.png"
+        alt="Maria Verde"
+      />
+
+      <img
+        src="assets/maria-02.png"
+        alt="Maria Verde"
+      />
+
+      <img
+        src="assets/maria-03.png"
+        alt="Maria Verde"
+      />
+
+      <img
+        src="assets/maria-easter-egg.png"
+        alt="Maria Verde"
+      />
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     NFC / INTERACTIVE CLOTHING
+======================================================= -->
+
+<section
+  class="technology"
+  id="technology">
+
+  <div class="technology-card">
+
+    <div class="eyebrow">
+      More than fabric
+    </div>
+
+    <h2>
+      Wear something
+      that does something.
+    </h2>
+
+    <p>
+      Selected Terencio Verde garments incorporate
+      NFC technology, allowing a physical piece of
+      clothing to connect with digital content,
+      artists, music, stories, special releases,
+      partner experiences and more.
+    </p>
+
+    <br>
+
+    <p>
+      The technology stays in the background.
+      The garment comes first.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ======================================================
+     FUTURE SHOP
+
+     THIS ENTIRE SECTION IS HIDDEN BY DEFAULT.
+======================================================= -->
+
+<section id="shop">
+
+  <div class="section-heading">
+
+    <small>
+      Store
+    </small>
+
+    <h2>
+      Shop Terencio Verde
+    </h2>
+
+  </div>
+
+  <div
+    id="productGrid"
+    class="product-grid">
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ======================================================
+     PRODUCT DETAIL WINDOW
+======================================================= -->
+
+<dialog id="productDialog">
+
+  <div class="product-modal">
+
+    <button
+      class="close-modal"
+      onclick="productDialog.close()">
+      ×
+    </button>
+
+    <h2 id="modalTitle">
+    </h2>
+
+    <p
+      class="price"
+      id="modalPrice">
+    </p>
+
+    <p id="modalDescription">
+    </p>
+
+    <h4 style="margin-top:20px">
+      Size
+    </h4>
+
+    <div
+      class="size-options"
+      id="modalSizes">
+    </div>
+
+    <button
+      id="buyButton"
+      class="buy-button"
+      disabled>
+      Checkout coming soon
+    </button>
+
+  </div>
+
+</dialog>
+
+
+<!-- ======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+  <div class="footer-brand">
+    Terencio Verde
+  </div>
+
+  <p>
+    New Braunfels, Texas
+  </p>
+
+  <br>
+
+  <p class="footer-small">
+    © 2026 Terencio Verde.
+    All rights reserved.
+  </p>
+
+  <p class="footer-small">
+    Music by Terence Green and the Loose Strings.
+  </p>
+
+</footer>
+
+
+<script>
+
+/* ========================================================
+   STORE CONTROL
+
+   Leave BOTH of these FALSE for now.
+======================================================== */
+
+const STORE_ENABLED = false;
+const PAYMENTS_ENABLED = false;
+
+
+/* ========================================================
+   PRODUCT DATABASE
+
+   Later, this gets replaced with the easy admin/store
+   system we build.
+
+   For now this shows the structure each shirt will use.
+======================================================== */
+
+const PRODUCTS = [
+
+  {
+    id: "tv001",
+
+    name:
+      "Terencio Verde Original Tee",
+
+    price:
+      32.00,
+
+    image:
+      "assets/products/terencio-original.jpg",
+
+    collection:
+      "Originals",
+
+    description:
+      "Original Terencio Verde graphic tee.",
+
+    sizes:
+      [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ]
+  },
+
+
+  {
+    id: "tv002",
+
+    name:
+      "Hometown Tee",
+
+    price:
+      30.00,
+
+    image:
+      "assets/products/hometown-tee.jpg",
+
+    collection:
+      "Hometown",
+
+    description:
+      "A hometown-inspired Terencio Verde design.",
+
+    sizes:
+      [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ]
+  },
+
+
+  {
+    id: "tv003",
+
+    name:
+      "Maria Verde Web3 Tee",
+
+    price:
+      36.00,
+
+    image:
+      "assets/products/maria-web3.jpg",
+
+    collection:
+      "Web3",
+
+    description:
+      "Maria Verde from the digital side of Terencio Verde.",
+
+    sizes:
+      [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "2XL"
+      ]
+  }
+
+];
+
+
+/* ========================================================
+   DISPLAY STORE ONLY WHEN ENABLED
+======================================================== */
+
+if (STORE_ENABLED) {
+
+  document
+    .getElementById("shop")
+    .style.display = "block";
+
+  document
+    .getElementById("shopNav")
+    .style.display = "inline";
+
+}
+
+
+/* ========================================================
+   PRODUCT CARDS
+======================================================== */
+
+const productGrid =
+  document.getElementById("productGrid");
+
+PRODUCTS.forEach(product => {
+
+  const card =
+    document.createElement("article");
+
+  card.className =
+    "product-card";
+
+  card.innerHTML = `
+
+    <img
+      class="product-image"
+      src="${product.image}"
+      alt="${product.name}"
+    >
+
+    <div class="product-info">
+
+      <small>
+        ${product.collection}
+      </small>
+
+      <h3>
+        ${product.name}
+      </h3>
+
+      <div class="price">
+        $${product.price.toFixed(2)}
+      </div>
+
+    </div>
+
+  `;
+
+  card.onclick =
+    () => openProduct(product);
+
+  productGrid.appendChild(card);
+
+});
+
+
+/* ========================================================
+   PRODUCT WINDOW
+======================================================== */
+
+const productDialog =
+  document.getElementById("productDialog");
+
+function openProduct(product) {
+
+  document.getElementById(
+    "modalTitle"
+  ).textContent =
+    product.name;
+
+  document.getElementById(
+    "modalPrice"
+  ).textContent =
+    `$${product.price.toFixed(2)}`;
+
+  document.getElementById(
+    "modalDescription"
+  ).textContent =
+    product.description;
+
+
+  const sizes =
+    document.getElementById(
+      "modalSizes"
+    );
+
+  sizes.innerHTML = "";
+
+
+  product.sizes.forEach(size => {
+
+    const button =
+      document.createElement("button");
+
+    button.className =
+      "size";
+
+    button.textContent =
+      size;
+
+    sizes.appendChild(button);
+
+  });
+
+
+  const buyButton =
+    document.getElementById(
+      "buyButton"
+    );
+
+
+  if (PAYMENTS_ENABLED) {
+
+    buyButton.disabled =
+      false;
+
+    buyButton.textContent =
+      "Buy Now";
+
+  }
+
+  else {
+
+    buyButton.disabled =
+      true;
+
+    buyButton.textContent =
+      "Checkout coming soon";
+
+  }
+
+
+  productDialog.showModal();
+
+}
+
+
+/* ========================================================
+   30-SECOND MUSIC INTRO
+======================================================== */
+
+const intro =
+  document.getElementById("intro");
+
+const audio =
+  document.getElementById("siteMusic");
+
+const enterMusic =
+  document.getElementById("enterMusic");
+
+const enterQuiet =
+  document.getElementById("enterQuiet");
+
+
+/*
+   MUSIC CLIP SETTINGS
+
+   Current selection:
+   0:50 through 1:20
+*/
+
+const MUSIC_START =
+  50;
+
+const MUSIC_END =
+  80;
+
+
+enterMusic.addEventListener(
+  "click",
+  async () => {
+
+    intro.classList.add(
+      "hidden"
+    );
+
+    try {
+
+      audio.currentTime =
+        MUSIC_START;
+
+      audio.volume =
+        0;
+
+      await audio.play();
+
+
+      /* Fade in */
+
+      let volume =
+        0;
+
+      const fadeIn =
+        setInterval(
+          () => {
+
+            volume +=
+              .05;
+
+            audio.volume =
+              Math.min(
+                volume,
+                .7
+              );
+
+            if (
+              volume >= .7
+            ) {
+
+              clearInterval(
+                fadeIn
+              );
+
+            }
+
+          },
+          120
+        );
+
+
+      /*
+        Stop after the selected
+        30-second section.
+      */
+
+      const watcher =
+        setInterval(
+          () => {
+
+            if (
+              audio.currentTime >=
+              MUSIC_END - 3
+            ) {
+
+              clearInterval(
+                watcher
+              );
+
+              fadeMusicOut();
+
+            }
+
+          },
+          200
+        );
+
+    }
+
+    catch(error) {
+
+      console.log(
+        "Audio playback blocked:",
+        error
+      );
+
+    }
+
+  }
+);
+
+
+enterQuiet.addEventListener(
+  "click",
+  () => {
+
+    intro.classList.add(
+      "hidden"
+    );
+
+  }
+);
+
+
+function fadeMusicOut() {
+
+  let volume =
+    audio.volume;
+
+  const fade =
+    setInterval(
+      () => {
+
+        volume -=
+          .05;
+
+        audio.volume =
+          Math.max(
+            0,
+            volume
+          );
+
+        if (
+          volume <= 0
+        ) {
+
+          clearInterval(
+            fade
+          );
+
+          audio.pause();
+
+        }
+
+      },
+      100
+    );
+
+}
+
+</script>
 
 </body>
 </html>
