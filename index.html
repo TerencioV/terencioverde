@@ -20,76 +20,44 @@
   <style>
 
     :root {
-
       --forest: #18392b;
       --forest-dark: #0c2118;
-
       --cream: #f2eadb;
       --cream-light: #faf6ee;
-
       --taupe: #bba88c;
       --brown: #4a372b;
-
       --turquoise: #5f918b;
       --turquoise-faded: #87aaa3;
-
       --gold: #ad8a49;
-
       --black: #171713;
       --white: #fffdf8;
-
     }
-
 
     * {
-
       box-sizing: border-box;
-
       margin: 0;
-
       padding: 0;
-
     }
-
 
     html {
-
       scroll-behavior: smooth;
-
     }
-
 
     body {
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       background: var(--cream);
-
       color: var(--black);
-
       overflow-x: hidden;
-
     }
-
 
     a {
-
       color: inherit;
-
       text-decoration: none;
-
     }
 
-
     button {
-
       font: inherit;
-
       cursor: pointer;
-
     }
 
 
@@ -98,27 +66,20 @@
     ====================================================== */
 
     #intro {
-
       position: fixed;
-
       inset: 0;
-
       z-index: 9999;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
       padding: 30px;
 
       text-align: center;
-
       color: var(--cream);
 
       background:
-
         radial-gradient(
           circle at 50% 40%,
           #315844 0%,
@@ -129,154 +90,89 @@
       transition:
         opacity .7s ease,
         visibility .7s ease;
-
     }
-
 
     #intro.hidden {
-
       opacity: 0;
-
       visibility: hidden;
-
       pointer-events: none;
-
     }
-
 
     .intro-inner {
-
       width: min(850px, 92vw);
-
     }
 
-
     .intro-mark {
-
       margin: 0 auto 24px;
 
       width: 95px;
-
       height: 95px;
 
-      border:
-        1px solid rgba(205, 175, 108, .45);
-
+      border: 1px solid rgba(205,175,108,.45);
       border-radius: 50%;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
-      font-family:
-        Georgia,
-        serif;
-
+      font-family: Georgia, serif;
       font-size: 2rem;
 
       color: var(--gold);
-
       letter-spacing: 2px;
-
     }
 
-
     .intro-kicker {
-
       margin-bottom: 18px;
 
       font-size: .72rem;
-
       letter-spacing: 3px;
-
       text-transform: uppercase;
 
       color: rgba(255,255,255,.58);
-
     }
 
-
     .intro-title {
+      font-family: Georgia, "Times New Roman", serif;
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        clamp(
-          3.8rem,
-          10vw,
-          8rem
-        );
-
+      font-size: clamp(3.8rem, 10vw, 8rem);
       line-height: .86;
 
       font-weight: normal;
 
       margin-bottom: 35px;
-
     }
 
-
     .intro-buttons {
-
       display: flex;
-
       justify-content: center;
-
       flex-wrap: wrap;
 
       gap: 12px;
-
     }
-
 
     .intro-buttons button {
-
       min-height: 48px;
-
       padding: 14px 23px;
-
       border-radius: 2px;
-
     }
-
 
     #enterMusic {
-
-      border:
-        1px solid var(--cream);
-
+      border: 1px solid var(--cream);
       background: var(--cream);
-
       color: var(--forest);
-
     }
-
 
     #enterQuiet {
-
-      border:
-        1px solid rgba(255,255,255,.35);
-
+      border: 1px solid rgba(255,255,255,.35);
       background: transparent;
-
       color: white;
-
     }
 
-
     .music-credit {
-
       margin-top: 20px;
-
       font-size: .72rem;
-
       color: rgba(255,255,255,.43);
-
     }
 
 
@@ -285,11 +181,8 @@
     ====================================================== */
 
     header {
-
       position: sticky;
-
       top: 0;
-
       z-index: 1000;
 
       min-height: 68px;
@@ -297,74 +190,45 @@
       padding: 0 6%;
 
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
 
-      background:
-        rgba(15, 38, 28, .96);
-
+      background: rgba(15,38,28,.96);
       backdrop-filter: blur(12px);
 
       color: var(--cream);
 
-      border-bottom:
-        1px solid rgba(255,255,255,.06);
-
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-
 
     .brand {
-
-      font-family:
-        Georgia,
-        serif;
-
+      font-family: Georgia, serif;
       font-size: 1rem;
-
       letter-spacing: 2px;
-
     }
-
 
     nav {
-
       display: flex;
-
       align-items: center;
-
       gap: 25px;
-
     }
 
-
     nav a {
-
       font-size: .72rem;
-
       text-transform: uppercase;
-
       letter-spacing: 1.2px;
 
       opacity: .72;
 
       transition: opacity .2s ease;
-
     }
-
 
     nav a:hover {
-
       opacity: 1;
-
     }
 
-
     #storeNav {
-
       display: none;
-
     }
 
 
@@ -373,19 +237,14 @@
     ====================================================== */
 
     .hero {
-
       position: relative;
 
       min-height: 88vh;
 
       display: flex;
-
       align-items: flex-end;
 
-      padding:
-        90px
-        7%
-        95px;
+      padding: 90px 7% 95px;
 
       color: var(--cream);
 
@@ -395,10 +254,10 @@
 
         linear-gradient(
           90deg,
-          rgba(7, 24, 16, .87) 0%,
-          rgba(13, 40, 29, .68) 42%,
-          rgba(12, 35, 27, .30) 72%,
-          rgba(7, 19, 13, .46) 100%
+          rgba(7,24,16,.87) 0%,
+          rgba(13,40,29,.68) 42%,
+          rgba(12,35,27,.30) 72%,
+          rgba(7,19,13,.46) 100%
         ),
 
         url("assets/hero-hometown.jpg"),
@@ -411,77 +270,70 @@
         );
 
       background-size: cover;
-
       background-position: center;
-
     }
 
-
     .hero::before {
-
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       pointer-events: none;
 
       background:
-
         linear-gradient(
           180deg,
           transparent 55%,
-          rgba(6, 17, 12, .42)
+          rgba(6,17,12,.42)
         );
-
     }
 
-
     .hero-copy {
-
       position: relative;
-
       z-index: 3;
 
       max-width: 840px;
+    }
 
+
+    /* REAL TERENCIO VERDE LOGO */
+
+    .hero-logo-wrap {
+      margin-bottom: 28px;
+    }
+
+    .hero-logo {
+      display: block;
+
+      width: min(260px, 65vw);
+      height: auto;
+
+      border-radius: 2px;
+
+      box-shadow:
+        0 14px 35px rgba(0,0,0,.18);
     }
 
 
     .eyebrow {
-
       margin-bottom: 20px;
 
       font-size: .75rem;
-
       font-weight: bold;
 
       letter-spacing: 3px;
-
       text-transform: uppercase;
 
       color: var(--turquoise-faded);
-
     }
 
-
     .hero h1 {
-
       max-width: 900px;
 
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+      font-family: Georgia, "Times New Roman", serif;
 
-      font-size:
-        clamp(
-          4rem,
-          8vw,
-          7.7rem
-        );
-
+      font-size: clamp(4rem, 8vw, 7.7rem);
       line-height: .91;
 
       font-weight: normal;
@@ -489,80 +341,51 @@
       text-wrap: balance;
 
       margin-bottom: 26px;
-
     }
-
 
     .hero-subhead {
-
       max-width: 650px;
 
-      font-size:
-        clamp(
-          1rem,
-          2vw,
-          1.22rem
-        );
-
+      font-size: clamp(1rem, 2vw, 1.22rem);
       line-height: 1.7;
 
-      color:
-        rgba(255,255,255,.78);
-
+      color: rgba(255,255,255,.78);
     }
 
-
     .hero-actions {
-
       margin-top: 30px;
 
       display: flex;
-
       gap: 12px;
-
       flex-wrap: wrap;
-
     }
 
-
     .hero-button {
-
       min-height: 48px;
 
       display: inline-flex;
-
       align-items: center;
 
       padding: 13px 21px;
 
       background: var(--cream);
-
       color: var(--forest-dark);
 
       font-size: .88rem;
-
       letter-spacing: .4px;
-
     }
 
-
     .hero-origin {
-
       margin-top: 25px;
 
       max-width: 560px;
 
-      font-family:
-        Georgia,
-        serif;
-
+      font-family: Georgia, serif;
       font-style: italic;
 
       font-size: .92rem;
 
-      color:
-        rgba(255,255,255,.55);
-
+      color: rgba(255,255,255,.55);
     }
 
 
@@ -571,7 +394,6 @@
     ====================================================== */
 
     .brand-intro {
-
       position: relative;
 
       padding: 120px 7%;
@@ -592,89 +414,55 @@
           #dbcbb0 46px,
           #dbcbb0 48px
         );
-
     }
 
-
     .brand-intro::after {
-
       content: "TV";
 
       position: absolute;
 
       right: 4%;
-
       top: 50%;
 
-      transform:
-        translateY(-50%);
+      transform: translateY(-50%);
 
-      font-family:
-        Georgia,
-        serif;
+      font-family: Georgia, serif;
 
-      font-size:
-        clamp(
-          12rem,
-          30vw,
-          30rem
-        );
-
+      font-size: clamp(12rem, 30vw, 30rem);
       line-height: 1;
 
-      color:
-        rgba(65, 103, 78, .045);
+      color: rgba(65,103,78,.045);
 
       pointer-events: none;
-
     }
 
-
     .brand-intro-inner {
-
       position: relative;
-
       z-index: 2;
 
       max-width: 920px;
-
     }
 
-
     .brand-intro h2 {
-
       margin-bottom: 25px;
 
-      font-family:
-        Georgia,
-        serif;
+      font-family: Georgia, serif;
 
-      font-size:
-        clamp(
-          3rem,
-          6vw,
-          5.4rem
-        );
-
+      font-size: clamp(3rem, 6vw, 5.4rem);
       line-height: 1;
 
       font-weight: normal;
 
       color: var(--forest-dark);
-
     }
 
-
     .brand-intro p {
-
       max-width: 760px;
 
       color: #5a5e56;
 
       line-height: 1.8;
-
       font-size: 1.08rem;
-
     }
 
 
@@ -683,72 +471,45 @@
     ====================================================== */
 
     .collections {
-
       padding: 105px 7%;
-
       background: var(--cream-light);
-
     }
-
 
     .section-heading {
-
       max-width: 800px;
-
       margin-bottom: 55px;
-
     }
 
-
     .section-heading h2 {
-
       margin-bottom: 19px;
 
-      font-family:
-        Georgia,
-        serif;
+      font-family: Georgia, serif;
 
-      font-size:
-        clamp(
-          3rem,
-          6vw,
-          5rem
-        );
-
+      font-size: clamp(3rem, 6vw, 5rem);
       line-height: 1;
 
       font-weight: normal;
 
       color: var(--forest-dark);
-
     }
 
-
     .section-heading p {
-
       max-width: 680px;
 
       line-height: 1.75;
 
       color: #62645e;
-
     }
-
 
     .collection-grid {
-
       display: grid;
 
-      grid-template-columns:
-        repeat(2, 1fr);
+      grid-template-columns: repeat(2,1fr);
 
       gap: 20px;
-
     }
 
-
     .collection-card {
-
       position: relative;
 
       min-height: 470px;
@@ -756,9 +517,7 @@
       padding: 35px;
 
       display: flex;
-
       flex-direction: column;
-
       justify-content: flex-end;
 
       overflow: hidden;
@@ -768,53 +527,36 @@
       transition:
         transform .3s ease,
         box-shadow .3s ease;
-
     }
-
 
     .collection-card:hover {
-
-      transform:
-        translateY(-5px);
+      transform: translateY(-5px);
 
       box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.11);
-
+        0 20px 50px rgba(0,0,0,.11);
     }
 
-
     .collection-card::after {
-
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       background:
-
         linear-gradient(
           transparent 25%,
           rgba(0,0,0,.72)
         );
-
     }
 
-
     .collection-copy {
-
       position: relative;
-
       z-index: 2;
 
       color: white;
-
     }
 
-
     .collection-copy small {
-
       display: block;
 
       margin-bottom: 12px;
@@ -822,54 +564,36 @@
       font-size: .7rem;
 
       text-transform: uppercase;
-
       letter-spacing: 2px;
 
-      color:
-        rgba(255,255,255,.65);
-
+      color: rgba(255,255,255,.65);
     }
-
 
     .collection-copy h3 {
-
       margin-bottom: 10px;
 
-      font-family:
-        Georgia,
-        serif;
+      font-family: Georgia, serif;
 
-      font-size:
-        clamp(
-          2.1rem,
-          4vw,
-          3.2rem
-        );
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
 
       font-weight: normal;
-
     }
 
-
     .collection-copy p {
-
       max-width: 480px;
 
       line-height: 1.6;
 
-      color:
-        rgba(255,255,255,.75);
-
+      color: rgba(255,255,255,.75);
     }
 
 
     .hometown-card {
-
       background-image:
 
         linear-gradient(
-          rgba(31, 67, 47, .20),
-          rgba(31, 67, 47, .10)
+          rgba(31,67,47,.20),
+          rgba(31,67,47,.10)
         ),
 
         url("assets/hometown-river.jpg"),
@@ -881,19 +605,16 @@
         );
 
       background-size: cover;
-
       background-position: center;
-
     }
 
 
     .collab-card {
-
       background-image:
 
         radial-gradient(
           circle at 78% 25%,
-          rgba(124, 161, 130, .30),
+          rgba(124,161,130,.30),
           transparent 32%
         ),
 
@@ -906,25 +627,22 @@
         );
 
       background-size: cover;
-
       background-position: center;
-
     }
 
 
     .web3-card {
-
       background:
 
         radial-gradient(
           circle at 75% 25%,
-          rgba(124, 65, 180, .42),
+          rgba(124,65,180,.42),
           transparent 35%
         ),
 
         radial-gradient(
           circle at 15% 80%,
-          rgba(54, 169, 163, .24),
+          rgba(54,169,163,.24),
           transparent 33%
         ),
 
@@ -934,17 +652,15 @@
           #11172e,
           #351347
         );
-
     }
 
 
     .interactive-card {
-
       background-image:
 
         linear-gradient(
-          rgba(41, 77, 55, .16),
-          rgba(41, 77, 55, .08)
+          rgba(41,77,55,.16),
+          rgba(41,77,55,.08)
         ),
 
         url("assets/interactive-bg.jpg"),
@@ -956,9 +672,7 @@
         );
 
       background-size: cover;
-
       background-position: center;
-
     }
 
 
@@ -967,60 +681,40 @@
     ====================================================== */
 
     .hometown-preview {
-
       padding: 105px 7%;
 
       background: var(--forest);
 
       color: var(--cream);
-
     }
 
-
     .hometown-preview h2 {
-
       max-width: 920px;
 
       margin-bottom: 45px;
 
-      font-family:
-        Georgia,
-        serif;
+      font-family: Georgia, serif;
 
-      font-size:
-        clamp(
-          3rem,
-          6vw,
-          5.5rem
-        );
-
+      font-size: clamp(3rem, 6vw, 5.5rem);
       line-height: 1;
 
       font-weight: normal;
-
     }
-
 
     .memory-strip {
-
       display: grid;
 
-      grid-template-columns:
-        repeat(4, 1fr);
+      grid-template-columns: repeat(4,1fr);
 
       gap: 10px;
-
     }
 
-
     .memory {
-
       min-height: 310px;
 
       padding: 22px;
 
       display: flex;
-
       align-items: flex-end;
 
       position: relative;
@@ -1028,49 +722,33 @@
       overflow: hidden;
 
       background-size: cover;
-
       background-position: center;
-
     }
 
-
     .memory::after {
-
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       background:
-
         linear-gradient(
           transparent 35%,
           rgba(0,0,0,.65)
         );
-
     }
 
-
     .memory span {
-
       position: relative;
-
       z-index: 2;
 
-      font-family:
-        Georgia,
-        serif;
-
+      font-family: Georgia, serif;
       font-size: 1.3rem;
 
       color: white;
-
     }
 
-
     .memory-river {
-
       background-image:
 
         url("assets/hometown-river.jpg"),
@@ -1079,12 +757,9 @@
           #789589,
           #465a4d
         );
-
     }
 
-
     .memory-mainstreet {
-
       background-image:
 
         url("assets/hometown-mainstreet.jpg"),
@@ -1093,12 +768,9 @@
           #8e6c51,
           #5a4030
         );
-
     }
 
-
     .memory-music {
-
       background-image:
 
         url("assets/hometown-music.jpg"),
@@ -1107,12 +779,9 @@
           #554636,
           #231b15
         );
-
     }
 
-
     .memory-fire {
-
       background-image:
 
         url("assets/hometown-fire.jpg"),
@@ -1121,7 +790,6 @@
           #755137,
           #20140d
         );
-
     }
 
 
@@ -1130,11 +798,9 @@
     ====================================================== */
 
     .global {
-
       padding: 120px 7%;
 
       background:
-
         linear-gradient(
           90deg,
           #111e18,
@@ -1142,63 +808,39 @@
         );
 
       color: white;
-
     }
-
 
     .global-inner {
-
       max-width: 1000px;
-
     }
 
-
     .global h2 {
-
       margin-bottom: 26px;
 
-      font-family:
-        Georgia,
-        serif;
+      font-family: Georgia, serif;
 
-      font-size:
-        clamp(
-          3.2rem,
-          7vw,
-          6rem
-        );
-
+      font-size: clamp(3.2rem, 7vw, 6rem);
       line-height: .96;
 
       font-weight: normal;
-
     }
-
 
     .global p {
-
       max-width: 760px;
 
-      color:
-        rgba(255,255,255,.68);
+      color: rgba(255,255,255,.68);
 
       font-size: 1.08rem;
-
       line-height: 1.8;
-
     }
 
-
     .global-accent {
-
       margin-top: 35px;
 
       width: 100px;
-
       height: 3px;
 
       background: var(--gold);
-
     }
 
 
@@ -1207,101 +849,63 @@
     ====================================================== */
 
     footer {
-
       padding:
 
         55px
-        max(
-          7%,
-          env(safe-area-inset-right)
-        )
-        calc(
-          55px +
-          env(safe-area-inset-bottom)
-        )
-        max(
-          7%,
-          env(safe-area-inset-left)
-        );
+        max(7%,env(safe-area-inset-right))
+        calc(55px + env(safe-area-inset-bottom))
+        max(7%,env(safe-area-inset-left));
 
       background: #071710;
 
-      color:
-        rgba(255,255,255,.55);
-
+      color: rgba(255,255,255,.55);
     }
 
-
     .footer-mark {
-
       margin-bottom: 20px;
 
       width: 55px;
-
       height: 55px;
 
-      border:
-        1px solid
-        rgba(173, 138, 73, .45);
-
+      border: 1px solid rgba(173,138,73,.45);
       border-radius: 50%;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
-      font-family:
-        Georgia,
-        serif;
+      font-family: Georgia, serif;
 
       color: var(--gold);
-
     }
 
-
     footer strong {
-
       display: block;
 
       margin-bottom: 7px;
 
       color: white;
 
-      font-family:
-        Georgia,
-        serif;
-
+      font-family: Georgia, serif;
       font-size: 1.35rem;
-
     }
-
 
     .footer-contact {
-
       margin-top: 24px;
-
     }
 
-
     .footer-contact-label {
-
       margin-bottom: 7px;
 
       font-size: .68rem;
 
       text-transform: uppercase;
-
       letter-spacing: 2px;
 
       color: var(--turquoise-faded);
-
     }
 
-
     .footer-email {
-
       display: inline-block;
 
       min-height: 44px;
@@ -1313,23 +917,16 @@
       font-size: .95rem;
 
       transition: color .2s ease;
-
     }
-
 
     .footer-email:hover {
-
       color: var(--gold);
-
     }
 
-
     .copyright {
-
       margin-top: 26px;
 
       font-size: .8rem;
-
     }
 
 
@@ -1337,12 +934,9 @@
        MOBILE
     ====================================================== */
 
-    @media
-    (max-width: 850px) {
-
+    @media (max-width: 850px) {
 
       .hero {
-
         min-height: 82dvh;
 
         padding:
@@ -1351,141 +945,81 @@
           60px;
 
         background-position: center;
-
       }
 
+      .hero-logo {
+        width: min(220px, 70vw);
+      }
 
       .hero h1 {
-
-        font-size:
-          clamp(
-            3.3rem,
-            14vw,
-            5.4rem
-          );
-
+        font-size: clamp(3.3rem, 14vw, 5.4rem);
       }
-
 
       .hero-subhead {
-
         font-size: 1rem;
-
       }
-
 
       .brand-intro {
-
         padding: 80px 6%;
-
       }
-
 
       .brand-intro::after {
-
         right: -10%;
-
         font-size: 13rem;
-
       }
-
 
       .collections {
-
         padding: 75px 6%;
-
       }
-
 
       .collection-grid {
-
         grid-template-columns: 1fr;
-
       }
-
 
       .collection-card {
-
         min-height: 360px;
-
       }
-
 
       .hometown-preview {
-
         padding: 75px 6%;
-
       }
-
 
       .memory-strip {
-
-        grid-template-columns:
-          1fr
-          1fr;
-
+        grid-template-columns: 1fr 1fr;
       }
-
 
       .memory {
-
         min-height: 240px;
-
       }
-
 
       .global {
-
         padding: 85px 6%;
-
       }
 
-
       .intro-title {
-
-        font-size:
-          clamp(
-            3.4rem,
-            18vw,
-            5.5rem
-          );
-
+        font-size: clamp(3.4rem,18vw,5.5rem);
       }
 
     }
 
 
-    @media
-    (max-width: 520px) {
-
+    @media (max-width: 520px) {
 
       .memory-strip {
-
         grid-template-columns: 1fr;
-
       }
-
 
       .memory {
-
         min-height: 230px;
-
       }
-
 
       .hero-actions {
-
         width: 100%;
-
       }
 
-
       .hero-button {
-
         width: 100%;
-
         justify-content: center;
-
       }
 
     }
@@ -1498,12 +1032,8 @@
 <body>
 
 
-<!-- GLOBAL CONFIG -->
-
 <script src="assets/site-config.js"></script>
 
-
-<!-- MUSIC -->
 
 <audio
   id="siteMusic"
@@ -1527,11 +1057,9 @@
     </div>
 
     <div class="intro-title">
-
       TERENCIO
       <br>
       VERDE
-
     </div>
 
     <div class="intro-buttons">
@@ -1607,15 +1135,30 @@
 
   <div class="hero-copy">
 
-    <div class="eyebrow">
-      TERENCIO VERDE
+
+    <div class="hero-logo-wrap">
+
+      <img
+        class="hero-logo"
+        src="assets/terencio-logo.png"
+        alt="Terencio Verde"
+        loading="eager"
+      >
+
     </div>
+
+
+    <div class="eyebrow">
+      Independent Apparel
+    </div>
+
 
     <h1>
       The Place
       That Stays
       With You.
     </h1>
+
 
     <p class="hero-subhead">
 
@@ -1624,6 +1167,7 @@
       worth remembering.
 
     </p>
+
 
     <div class="hero-actions">
 
@@ -1635,12 +1179,14 @@
 
     </div>
 
+
     <div class="hero-origin">
 
       Independent apparel shaped by
       art, music, memory and place.
 
     </div>
+
 
   </div>
 
@@ -1658,10 +1204,8 @@
     </div>
 
     <h2>
-
       Rooted somewhere.
       Limited nowhere.
-
     </h2>
 
     <p>
@@ -1689,6 +1233,7 @@
   class="collections"
   id="collections">
 
+
   <div class="section-heading">
 
     <div class="eyebrow">
@@ -1696,10 +1241,8 @@
     </div>
 
     <h2>
-
       Different worlds.
       One label.
-
     </h2>
 
     <p>
@@ -1850,38 +1393,30 @@
 
 
     <div class="memory memory-river">
-
       <span>
         River Days
       </span>
-
     </div>
 
 
     <div class="memory memory-mainstreet">
-
       <span>
         Main Street
       </span>
-
     </div>
 
 
     <div class="memory memory-music">
-
       <span>
         Live Music
       </span>
-
     </div>
 
 
     <div class="memory memory-fire">
-
       <span>
         Fire & Smoke
       </span>
-
     </div>
 
 
@@ -1901,10 +1436,8 @@
     </div>
 
     <h2>
-
       Local roots.
       Global ideas.
-
     </h2>
 
     <p>
@@ -1955,18 +1488,14 @@
     <a
       class="footer-email"
       href="mailto:verdeterencio@gmail.com">
-
       verdeterencio@gmail.com
-
     </a>
 
   </div>
 
 
   <div class="copyright">
-
     © 2026 Terencio Verde
-
   </div>
 
 
@@ -1980,95 +1509,59 @@
     window.TERENCIO_CONFIG || {};
 
 
-  /* SITE TEXT */
-
   document
-    .getElementById(
-      "introTagline"
-    )
+    .getElementById("introTagline")
     .textContent =
-
       config.tagline ||
-
       "Independent Apparel · Art · Culture · Technology";
 
 
   document
-    .getElementById(
-      "footerTagline"
-    )
+    .getElementById("footerTagline")
     .textContent =
-
       config.tagline ||
-
       "Independent Apparel · Art · Culture · Technology";
 
 
   /* MUSIC */
 
   const intro =
-    document.getElementById(
-      "intro"
-    );
-
+    document.getElementById("intro");
 
   const audio =
-    document.getElementById(
-      "siteMusic"
-    );
-
+    document.getElementById("siteMusic");
 
   const enterMusic =
-    document.getElementById(
-      "enterMusic"
-    );
-
+    document.getElementById("enterMusic");
 
   const enterQuiet =
-    document.getElementById(
-      "enterQuiet"
-    );
-
+    document.getElementById("enterQuiet");
 
   const musicCredit =
-    document.getElementById(
-      "musicCredit"
-    );
+    document.getElementById("musicCredit");
 
 
   audio.src =
-
     config.musicFile ||
-
     "assets/do-you-remember.mp3";
 
 
   musicCredit.textContent =
-
     config.musicCredit ||
-
     "Music by Terence Green and the Loose Strings";
 
 
   const MUSIC_START =
-
-    config.musicStart ??
-    50;
-
+    config.musicStart ?? 50;
 
   const MUSIC_END =
-
-    config.musicEnd ??
-    80;
+    config.musicEnd ?? 80;
 
 
   if (
     config.musicEnabled === false
   ) {
-
-    enterMusic.style.display =
-      "none";
-
+    enterMusic.style.display = "none";
   }
 
 
@@ -2077,69 +1570,45 @@
 
     async () => {
 
-
-      intro.classList.add(
-        "hidden"
-      );
-
+      intro.classList.add("hidden");
 
       try {
 
+        audio.currentTime = MUSIC_START;
 
-        audio.currentTime =
-          MUSIC_START;
-
-
-        audio.volume =
-          .65;
-
+        audio.volume = .65;
 
         await audio.play();
 
-
         const watcher =
           setInterval(
-
             () => {
 
-
               if (
-                audio.currentTime >=
-                MUSIC_END
+                audio.currentTime >= MUSIC_END
               ) {
-
 
                 audio.pause();
 
-
-                clearInterval(
-                  watcher
-                );
+                clearInterval(watcher);
 
               }
-
 
             },
 
             250
-
           );
-
 
       }
 
-
       catch (error) {
-
 
         console.log(
           "Music playback unavailable.",
           error
         );
 
-
       }
-
 
     }
   );
@@ -2150,11 +1619,7 @@
 
     () => {
 
-
-      intro.classList.add(
-        "hidden"
-      );
-
+      intro.classList.add("hidden");
 
     }
   );
@@ -2166,14 +1631,9 @@
     config.storeEnabled === true
   ) {
 
-
     document
-      .getElementById(
-        "storeNav"
-      )
-      .style.display =
-        "inline";
-
+      .getElementById("storeNav")
+      .style.display = "inline";
 
   }
 
@@ -2184,30 +1644,19 @@
     config.interactiveApparelEnabled === false
   ) {
 
+    document
+      .getElementById("interactiveNav")
+      .style.display = "none";
 
     document
-      .getElementById(
-        "interactiveNav"
-      )
-      .style.display =
-        "none";
-
-
-    document
-      .getElementById(
-        "interactiveCard"
-      )
-      .style.display =
-        "none";
-
+      .getElementById("interactiveCard")
+      .style.display = "none";
 
   }
 
 
 </script>
 
-
-<!-- MOBILE NAVIGATION -->
 
 <script src="assets/mobile-nav.js"></script>
 
