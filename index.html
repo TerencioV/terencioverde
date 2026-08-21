@@ -105,6 +105,7 @@
     .intro-buttons button {
       padding: 14px 24px;
       border-radius: 3px;
+      min-height: 48px;
     }
 
     #enterMusic {
@@ -473,8 +474,16 @@
       line-height: 1.8;
     }
 
+    /* ===============================
+       FOOTER
+    =============================== */
+
     footer {
-      padding: 45px 7%;
+      padding:
+        45px
+        max(7%, env(safe-area-inset-right))
+        calc(45px + env(safe-area-inset-bottom))
+        max(7%, env(safe-area-inset-left));
 
       background: #091f16;
       color: rgba(255,255,255,0.60);
@@ -491,19 +500,21 @@
       margin-bottom: 8px;
     }
 
-    @media (max-width: 850px) {
+    /* ===============================
+       MOBILE
+    =============================== */
 
-      nav {
-        display: none;
-      }
+    @media (max-width: 850px) {
 
       .hero {
         grid-template-columns: 1fr;
 
         min-height: auto;
 
-        padding-top: 75px;
-        padding-bottom: 75px;
+        padding:
+          65px
+          6%
+          55px;
       }
 
       .hero-copy {
@@ -511,19 +522,81 @@
         margin: auto;
       }
 
+      .hero h1 {
+        font-size: clamp(3rem, 16vw, 5rem);
+      }
+
       .hero p {
         margin: auto;
+        font-size: 1rem;
+      }
+
+      .hero-button {
+        min-height: 48px;
       }
 
       .character-zone {
-        min-height: 250px;
+        min-height: 220px;
+        margin-top: 20px;
+      }
+
+      .explore {
+        padding:
+          70px
+          6%;
       }
 
       .page-grid {
         grid-template-columns: 1fr;
       }
 
+      .page-card {
+        min-height: 310px;
+        padding: 28px;
+      }
+
+      .page-card h3 {
+        font-size: 2.1rem;
+      }
+
+      .statement {
+        padding:
+          75px
+          6%;
+      }
+
+      .statement h2 {
+        font-size:
+          clamp(2.6rem, 13vw, 4.2rem);
+      }
+
+      .intro-title {
+        font-size:
+          clamp(3.2rem, 18vw, 5.5rem);
+      }
+
+      .intro-small {
+        letter-spacing: 2px;
+        line-height: 1.6;
+      }
+
     }
+
+    @media
+    (max-width: 850px)
+    and
+    (orientation: landscape) {
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .character-zone {
+        min-height: 160px;
+      }
+
+    }
+
   </style>
 </head>
 
@@ -554,7 +627,8 @@
     </div>
 
     <div class="intro-title">
-      TERENCIO<br>VERDE
+      TERENCIO<br>
+      VERDE
     </div>
 
     <div class="intro-buttons">
@@ -633,7 +707,8 @@
       </div>
 
       <h1>
-        TERENCIO<br>VERDE
+        TERENCIO<br>
+        VERDE
       </h1>
 
       <p>
@@ -653,7 +728,7 @@
     <div class="character-zone">
 
       <!--
-        Transparent Terencio will eventually live here:
+        Later:
 
         <img
           src="assets/terencio-home.png"
@@ -815,19 +890,11 @@
 
 <script>
 
-  /*
-    =============================================
-    LOAD SITE SETTINGS
-    =============================================
-  */
-
   const config =
     window.TERENCIO_CONFIG || {};
 
 
-  /*
-    BRAND TEXT
-  */
+  /* BRAND TEXT */
 
   document.getElementById(
     "introTagline"
@@ -843,11 +910,7 @@
     "Independent Apparel · Art · Culture · Technology";
 
 
-  /*
-    =============================================
-    MUSIC SETTINGS
-    =============================================
-  */
+  /* MUSIC */
 
   const intro =
     document.getElementById("intro");
@@ -881,11 +944,6 @@
   const MUSIC_END =
     config.musicEnd ?? 80;
 
-
-  /*
-    If music is disabled in site-config.js,
-    remove the music button.
-  */
 
   if (
     config.musicEnabled === false
@@ -964,15 +1022,7 @@
   );
 
 
-  /*
-    =============================================
-    STORE VISIBILITY
-    =============================================
-
-    When storeEnabled becomes true in
-    assets/site-config.js, the Shop link
-    automatically appears.
-  */
+  /* STORE VISIBILITY */
 
   if (
     config.storeEnabled === true
@@ -986,11 +1036,7 @@
   }
 
 
-  /*
-    =============================================
-    INTERACTIVE APPAREL VISIBILITY
-    =============================================
-  */
+  /* INTERACTIVE APPAREL VISIBILITY */
 
   if (
     config.interactiveApparelEnabled === false
@@ -1009,6 +1055,12 @@
   }
 
 </script>
+
+
+<!-- MOBILE MENU FOR iPHONE + ANDROID -->
+
+<script src="assets/mobile-nav.js"></script>
+
 
 </body>
 </html>
