@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Terencio Verde — hometown apparel, artist collaborations, digital art and interactive clothing."
+    content="Terencio Verde — independent apparel, artist collaborations, digital art and interactive clothing."
   >
 
   <style>
@@ -24,8 +24,9 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #eee5d7;
-      color: #16231b;
+      background: #f2eadf;
+      color: #173125;
+      overflow-x: hidden;
     }
 
     a {
@@ -33,7 +34,14 @@
       text-decoration: none;
     }
 
-    /* MUSIC INTRO */
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    /* ========================================
+       OPENING MUSIC SCREEN
+    ======================================== */
 
     #intro {
       position: fixed;
@@ -41,22 +49,29 @@
       z-index: 9999;
 
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
 
       text-align: center;
       color: white;
 
+      /*
+        IMPORTANT:
+        This background is fully opaque.
+        The homepage will NOT show through it.
+      */
+
       background:
         radial-gradient(
           circle at center,
-          rgba(49, 92, 66, .35),
-          rgba(7, 19, 13, .97)
+          #315945 0%,
+          #173829 45%,
+          #081a12 100%
         );
 
       transition:
-        opacity .8s ease,
-        visibility .8s ease;
+        opacity 0.7s ease,
+        visibility 0.7s ease;
     }
 
     #intro.hidden {
@@ -66,104 +81,112 @@
     }
 
     .intro-inner {
-      width: min(760px, 90%);
+      width: min(850px, 90vw);
+      padding: 30px;
     }
 
     .intro-small {
       text-transform: uppercase;
       letter-spacing: 4px;
-      font-size: .75rem;
-      opacity: .65;
-      margin-bottom: 18px;
+      font-size: 0.72rem;
+      opacity: 0.65;
+      margin-bottom: 25px;
     }
 
     .intro-title {
-      font-family: Georgia, serif;
-      font-size: clamp(4rem, 11vw, 8rem);
-      line-height: .82;
-      margin-bottom: 28px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.8rem, 10vw, 8rem);
+      line-height: 0.86;
+      font-weight: normal;
+      margin-bottom: 36px;
     }
 
     .intro-buttons {
       display: flex;
       justify-content: center;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
     }
 
-    button {
-      cursor: pointer;
-      border: none;
+    .intro-buttons button {
       padding: 14px 24px;
-      font-size: .95rem;
+      border-radius: 3px;
     }
 
-    .enter-music {
-      background: #eee5d7;
-      color: #143426;
+    #enterMusic {
+      background: #f2eadf;
+      color: #173829;
+      border: 1px solid #f2eadf;
     }
 
-    .enter-quiet {
-      color: white;
+    #enterQuiet {
       background: transparent;
-      border: 1px solid rgba(255,255,255,.4);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.45);
     }
 
     .music-credit {
-      margin-top: 22px;
-      font-size: .75rem;
-      opacity: .5;
+      margin-top: 20px;
+      font-size: 0.72rem;
+      opacity: 0.5;
     }
 
-    /* HEADER */
+    /* ========================================
+       HEADER
+    ======================================== */
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
 
+      min-height: 68px;
+
+      padding: 0 6%;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      padding: 18px 6%;
-
-      background: rgba(20, 52, 38, .96);
-      backdrop-filter: blur(10px);
-
+      background: #123326;
       color: white;
     }
 
     .brand {
       font-family: Georgia, serif;
       letter-spacing: 2px;
+      font-size: 1rem;
     }
 
     nav {
       display: flex;
-      gap: 22px;
       align-items: center;
+      gap: 25px;
     }
 
     nav a {
-      font-size: .78rem;
+      font-size: 0.73rem;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      opacity: .8;
+      opacity: 0.75;
+      transition: opacity 0.2s ease;
     }
 
     nav a:hover {
       opacity: 1;
     }
 
-    /* HOME HERO */
+    /* ========================================
+       MAIN HERO
+    ======================================== */
 
     .hero {
       position: relative;
-      min-height: 88vh;
+
+      min-height: 82vh;
 
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.05fr 0.95fr;
       align-items: center;
 
       padding: 80px 7%;
@@ -173,112 +196,150 @@
       background:
         linear-gradient(
           90deg,
-          rgba(239, 231, 216, .96),
-          rgba(239, 231, 216, .80)
+          rgba(241,233,220,0.97),
+          rgba(241,233,220,0.88)
         ),
 
         repeating-linear-gradient(
           0deg,
           #eee4d2,
           #eee4d2 44px,
-          #d6c3a5 45px,
-          #d6c3a5 47px
+          #d8c7ac 45px,
+          #d8c7ac 47px
         );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+
+      width: 650px;
+      height: 650px;
+
+      right: -250px;
+      top: -180px;
+
+      border-radius: 50%;
+
+      background: rgba(28,83,56,0.07);
     }
 
     .hero-copy {
       position: relative;
-      z-index: 3;
+      z-index: 2;
+      max-width: 760px;
     }
 
     .eyebrow {
       text-transform: uppercase;
-      letter-spacing: 4px;
-      color: #3e6e54;
-      font-size: .75rem;
+      letter-spacing: 3px;
+      font-size: 0.76rem;
       font-weight: bold;
-      margin-bottom: 18px;
+      color: #46725a;
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(4.5rem, 10vw, 8.5rem);
-      line-height: .82;
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: clamp(3.8rem, 8vw, 7rem);
+
+      line-height: 0.87;
+      font-weight: normal;
+
       color: #143426;
-      margin-bottom: 28px;
+
+      margin-bottom: 30px;
     }
 
     .hero p {
-      max-width: 640px;
-      font-size: 1.2rem;
-      line-height: 1.7;
-      color: #4d554f;
+      max-width: 630px;
+
+      font-size: 1.15rem;
+      line-height: 1.75;
+
+      color: #4d5650;
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+    .hero-button {
+      display: inline-block;
+
       margin-top: 30px;
-    }
 
-    .hero-actions a {
-      padding: 13px 20px;
+      padding: 14px 21px;
+
       background: #143426;
       color: white;
+
+      border-radius: 3px;
     }
 
-    /* CHARACTER AREA */
+    /* ========================================
+       CHARACTER AREA
+    ======================================== */
 
     .character-zone {
-      min-height: 600px;
       position: relative;
+      z-index: 2;
+
+      min-height: 520px;
+
       display: flex;
-      align-items: flex-end;
       justify-content: center;
+      align-items: flex-end;
     }
 
     /*
-      Later we will use a transparent PNG here.
+      LATER:
 
-      Upload the transparent version as:
+      When we have Terencio with a transparent
+      background, upload him as:
 
       assets/terencio-home.png
+
+      Then we'll turn the image below on.
     */
 
     .character-zone img {
-      width: min(520px, 100%);
+      width: min(520px, 95%);
       max-height: 620px;
       object-fit: contain;
 
       filter:
         drop-shadow(
-          0 30px 30px rgba(0,0,0,.20)
+          0 30px 28px rgba(0,0,0,0.18)
         );
     }
 
-    /* SECTION CARDS */
+    /* ========================================
+       COLLECTION DIRECTORY
+    ======================================== */
 
     .explore {
-      padding: 95px 7%;
-      background: #faf6ee;
+      padding: 100px 7%;
+      background: #fbf7ef;
     }
 
     .section-heading {
       max-width: 760px;
-      margin-bottom: 45px;
+      margin-bottom: 50px;
     }
 
     .section-heading h2 {
       font-family: Georgia, serif;
+
       font-size: clamp(3rem, 6vw, 5rem);
       line-height: 1;
-      margin-bottom: 18px;
+
+      font-weight: normal;
+
+      margin-bottom: 20px;
     }
 
     .section-heading p {
-      color: #59605b;
+      max-width: 650px;
       line-height: 1.7;
+      color: #5d655f;
     }
 
     .page-grid {
@@ -289,51 +350,58 @@
 
     .page-card {
       position: relative;
-      min-height: 420px;
 
-      padding: 34px;
+      min-height: 390px;
+
+      padding: 35px;
+
+      border-radius: 7px;
 
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
 
-      border-radius: 8px;
       overflow: hidden;
 
-      transition: .25s ease;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .page-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.10);
     }
 
     .page-card h3 {
       font-family: Georgia, serif;
+      font-weight: normal;
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      line-height: 1;
+      margin-bottom: 12px;
     }
 
     .page-card p {
-      max-width: 500px;
+      max-width: 480px;
       line-height: 1.6;
     }
 
     .hometown-card {
-      color: #173226;
-
       background:
         linear-gradient(
-          rgba(241, 232, 216, .75),
-          rgba(241, 232, 216, .92)
+          rgba(239,229,210,0.78),
+          rgba(239,229,210,0.94)
         ),
 
         repeating-linear-gradient(
           0deg,
-          #eee3d0,
-          #eee3d0 42px,
-          #d7c4a7 43px,
-          #d7c4a7 45px
+          #ede1cb,
+          #ede1cb 43px,
+          #d0b998 44px,
+          #d0b998 46px
         );
+
+      color: #173326;
     }
 
     .collab-card {
@@ -342,10 +410,14 @@
       background:
         radial-gradient(
           circle at 75% 20%,
-          rgba(83, 132, 95, .35),
-          transparent 35%
+          rgba(86,138,97,0.42),
+          transparent 38%
         ),
-        #143426;
+        linear-gradient(
+          135deg,
+          #173a2a,
+          #0c2118
+        );
     }
 
     .web3-card {
@@ -353,76 +425,103 @@
 
       background:
         radial-gradient(
-          circle at 70% 25%,
-          rgba(130, 63, 179, .38),
-          transparent 35%
+          circle at 75% 20%,
+          rgba(137,64,191,0.43),
+          transparent 34%
         ),
+
         radial-gradient(
           circle at 20% 80%,
-          rgba(42, 176, 169, .22),
-          transparent 35%
+          rgba(41,181,172,0.27),
+          transparent 33%
         ),
+
         linear-gradient(
           135deg,
-          #06101a,
-          #11162d,
-          #321243
+          #040a12,
+          #10172d,
+          #321244
         );
     }
 
     .interactive-card {
-      color: #173226;
+      color: #173326;
 
       background:
         radial-gradient(
-          circle at 70% 20%,
-          rgba(48, 93, 65, .15),
+          circle at 75% 20%,
+          rgba(51,99,70,0.15),
           transparent 35%
         ),
         #ece4d6;
     }
 
-    /* BRAND STATEMENT */
+    /* ========================================
+       BRAND STATEMENT
+    ======================================== */
 
     .statement {
       padding: 110px 7%;
+
       background: #143426;
       color: white;
     }
 
     .statement-inner {
-      max-width: 900px;
+      max-width: 940px;
     }
 
     .statement h2 {
       font-family: Georgia, serif;
-      font-size: clamp(3rem, 7vw, 6rem);
-      line-height: .95;
-      margin-bottom: 25px;
+
+      font-size: clamp(3rem, 7vw, 5.8rem);
+
+      font-weight: normal;
+      line-height: 0.98;
+
+      margin-bottom: 27px;
     }
 
     .statement p {
-      max-width: 750px;
-      color: rgba(255,255,255,.72);
+      max-width: 760px;
+
+      color: rgba(255,255,255,0.72);
+
+      font-size: 1.08rem;
       line-height: 1.8;
-      font-size: 1.1rem;
     }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
 
     footer {
       padding: 45px 7%;
-      background: #0b2118;
-      color: rgba(255,255,255,.62);
+
+      background: #091f16;
+      color: rgba(255,255,255,0.60);
     }
 
     footer strong {
       display: block;
+
       font-family: Georgia, serif;
+      font-size: 1.45rem;
+
       color: white;
-      font-size: 1.4rem;
-      margin-bottom: 6px;
+
+      margin-bottom: 8px;
     }
 
-    @media(max-width: 850px) {
+    /* ========================================
+       MOBILE
+    ======================================== */
+
+    @media (max-width: 850px) {
+
+      header {
+        padding: 0 5%;
+      }
 
       nav {
         display: none;
@@ -430,20 +529,32 @@
 
       .hero {
         grid-template-columns: 1fr;
-        text-align: center;
+
+        min-height: auto;
+
+        padding-top: 75px;
+        padding-bottom: 75px;
       }
 
-      .hero-actions {
-        justify-content: center;
+      .hero-copy {
+        text-align: center;
+        margin: auto;
+      }
+
+      .hero p {
+        margin: auto;
       }
 
       .character-zone {
-        min-height: 420px;
-        margin-top: 30px;
+        min-height: 250px;
       }
 
       .page-grid {
         grid-template-columns: 1fr;
+      }
+
+      .page-card {
+        min-height: 320px;
       }
 
     }
@@ -453,37 +564,41 @@
 
 <body>
 
+<!-- ========================================
+     MUSIC FILE
+======================================== -->
+
 <audio
   id="siteMusic"
   src="assets/do-you-remember.mp3"
   preload="metadata">
 </audio>
 
-<!-- MUSIC INTRO -->
+
+<!-- ========================================
+     OPENING SCREEN
+======================================== -->
 
 <div id="intro">
 
   <div class="intro-inner">
 
     <div class="intro-small">
-      New Braunfels · Texas
+      Independent Apparel · Art · Culture · Technology
     </div>
 
     <div class="intro-title">
-      TERENCIO<br>VERDE
+      TERENCIO<br>
+      VERDE
     </div>
 
     <div class="intro-buttons">
 
-      <button
-        class="enter-music"
-        id="enterMusic">
+      <button id="enterMusic">
         Enter with music
       </button>
 
-      <button
-        class="enter-quiet"
-        id="enterQuiet">
+      <button id="enterQuiet">
         Enter quietly
       </button>
 
@@ -498,13 +613,15 @@
 </div>
 
 
-<!-- NAV -->
+<!-- ========================================
+     HEADER
+======================================== -->
 
 <header>
 
   <a
-    class="brand"
-    href="index.html">
+    href="index.html"
+    class="brand">
     TERENCIO VERDE
   </a>
 
@@ -533,34 +650,33 @@
 
 <main>
 
-  <!-- MAIN HERO -->
+  <!-- ========================================
+       MAIN HOME
+  ======================================== -->
 
   <section class="hero">
 
     <div class="hero-copy">
 
       <div class="eyebrow">
-        Independent Apparel · Texas
+        Independent Apparel · Global Collaborations
       </div>
 
       <h1>
-        TERENCIO<br>VERDE
+        TERENCIO<br>
+        VERDE
       </h1>
 
       <p>
-        Hometown culture, independent artists,
-        digital characters, music and interactive
-        apparel — all finding their way onto something
-        worth wearing.
+        Apparel shaped by art, music, hometown culture,
+        digital characters and ideas from around the world.
       </p>
 
-      <div class="hero-actions">
-
-        <a href="#explore">
-          Explore Terencio Verde
-        </a>
-
-      </div>
+      <a
+        class="hero-button"
+        href="#explore">
+        Explore Terencio Verde
+      </a>
 
     </div>
 
@@ -568,12 +684,14 @@
     <div class="character-zone">
 
       <!--
-        Once the transparent character image is ready,
-        remove the comment marks around this image.
 
-        <img
-          src="assets/terencio-home.png"
-          alt="Terencio Verde">
+      Later, once the transparent Terencio file
+      is uploaded, we will use this:
+
+      <img
+        src="assets/terencio-home.png"
+        alt="Terencio Verde">
+
       -->
 
     </div>
@@ -581,7 +699,9 @@
   </section>
 
 
-  <!-- EXPLORE THE BRAND -->
+  <!-- ========================================
+       COLLECTIONS
+  ======================================== -->
 
   <section
     class="explore"
@@ -590,17 +710,18 @@
     <div class="section-heading">
 
       <div class="eyebrow">
-        Choose a road
+        Explore the brand
       </div>
 
       <h2>
-        Four sides of
-        Terencio Verde.
+        Different worlds.
+        One label.
       </h2>
 
       <p>
-        Each collection has its own personality,
-        but everything belongs to the same brand.
+        Terencio Verde moves between hometown culture,
+        international art, digital characters and
+        interactive apparel.
       </p>
 
     </div>
@@ -609,40 +730,41 @@
     <div class="page-grid">
 
       <a
-        class="page-card hometown-card"
-        href="hometown.html">
+        href="hometown.html"
+        class="page-card hometown-card">
 
         <h3>
           Hometown
         </h3>
 
         <p>
-          Texas Hill Country, Americana,
-          local stories and original apparel.
+          Americana, regional culture, local stories,
+          music and apparel inspired by places worth
+          remembering.
         </p>
 
       </a>
 
 
       <a
-        class="page-card collab-card"
-        href="collaborations.html">
+        href="collaborations.html"
+        class="page-card collab-card">
 
         <h3>
           Artist Collaborations
         </h3>
 
         <p>
-          Limited collections created with
-          independent artists from around the world.
+          Original apparel created with emerging,
+          independent and international artists.
         </p>
 
       </a>
 
 
       <a
-        class="page-card web3-card"
-        href="web3.html">
+        href="web3.html"
+        class="page-card web3-card">
 
         <h3>
           Web3
@@ -650,24 +772,25 @@
 
         <p>
           Digital characters, NFT artwork,
-          Cosmic Dream Bog and strange things
-          finding physical form.
+          Cosmic Dream Bog and strange ideas
+          becoming physical merchandise.
         </p>
 
       </a>
 
 
       <a
-        class="page-card interactive-card"
-        href="interactive.html">
+        href="interactive.html"
+        class="page-card interactive-card">
 
         <h3>
           Interactive Apparel
         </h3>
 
         <p>
-          NFC-enabled clothing that connects
-          physical pieces to digital experiences.
+          NFC-enabled garments that connect
+          clothing with artists, music,
+          stories and digital experiences.
         </p>
 
       </a>
@@ -677,7 +800,9 @@
   </section>
 
 
-  <!-- BRAND IDEA -->
+  <!-- ========================================
+       BRAND MESSAGE
+  ======================================== -->
 
   <section class="statement">
 
@@ -685,20 +810,23 @@
 
       <div
         class="eyebrow"
-        style="color:#b7ceb8;">
+        style="color:#b7d0bd;">
         Terencio Verde
       </div>
 
       <h2>
-        Local enough to know where it's from.
-        Strange enough to go anywhere.
+        Rooted somewhere.
+        Limited nowhere.
       </h2>
 
       <p>
-        Terencio Verde begins in the Texas Hill Country
-        but isn't confined by it. The brand moves between
-        hometown culture, art, music, digital worlds and
-        technology while keeping the clothing at the center.
+        Terencio Verde has roots in Texas,
+        but the brand isn't confined to one town,
+        one country or one creative scene.
+
+        It brings together apparel, artists,
+        characters, music and technology from
+        wherever interesting ideas happen.
       </p>
 
     </div>
@@ -708,13 +836,17 @@
 </main>
 
 
+<!-- ========================================
+     FOOTER
+======================================== -->
+
 <footer>
 
   <strong>
     Terencio Verde
   </strong>
 
-  New Braunfels, Texas
+  Independent Apparel · Art · Culture · Technology
 
   <br><br>
 
@@ -739,10 +871,8 @@
 
 
   /*
-    MUSIC CLIP
-
-    Starts at 50 seconds
-    and plays for 30 seconds.
+    Play approximately 30 seconds
+    of the song.
   */
 
   const MUSIC_START = 50;
@@ -761,9 +891,10 @@
           MUSIC_START;
 
         audio.volume =
-          .65;
+          0.65;
 
         await audio.play();
+
 
         const watcher =
           setInterval(
@@ -791,7 +922,7 @@
       catch(error) {
 
         console.log(
-          "Audio could not play.",
+          "Music playback unavailable.",
           error
         );
 
