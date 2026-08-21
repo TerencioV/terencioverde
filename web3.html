@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
   <title>Web3 Collection | Terencio Verde</title>
+
+  <meta
+    name="description"
+    content="The Terencio Verde Web3 collection — digital characters, NFT-inspired artwork, Cosmic Dream Bog and physical merchandise."
+  >
 
   <style>
     * {
@@ -19,42 +28,64 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #050910;
+
+      background: #040810;
       color: white;
+
       overflow-x: hidden;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      position: relative;
-      z-index: 20;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
 
-      background: rgba(5, 9, 16, 0.88);
-      backdrop-filter: blur(12px);
+      min-height: 68px;
 
-      padding: 20px 7%;
+      padding: 0 6%;
 
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(4, 8, 16, 0.94);
+
+      backdrop-filter: blur(12px);
+
+      border-bottom:
+        1px solid rgba(255,255,255,0.07);
     }
 
-    header a {
-      color: white;
-      text-decoration: none;
+    .brand {
+      font-family: Georgia, serif;
+
+      letter-spacing: 2px;
+
+      font-size: 1rem;
     }
 
     nav {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 24px;
     }
 
     nav a {
+      font-size: 0.74rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.1px;
+
       opacity: 0.75;
     }
 
@@ -62,49 +93,57 @@
       opacity: 1;
     }
 
-    /* =========================================
-       WEB3 HERO / NEXUS ENVIRONMENT
-    ========================================== */
+    #storeNav {
+      display: none;
+    }
+
+    /* =========================
+       HERO / THE OTHER SIDE
+    ========================= */
 
     .hero {
-      min-height: 90vh;
-
       position: relative;
+
+      min-height: 88vh;
 
       padding: 90px 7%;
 
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+
+      grid-template-columns:
+        1.05fr 0.95fr;
+
+      gap: 50px;
+
       align-items: center;
-      gap: 45px;
 
       overflow: hidden;
 
       background:
         radial-gradient(
-          circle at 75% 45%,
-          rgba(109, 57, 184, 0.40),
-          transparent 25%
+          circle at 78% 35%,
+          rgba(131, 63, 195, 0.38),
+          transparent 27%
         ),
 
         radial-gradient(
-          circle at 20% 65%,
-          rgba(18, 177, 178, 0.25),
+          circle at 20% 70%,
+          rgba(28, 190, 182, 0.23),
           transparent 30%
         ),
 
         radial-gradient(
           circle at 50% 50%,
-          rgba(70, 30, 110, 0.18),
+          rgba(55, 36, 104, 0.20),
           transparent 50%
         ),
 
         linear-gradient(
           135deg,
-          #02070c,
-          #071624,
-          #11162c,
-          #270e38
+          #02060b,
+          #071422,
+          #12182f,
+          #30113f
         );
     }
 
@@ -113,102 +152,123 @@
 
       position: absolute;
 
-      width: 700px;
-      height: 700px;
+      width: 720px;
+      height: 720px;
 
-      right: -180px;
-      top: -100px;
+      right: -190px;
+      top: -150px;
 
       border-radius: 50%;
 
       border:
-        2px solid rgba(95, 230, 227, 0.16);
+        2px solid rgba(87, 223, 215, 0.14);
 
       box-shadow:
-        0 0 50px rgba(95, 230, 227, 0.12),
-        0 0 140px rgba(150, 73, 207, 0.15),
-        inset 0 0 100px rgba(91, 52, 170, 0.13);
+        0 0 70px rgba(87, 223, 215, 0.10),
+        0 0 150px rgba(145, 69, 201, 0.13),
+        inset 0 0 100px rgba(80, 46, 160, 0.12);
     }
 
     .hero::after {
       content: "";
 
       position: absolute;
+
       inset: 0;
 
       pointer-events: none;
 
       background-image:
         radial-gradient(
-          rgba(255,255,255,0.22) 1px,
+          rgba(255,255,255,0.20) 1px,
           transparent 1px
         );
 
-      background-size: 46px 46px;
+      background-size:
+        48px 48px;
 
-      opacity: 0.12;
+      opacity: 0.10;
     }
 
     .hero-copy {
       position: relative;
       z-index: 3;
+
+      max-width: 760px;
     }
 
     .eyebrow {
-      color: #73e0da;
-
       text-transform: uppercase;
 
-      letter-spacing: 4px;
+      letter-spacing: 3px;
 
-      font-size: 0.78rem;
+      font-size: 0.77rem;
+
+      font-weight: bold;
+
+      color: #77e3dc;
 
       margin-bottom: 20px;
     }
 
     h1 {
-      font-family: Georgia, serif;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
       font-size:
-        clamp(4rem, 9vw, 7.5rem);
+        clamp(4rem, 9vw, 7.4rem);
 
-      line-height: 0.88;
+      line-height: 0.87;
+
+      font-weight: normal;
 
       margin-bottom: 28px;
     }
 
-    .hero-copy p {
-      color: rgba(255,255,255,0.72);
+    .hero p {
+      max-width: 650px;
 
-      font-size: 1.15rem;
+      color:
+        rgba(255,255,255,0.72);
+
+      font-size: 1.16rem;
 
       line-height: 1.75;
-
-      max-width: 650px;
     }
 
-    .hero-character {
+    /* =========================
+       MARIA HERO AREA
+    ========================= */
+
+    .character-zone {
       position: relative;
       z-index: 4;
 
       min-height: 560px;
 
       display: flex;
-      align-items: flex-end;
+
       justify-content: center;
+
+      align-items: flex-end;
     }
 
     /*
-       IMPORTANT:
+      Maria should eventually be uploaded
+      as a transparent PNG:
 
-       maria-main.png should eventually be a transparent PNG.
+      assets/maria-main.png
 
-       That lets Maria live INSIDE the Nexus environment
-       instead of appearing inside a square image box.
+      That lets her actually LIVE inside
+      this environment instead of appearing
+      inside a square image.
     */
 
-    .hero-character img {
-      width: min(550px, 100%);
+    .character-zone img {
+      width:
+        min(550px, 95%);
 
       max-height: 650px;
 
@@ -216,16 +276,18 @@
 
       filter:
         drop-shadow(
-          0 30px 35px rgba(0,0,0,0.45)
+          0 32px 30px
+          rgba(0,0,0,0.42)
         )
         drop-shadow(
-          0 0 30px rgba(91,221,215,0.12)
+          0 0 28px
+          rgba(80,215,210,0.10)
         );
     }
 
-    /* =========================================
+    /* =========================
        MERCHANDISE
-    ========================================== */
+    ========================= */
 
     .merch {
       padding: 95px 7%;
@@ -233,22 +295,15 @@
       background:
         linear-gradient(
           180deg,
-          #070b14,
-          #101124
+          #070c16,
+          #101126
         );
     }
 
     .section-heading {
-      max-width: 760px;
+      max-width: 780px;
+
       margin-bottom: 50px;
-    }
-
-    .section-heading small {
-      color: #73e0da;
-
-      text-transform: uppercase;
-
-      letter-spacing: 3px;
     }
 
     .section-heading h2 {
@@ -259,12 +314,18 @@
 
       line-height: 1;
 
-      margin: 15px 0 20px;
+      font-weight: normal;
+
+      margin: 12px 0 20px;
     }
 
     .section-heading p {
-      color: rgba(255,255,255,0.65);
-      line-height: 1.7;
+      max-width: 700px;
+
+      color:
+        rgba(255,255,255,0.65);
+
+      line-height: 1.75;
     }
 
     .merch-grid {
@@ -279,7 +340,7 @@
     .merch-card {
       position: relative;
 
-      min-height: 390px;
+      min-height: 360px;
 
       padding: 30px;
 
@@ -288,12 +349,13 @@
       border-radius: 8px;
 
       border:
-        1px solid rgba(255,255,255,0.08);
+        1px solid
+        rgba(255,255,255,0.08);
 
       background:
         radial-gradient(
           circle at 80% 15%,
-          rgba(119,77,189,0.25),
+          rgba(121, 74, 191, 0.22),
           transparent 35%
         ),
         rgba(255,255,255,0.035);
@@ -303,6 +365,23 @@
       flex-direction: column;
 
       justify-content: flex-end;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .merch-card:hover {
+      transform:
+        translateY(-4px);
+
+      background:
+        radial-gradient(
+          circle at 80% 15%,
+          rgba(121, 74, 191, 0.30),
+          transparent 35%
+        ),
+        rgba(255,255,255,0.055);
     }
 
     .merch-card::before {
@@ -319,7 +398,8 @@
       border-radius: 50%;
 
       border:
-        1px solid rgba(93,220,212,0.17);
+        1px solid
+        rgba(93,220,212,0.16);
     }
 
     .merch-card h3 {
@@ -329,22 +409,27 @@
 
       font-size: 2rem;
 
+      font-weight: normal;
+
       margin-bottom: 10px;
     }
 
     .merch-card p {
       position: relative;
 
-      color: rgba(255,255,255,0.62);
+      color:
+        rgba(255,255,255,0.62);
 
       line-height: 1.6;
     }
 
-    /* =========================================
+    /* =========================
        COSMIC DREAM BOG
-    ========================================== */
+    ========================= */
 
     .cosmic {
+      position: relative;
+
       padding: 100px 7%;
 
       display: grid;
@@ -356,13 +441,20 @@
 
       align-items: center;
 
+      overflow: hidden;
+
       background:
         radial-gradient(
           circle at 15% 40%,
-          rgba(29,145,151,0.19),
+          rgba(29,145,151,0.18),
           transparent 30%
         ),
         #050b11;
+    }
+
+    .cosmic-copy {
+      position: relative;
+      z-index: 2;
     }
 
     .cosmic h2 {
@@ -371,20 +463,23 @@
       font-size:
         clamp(3rem, 6vw, 5rem);
 
+      font-weight: normal;
+
       line-height: 1;
 
       margin-bottom: 25px;
     }
 
     .cosmic p {
-      color: rgba(255,255,255,0.68);
-
-      line-height: 1.75;
-
       max-width: 700px;
+
+      color:
+        rgba(255,255,255,0.68);
+
+      line-height: 1.8;
     }
 
-    .links {
+    .cdb-links {
       display: flex;
 
       flex-wrap: wrap;
@@ -394,86 +489,93 @@
       margin-top: 28px;
     }
 
-    .links a {
-      text-decoration: none;
+    .cdb-links a {
+      min-height: 46px;
+
+      display: inline-flex;
+
+      align-items: center;
 
       padding: 11px 16px;
 
       border-radius: 4px;
 
       border:
-        1px solid rgba(255,255,255,0.18);
+        1px solid
+        rgba(255,255,255,0.18);
 
       background:
         rgba(255,255,255,0.035);
+
+      transition:
+        background 0.2s ease;
     }
 
-    .links a:hover {
+    .cdb-links a:hover {
       background:
-        rgba(255,255,255,0.09);
+        rgba(255,255,255,0.10);
     }
 
-    /* =========================================
-       MARIA CAMEOS
-    ========================================== */
+    /* =========================
+       MARIA CAMEO AREA
+    ========================= */
 
     .maria-stage {
-      min-height: 480px;
-
       position: relative;
+
+      min-height: 500px;
 
       display: flex;
 
-      align-items: center;
-
       justify-content: center;
+
+      align-items: center;
     }
 
     .maria-stage img {
       position: absolute;
 
-      max-height: 440px;
+      max-height: 450px;
 
-      max-width: 85%;
+      max-width: 88%;
 
       object-fit: contain;
 
-      /*
-        Again: these should eventually be
-        transparent PNG files.
-      */
-
       filter:
         drop-shadow(
-          0 25px 25px rgba(0,0,0,0.45)
+          0 28px 28px
+          rgba(0,0,0,0.40)
         );
     }
 
-    .maria-stage .maria-back {
+    .maria-back {
       opacity: 0.16;
+
       transform:
-        translate(80px, -30px)
+        translate(80px, -25px)
         scale(1.05);
     }
 
-    .maria-stage .maria-front {
+    .maria-front {
       z-index: 2;
     }
 
-    /* =========================================
-       PRINCIPLE / NO WALLET
-    ========================================== */
+    /* =========================
+       PHYSICAL FIRST
+    ========================= */
 
     .physical {
-      padding: 80px 7%;
+      padding: 90px 7%;
 
       background: #0b1320;
 
       border-top:
-        1px solid rgba(255,255,255,0.07);
+        1px solid
+        rgba(255,255,255,0.07);
 
       border-bottom:
-        1px solid rgba(255,255,255,0.07);
+        1px solid
+        rgba(255,255,255,0.07);
     }
 
     .physical-inner {
@@ -484,42 +586,166 @@
       font-family: Georgia, serif;
 
       font-size:
-        clamp(2.5rem, 5vw, 4rem);
+        clamp(3rem, 6vw, 5rem);
 
-      margin-bottom: 20px;
+      font-weight: normal;
+
+      line-height: 1;
+
+      margin-bottom: 22px;
     }
 
     .physical p {
-      color: rgba(255,255,255,0.66);
+      max-width: 760px;
 
-      line-height: 1.75;
+      color:
+        rgba(255,255,255,0.66);
+
+      line-height: 1.8;
     }
 
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
-      padding: 45px 7%;
+      padding:
+        45px
+        max(7%, env(safe-area-inset-right))
+        calc(
+          45px +
+          env(safe-area-inset-bottom)
+        )
+        max(7%, env(safe-area-inset-left));
 
       background: #020509;
 
-      color: rgba(255,255,255,0.48);
+      color:
+        rgba(255,255,255,0.52);
     }
 
-    @media(max-width: 850px) {
+    footer strong {
+      display: block;
 
-      nav {
-        display: none;
-      }
+      color: white;
 
-      .hero,
-      .cosmic {
+      font-family: Georgia, serif;
+
+      font-size: 1.35rem;
+
+      margin-bottom: 7px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .hero {
         grid-template-columns: 1fr;
+
+        min-height: auto;
+
+        padding:
+          65px
+          6%
+          45px;
       }
 
-      .hero-character {
-        min-height: 420px;
+      .hero-copy {
+        text-align: center;
+
+        margin: auto;
+      }
+
+      h1 {
+        font-size:
+          clamp(
+            3rem,
+            16vw,
+            5rem
+          );
+      }
+
+      .hero p {
+        margin: auto;
+
+        font-size: 1rem;
+      }
+
+      .character-zone {
+        min-height: 260px;
+
+        margin-top: 20px;
+      }
+
+      .merch {
+        padding:
+          70px
+          6%;
       }
 
       .merch-grid {
         grid-template-columns: 1fr;
+      }
+
+      .merch-card {
+        min-height: 285px;
+      }
+
+      .cosmic {
+        grid-template-columns: 1fr;
+
+        padding:
+          75px
+          6%;
+      }
+
+      .cosmic-copy {
+        text-align: center;
+      }
+
+      .cdb-links {
+        justify-content: center;
+      }
+
+      .maria-stage {
+        min-height: 340px;
+      }
+
+      .physical {
+        padding:
+          75px
+          6%;
+      }
+
+      .physical h2 {
+        font-size:
+          clamp(
+            2.7rem,
+            13vw,
+            4.2rem
+          );
+      }
+
+    }
+
+    @media
+    (max-width: 850px)
+    and
+    (orientation: landscape) {
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .character-zone {
+        min-height: 190px;
+      }
+
+      .maria-stage {
+        min-height: 260px;
       }
 
     }
@@ -527,15 +753,24 @@
   </style>
 </head>
 
+
 <body>
+
+<!-- GLOBAL SETTINGS -->
+
+<script src="assets/site-config.js"></script>
+
+
+<!-- HEADER -->
 
 <header>
 
-  <a href="index.html">
-    <strong>
-      TERENCIO VERDE
-    </strong>
+  <a
+    class="brand"
+    href="index.html">
+    TERENCIO VERDE
   </a>
+
 
   <nav>
 
@@ -551,8 +786,16 @@
       Web3
     </a>
 
-    <a href="interactive.html">
-      Interactive Apparel
+    <a
+      id="interactiveNav"
+      href="interactive.html">
+      Interactive
+    </a>
+
+    <a
+      id="storeNav"
+      href="store.html">
+      Shop
     </a>
 
   </nav>
@@ -562,9 +805,9 @@
 
 <main>
 
-  <!-- =========================================
+  <!-- =========================
        WEB3 HERO
-  ========================================== -->
+  ========================== -->
 
   <section class="hero">
 
@@ -581,36 +824,42 @@
       </h1>
 
       <p>
-        Digital characters, strange worlds and
-        artwork born online become physical pieces
-        you can actually wear.
+        Digital characters, strange worlds
+        and artwork born online become
+        physical pieces you can actually wear.
       </p>
 
     </div>
 
 
-    <div class="hero-character">
+    <div class="character-zone">
+
+      <!--
+
+      When Maria's transparent image is ready:
 
       <img
         src="assets/maria-main.png"
         alt="Maria Verde">
+
+      -->
 
     </div>
 
   </section>
 
 
-  <!-- =========================================
-       WEB3 MERCH
-  ========================================== -->
+  <!-- =========================
+       MERCHANDISE
+  ========================== -->
 
   <section class="merch">
 
     <div class="section-heading">
 
-      <small>
+      <div class="eyebrow">
         Wear the characters
-      </small>
+      </div>
 
       <h2>
         Digital art.
@@ -619,9 +868,9 @@
 
       <p>
         The Web3 collection takes characters,
-        NFTs, digital illustrations and pieces
-        from strange online worlds and turns
-        them into Terencio Verde apparel.
+        digital illustrations, NFT artwork
+        and pieces from online worlds and
+        turns them into Terencio Verde apparel.
       </p>
 
     </div>
@@ -653,7 +902,7 @@
         <p>
           Selected digital characters
           reworked as physical apparel,
-          prints and limited pieces.
+          graphics and limited pieces.
         </p>
 
       </article>
@@ -666,8 +915,9 @@
         </h3>
 
         <p>
-          Apparel emerging from the stranger
-          corners of the Terencio Verde universe.
+          Merchandise emerging from
+          the stranger corners of
+          the Terencio Verde universe.
         </p>
 
       </article>
@@ -677,13 +927,13 @@
   </section>
 
 
-  <!-- =========================================
+  <!-- =========================
        COSMIC DREAM BOG
-  ========================================== -->
+  ========================== -->
 
   <section class="cosmic">
 
-    <div>
+    <div class="cosmic-copy">
 
       <div class="eyebrow">
         A connected world
@@ -695,45 +945,50 @@
 
       <p>
         Cosmic Dream Bog is a surreal,
-        character-driven digital world where
-        strange personalities, locations and
-        stories intersect across an expanding
-        universe.
+        character-driven digital world
+        built around strange personalities,
+        locations, stories and interconnected
+        ideas.
 
-        Some of those characters and ideas
-        cross over into Terencio Verde through
-        apparel, artwork and limited releases.
+        Characters and artwork from that world
+        can cross into Terencio Verde as
+        physical apparel, graphics and
+        limited merchandise.
       </p>
 
 
-      <div class="links">
+      <!--
+        THESE LINKS LIVE ONLY ON THIS WEB3 PAGE.
+
+        When you give me the real Discord
+        and Cosmic Dream Bog X URLs,
+        replace the # values below.
+      -->
+
+      <div class="cdb-links">
 
         <a
           href="https://cosmicdreambog.com"
           target="_blank"
           rel="noopener noreferrer">
-          Visit Cosmic Dream Bog
+          Cosmic Dream Bog Website
         </a>
 
 
-        <!--
-          Replace # with the real Discord link later.
-        -->
-
         <a
           href="#"
-          target="_blank">
+          id="cdbDiscord"
+          target="_blank"
+          rel="noopener noreferrer">
           Discord
         </a>
 
 
-        <!--
-          Replace # with the real X account later.
-        -->
-
         <a
           href="#"
-          target="_blank">
+          id="cdbX"
+          target="_blank"
+          rel="noopener noreferrer">
           X
         </a>
 
@@ -743,6 +998,10 @@
 
 
     <div class="maria-stage">
+
+      <!--
+
+      Later:
 
       <img
         class="maria-back"
@@ -754,14 +1013,16 @@
         src="assets/maria-main.png"
         alt="Maria Verde">
 
+      -->
+
     </div>
 
   </section>
 
 
-  <!-- =========================================
-       PHYSICAL-FIRST MESSAGE
-  ========================================== -->
+  <!-- =========================
+       PHYSICAL FIRST
+  ========================== -->
 
   <section class="physical">
 
@@ -772,20 +1033,21 @@
       </div>
 
       <h2>
-        You don't need a wallet
-        to wear the weird.
+        Wear the weird.
       </h2>
 
       <p>
-        Terencio Verde's Web3 collection is
-        about the artwork, characters and
-        merchandise.
+        Terencio Verde's Web3 collection
+        is about artwork, characters
+        and merchandise.
 
-        There are no wallet connections required
-        on this website. Visitors can simply
-        discover the designs, learn about the
-        worlds behind them and eventually buy
-        the apparel like any other collection.
+        There are no wallet connections
+        required anywhere on this website.
+
+        Visitors can discover the designs,
+        learn about the worlds behind them
+        and eventually purchase the apparel
+        like any other Terencio Verde collection.
       </p>
 
     </div>
@@ -797,9 +1059,74 @@
 
 <footer>
 
+  <strong>
+    Terencio Verde
+  </strong>
+
+  <span id="footerTagline"></span>
+
+  <br><br>
+
   © 2026 Terencio Verde
 
 </footer>
+
+
+<script>
+
+  const config =
+    window.TERENCIO_CONFIG || {};
+
+
+  /*
+    FOOTER TAGLINE
+  */
+
+  document.getElementById(
+    "footerTagline"
+  ).textContent =
+    config.tagline ||
+    "Independent Apparel · Art · Culture · Technology";
+
+
+  /*
+    STORE LINK
+  */
+
+  if (
+    config.storeEnabled === true
+  ) {
+
+    document.getElementById(
+      "storeNav"
+    ).style.display =
+      "inline";
+
+  }
+
+
+  /*
+    INTERACTIVE APPAREL LINK
+  */
+
+  if (
+    config.interactiveApparelEnabled === false
+  ) {
+
+    document.getElementById(
+      "interactiveNav"
+    ).style.display =
+      "none";
+
+  }
+
+</script>
+
+
+<!-- MOBILE MENU FOR iPHONE + ANDROID -->
+
+<script src="assets/mobile-nav.js"></script>
+
 
 </body>
 </html>
