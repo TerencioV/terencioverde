@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Web3 Collection | Terencio Verde</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050910;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      position: relative;
+      z-index: 20;
+
+      background: rgba(5, 9, 16, 0.88);
+      backdrop-filter: blur(12px);
+
+      padding: 20px 7%;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      opacity: 0.75;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    /* =========================================
+       WEB3 HERO / NEXUS ENVIRONMENT
+    ========================================== */
+
+    .hero {
+      min-height: 90vh;
+
+      position: relative;
+
+      padding: 90px 7%;
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 45px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 75% 45%,
+          rgba(109, 57, 184, 0.40),
+          transparent 25%
+        ),
+
+        radial-gradient(
+          circle at 20% 65%,
+          rgba(18, 177, 178, 0.25),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(70, 30, 110, 0.18),
+          transparent 50%
+        ),
+
+        linear-gradient(
+          135deg,
+          #02070c,
+          #071624,
+          #11162c,
+          #270e38
+        );
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 700px;
+      height: 700px;
+
+      right: -180px;
+      top: -100px;
+
+      border-radius: 50%;
+
+      border:
+        2px solid rgba(95, 230, 227, 0.16);
+
+      box-shadow:
+        0 0 50px rgba(95, 230, 227, 0.12),
+        0 0 140px rgba(150, 73, 207, 0.15),
+        inset 0 0 100px rgba(91, 52, 170, 0.13);
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,0.22) 1px,
+          transparent 1px
+        );
+
+      background-size: 46px 46px;
+
+      opacity: 0.12;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 3;
+    }
+
+    .eyebrow {
+      color: #73e0da;
+
+      text-transform: uppercase;
+
+      letter-spacing: 4px;
+
+      font-size: 0.78rem;
+
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+
+      font-size:
+        clamp(4rem, 9vw, 7.5rem);
+
+      line-height: 0.88;
+
+      margin-bottom: 28px;
+    }
+
+    .hero-copy p {
+      color: rgba(255,255,255,0.72);
+
+      font-size: 1.15rem;
+
+      line-height: 1.75;
+
+      max-width: 650px;
+    }
+
+    .hero-character {
+      position: relative;
+      z-index: 4;
+
+      min-height: 560px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    /*
+       IMPORTANT:
+
+       maria-main.png should eventually be a transparent PNG.
+
+       That lets Maria live INSIDE the Nexus environment
+       instead of appearing inside a square image box.
+    */
+
+    .hero-character img {
+      width: min(550px, 100%);
+
+      max-height: 650px;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(
+          0 30px 35px rgba(0,0,0,0.45)
+        )
+        drop-shadow(
+          0 0 30px rgba(91,221,215,0.12)
+        );
+    }
+
+    /* =========================================
+       MERCHANDISE
+    ========================================== */
+
+    .merch {
+      padding: 95px 7%;
+
+      background:
+        linear-gradient(
+          180deg,
+          #070b14,
+          #101124
+        );
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 50px;
+    }
+
+    .section-heading small {
+      color: #73e0da;
+
+      text-transform: uppercase;
+
+      letter-spacing: 3px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, serif;
+
+      font-size:
+        clamp(3rem, 6vw, 5rem);
+
+      line-height: 1;
+
+      margin: 15px 0 20px;
+    }
+
+    .section-heading p {
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    .merch-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .merch-card {
+      position: relative;
+
+      min-height: 390px;
+
+      padding: 30px;
+
+      overflow: hidden;
+
+      border-radius: 8px;
+
+      border:
+        1px solid rgba(255,255,255,0.08);
+
+      background:
+        radial-gradient(
+          circle at 80% 15%,
+          rgba(119,77,189,0.25),
+          transparent 35%
+        ),
+        rgba(255,255,255,0.035);
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+    }
+
+    .merch-card::before {
+      content: "";
+
+      position: absolute;
+
+      width: 200px;
+      height: 200px;
+
+      right: -80px;
+      top: -80px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(93,220,212,0.17);
+    }
+
+    .merch-card h3 {
+      position: relative;
+
+      font-family: Georgia, serif;
+
+      font-size: 2rem;
+
+      margin-bottom: 10px;
+    }
+
+    .merch-card p {
+      position: relative;
+
+      color: rgba(255,255,255,0.62);
+
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       COSMIC DREAM BOG
+    ========================================== */
+
+    .cosmic {
+      padding: 100px 7%;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 65px;
+
+      align-items: center;
+
+      background:
+        radial-gradient(
+          circle at 15% 40%,
+          rgba(29,145,151,0.19),
+          transparent 30%
+        ),
+        #050b11;
+    }
+
+    .cosmic h2 {
+      font-family: Georgia, serif;
+
+      font-size:
+        clamp(3rem, 6vw, 5rem);
+
+      line-height: 1;
+
+      margin-bottom: 25px;
+    }
+
+    .cosmic p {
+      color: rgba(255,255,255,0.68);
+
+      line-height: 1.75;
+
+      max-width: 700px;
+    }
+
+    .links {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 28px;
+    }
+
+    .links a {
+      text-decoration: none;
+
+      padding: 11px 16px;
+
+      border-radius: 4px;
+
+      border:
+        1px solid rgba(255,255,255,0.18);
+
+      background:
+        rgba(255,255,255,0.035);
+    }
+
+    .links a:hover {
+      background:
+        rgba(255,255,255,0.09);
+    }
+
+    /* =========================================
+       MARIA CAMEOS
+    ========================================== */
+
+    .maria-stage {
+      min-height: 480px;
+
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+    }
+
+    .maria-stage img {
+      position: absolute;
+
+      max-height: 440px;
+
+      max-width: 85%;
+
+      object-fit: contain;
+
+      /*
+        Again: these should eventually be
+        transparent PNG files.
+      */
+
+      filter:
+        drop-shadow(
+          0 25px 25px rgba(0,0,0,0.45)
+        );
+    }
+
+    .maria-stage .maria-back {
+      opacity: 0.16;
+      transform:
+        translate(80px, -30px)
+        scale(1.05);
+    }
+
+    .maria-stage .maria-front {
+      z-index: 2;
+    }
+
+    /* =========================================
+       PRINCIPLE / NO WALLET
+    ========================================== */
+
+    .physical {
+      padding: 80px 7%;
+
+      background: #0b1320;
+
+      border-top:
+        1px solid rgba(255,255,255,0.07);
+
+      border-bottom:
+        1px solid rgba(255,255,255,0.07);
+    }
+
+    .physical-inner {
+      max-width: 900px;
+    }
+
+    .physical h2 {
+      font-family: Georgia, serif;
+
+      font-size:
+        clamp(2.5rem, 5vw, 4rem);
+
+      margin-bottom: 20px;
+    }
+
+    .physical p {
+      color: rgba(255,255,255,0.66);
+
+      line-height: 1.75;
+    }
+
+    footer {
+      padding: 45px 7%;
+
+      background: #020509;
+
+      color: rgba(255,255,255,0.48);
+    }
+
+    @media(max-width: 850px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero,
+      .cosmic {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-character {
+        min-height: 420px;
+      }
+
+      .merch-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <a href="index.html">
+    <strong>
+      TERENCIO VERDE
+    </strong>
+  </a>
+
+  <nav>
+
+    <a href="hometown.html">
+      Hometown
+    </a>
+
+    <a href="collaborations.html">
+      Artist Collabs
+    </a>
+
+    <a href="web3.html">
+      Web3
+    </a>
+
+    <a href="interactive.html">
+      Interactive Apparel
+    </a>
+
+  </nav>
+
+</header>
+
+
+<main>
+
+  <!-- =========================================
+       WEB3 HERO
+  ========================================== -->
+
+  <section class="hero">
+
+    <div class="hero-copy">
+
+      <div class="eyebrow">
+        Web3 Collection
+      </div>
+
+      <h1>
+        THE<br>
+        OTHER<br>
+        SIDE.
+      </h1>
+
+      <p>
+        Digital characters, strange worlds and
+        artwork born online become physical pieces
+        you can actually wear.
+      </p>
+
+    </div>
+
+
+    <div class="hero-character">
+
+      <img
+        src="assets/maria-main.png"
+        alt="Maria Verde">
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       WEB3 MERCH
+  ========================================== -->
+
+  <section class="merch">
+
+    <div class="section-heading">
+
+      <small>
+        Wear the characters
+      </small>
+
+      <h2>
+        Digital art.
+        Physical goods.
+      </h2>
+
+      <p>
+        The Web3 collection takes characters,
+        NFTs, digital illustrations and pieces
+        from strange online worlds and turns
+        them into Terencio Verde apparel.
+      </p>
+
+    </div>
+
+
+    <div class="merch-grid">
+
+      <article class="merch-card">
+
+        <h3>
+          Maria Verde
+        </h3>
+
+        <p>
+          Character-driven apparel,
+          limited graphics and experimental
+          releases featuring Maria.
+        </p>
+
+      </article>
+
+
+      <article class="merch-card">
+
+        <h3>
+          NFT Editions
+        </h3>
+
+        <p>
+          Selected digital characters
+          reworked as physical apparel,
+          prints and limited pieces.
+        </p>
+
+      </article>
+
+
+      <article class="merch-card">
+
+        <h3>
+          Cosmic Drops
+        </h3>
+
+        <p>
+          Apparel emerging from the stranger
+          corners of the Terencio Verde universe.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       COSMIC DREAM BOG
+  ========================================== -->
+
+  <section class="cosmic">
+
+    <div>
+
+      <div class="eyebrow">
+        A connected world
+      </div>
+
+      <h2>
+        Cosmic Dream Bog
+      </h2>
+
+      <p>
+        Cosmic Dream Bog is a surreal,
+        character-driven digital world where
+        strange personalities, locations and
+        stories intersect across an expanding
+        universe.
+
+        Some of those characters and ideas
+        cross over into Terencio Verde through
+        apparel, artwork and limited releases.
+      </p>
+
+
+      <div class="links">
+
+        <a
+          href="https://cosmicdreambog.com"
+          target="_blank"
+          rel="noopener noreferrer">
+          Visit Cosmic Dream Bog
+        </a>
+
+
+        <!--
+          Replace # with the real Discord link later.
+        -->
+
+        <a
+          href="#"
+          target="_blank">
+          Discord
+        </a>
+
+
+        <!--
+          Replace # with the real X account later.
+        -->
+
+        <a
+          href="#"
+          target="_blank">
+          X
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="maria-stage">
+
+      <img
+        class="maria-back"
+        src="assets/maria-easter-egg.png"
+        alt="">
+
+      <img
+        class="maria-front"
+        src="assets/maria-main.png"
+        alt="Maria Verde">
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       PHYSICAL-FIRST MESSAGE
+  ========================================== -->
+
+  <section class="physical">
+
+    <div class="physical-inner">
+
+      <div class="eyebrow">
+        Physical first
+      </div>
+
+      <h2>
+        You don't need a wallet
+        to wear the weird.
+      </h2>
+
+      <p>
+        Terencio Verde's Web3 collection is
+        about the artwork, characters and
+        merchandise.
+
+        There are no wallet connections required
+        on this website. Visitors can simply
+        discover the designs, learn about the
+        worlds behind them and eventually buy
+        the apparel like any other collection.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  © 2026 Terencio Verde
+
+</footer>
+
+</body>
+</html>
