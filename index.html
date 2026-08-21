@@ -14,32 +14,53 @@
 
   <meta
     name="description"
-    content="Terencio Verde — independent apparel, art, culture and interactive clothing."
+    content="Terencio Verde — independent apparel, art, culture, collaborations and interactive clothing."
   >
 
 
-  <!-- SHARED SITE STYLES -->
+  <!-- =====================================================
+       SITE STYLES
+  ====================================================== -->
 
   <link
     rel="stylesheet"
-    href="assets/site.css"
+    href="/assets/site.css?v=4"
   >
-
-
-  <!-- HOMEPAGE STYLES -->
 
   <link
     rel="stylesheet"
-    href="assets/home.css"
+    href="/assets/home.css?v=4"
   >
-
-
-  <!-- HOMEPAGE TEXTURES -->
 
   <link
     rel="stylesheet"
-    href="assets/home-sections.css"
+    href="/assets/home-sections.css?v=4"
   >
+
+
+  <!-- =====================================================
+       BASIC FALLBACK
+       Keeps page readable if a CSS file ever fails.
+  ====================================================== -->
+
+  <style>
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: #18392b;
+    }
+
+    #storeNav {
+      display: none;
+    }
+
+  </style>
 
 </head>
 
@@ -47,14 +68,14 @@
 <body>
 
 
-<!-- ======================================================
-     SITE CONFIG
+<!-- =====================================================
+     SITE CONFIGURATION
 ====================================================== -->
 
-<script src="assets/site-config.js"></script>
+<script src="/assets/site-config.js?v=4"></script>
 
 
-<!-- ======================================================
+<!-- =====================================================
      MUSIC
 ====================================================== -->
 
@@ -64,8 +85,8 @@
 </audio>
 
 
-<!-- ======================================================
-     OPENING SCREEN
+<!-- =====================================================
+     OPENING MUSIC SCREEN
 ====================================================== -->
 
 <div id="intro">
@@ -74,7 +95,9 @@
 
 
     <div class="intro-mark">
+
       TV
+
     </div>
 
 
@@ -96,14 +119,18 @@
     <div class="intro-buttons">
 
 
-      <button id="enterMusic">
+      <button
+        id="enterMusic"
+        type="button">
 
         Enter with music
 
       </button>
 
 
-      <button id="enterQuiet">
+      <button
+        id="enterQuiet"
+        type="button">
 
         Enter quietly
 
@@ -124,7 +151,7 @@
 </div>
 
 
-<!-- ======================================================
+<!-- =====================================================
      HEADER
 ====================================================== -->
 
@@ -133,31 +160,33 @@
 
   <a
     class="site-brand"
-    href="index.html">
+    href="/">
 
     TERENCIO VERDE
 
   </a>
 
 
-  <nav class="site-nav">
+  <nav
+    class="site-nav"
+    aria-label="Main navigation">
 
 
-    <a href="hometown.html">
+    <a href="/hometown.html">
 
       Hometown
 
     </a>
 
 
-    <a href="collaborations.html">
+    <a href="/collaborations.html">
 
       Artist Collabs
 
     </a>
 
 
-    <a href="web3.html">
+    <a href="/web3.html">
 
       Web3
 
@@ -166,7 +195,7 @@
 
     <a
       id="interactiveNav"
-      href="interactive.html">
+      href="/interactive.html">
 
       Interactive
 
@@ -175,7 +204,7 @@
 
     <a
       id="storeNav"
-      href="store.html">
+      href="/store.html">
 
       Shop
 
@@ -188,10 +217,14 @@
 </header>
 
 
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
 <main>
 
 
-<!-- ======================================================
+<!-- =====================================================
      HERO
 ====================================================== -->
 
@@ -248,7 +281,7 @@
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      BRAND INTRODUCTION
 ====================================================== -->
 
@@ -271,6 +304,7 @@
       <h2>
 
         Rooted somewhere.
+        <br>
         Limited nowhere.
 
       </h2>
@@ -303,7 +337,7 @@
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      COLLECTION DIRECTORY
 ====================================================== -->
 
@@ -326,6 +360,7 @@
       <h2>
 
         Different worlds.
+        <br>
         One label.
 
       </h2>
@@ -350,7 +385,7 @@
 
       <a
         class="home-collection-card home-card-hometown"
-        href="hometown.html">
+        href="/hometown.html">
 
 
         <div class="home-collection-content">
@@ -389,7 +424,7 @@
 
       <a
         class="home-collection-card home-card-collabs"
-        href="collaborations.html">
+        href="/collaborations.html">
 
 
         <div class="home-collection-content">
@@ -427,7 +462,7 @@
 
       <a
         class="home-collection-card home-card-web3"
-        href="web3.html">
+        href="/web3.html">
 
 
         <div class="home-collection-content">
@@ -466,7 +501,7 @@
       <a
         id="interactiveCard"
         class="home-collection-card home-card-interactive"
-        href="interactive.html">
+        href="/interactive.html">
 
 
         <div class="home-collection-content">
@@ -510,7 +545,7 @@
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      HOMETOWN PREVIEW
 ====================================================== -->
 
@@ -530,7 +565,9 @@
     <h2>
 
       Old roads.
+      <br>
       Familiar places.
+      <br>
       Things worth remembering.
 
     </h2>
@@ -539,7 +576,8 @@
     <div class="home-memory-grid">
 
 
-      <div class="home-memory home-memory-river">
+      <div
+        class="home-memory home-memory-river">
 
         <span>
 
@@ -550,7 +588,8 @@
       </div>
 
 
-      <div class="home-memory home-memory-mainstreet">
+      <div
+        class="home-memory home-memory-mainstreet">
 
         <span>
 
@@ -561,7 +600,8 @@
       </div>
 
 
-      <div class="home-memory home-memory-music">
+      <div
+        class="home-memory home-memory-music">
 
         <span>
 
@@ -572,7 +612,8 @@
       </div>
 
 
-      <div class="home-memory home-memory-fire">
+      <div
+        class="home-memory home-memory-fire">
 
         <span>
 
@@ -592,7 +633,7 @@
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      GLOBAL BRAND MESSAGE
 ====================================================== -->
 
@@ -615,6 +656,7 @@
       <h2>
 
         Local roots.
+        <br>
         Global ideas.
 
       </h2>
@@ -635,7 +677,8 @@
       </p>
 
 
-      <div class="home-global-line"></div>
+      <div class="home-global-line">
+      </div>
 
 
     </div>
@@ -650,7 +693,7 @@
 </main>
 
 
-<!-- ======================================================
+<!-- =====================================================
      FOOTER
 ====================================================== -->
 
@@ -705,7 +748,9 @@
     <div class="footer-copyright">
 
       ©
-      <span id="footerYear">2026</span>
+      <span id="footerYear">
+        2026
+      </span>
       Terencio Verde
 
     </div>
@@ -717,18 +762,18 @@
 </footer>
 
 
-<!-- ======================================================
+<!-- =====================================================
      HOMEPAGE JAVASCRIPT
 ====================================================== -->
 
-<script src="assets/home.js"></script>
+<script src="/assets/home.js?v=4"></script>
 
 
-<!-- ======================================================
+<!-- =====================================================
      MOBILE NAVIGATION
 ====================================================== -->
 
-<script src="assets/mobile-nav.js"></script>
+<script src="/assets/mobile-nav.js?v=4"></script>
 
 
 </body>
