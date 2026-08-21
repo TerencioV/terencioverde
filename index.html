@@ -39,9 +39,9 @@
       cursor: pointer;
     }
 
-    /* ========================================
-       OPENING MUSIC SCREEN
-    ======================================== */
+    /* ===============================
+       MUSIC INTRO
+    =============================== */
 
     #intro {
       position: fixed;
@@ -49,17 +49,11 @@
       z-index: 9999;
 
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
 
       text-align: center;
       color: white;
-
-      /*
-        IMPORTANT:
-        This background is fully opaque.
-        The homepage will NOT show through it.
-      */
 
       background:
         radial-gradient(
@@ -131,9 +125,9 @@
       opacity: 0.5;
     }
 
-    /* ========================================
+    /* ===============================
        HEADER
-    ======================================== */
+    =============================== */
 
     header {
       position: sticky;
@@ -169,16 +163,19 @@
       letter-spacing: 1.2px;
       text-transform: uppercase;
       opacity: 0.75;
-      transition: opacity 0.2s ease;
     }
 
     nav a:hover {
       opacity: 1;
     }
 
-    /* ========================================
-       MAIN HERO
-    ======================================== */
+    #storeNav {
+      display: none;
+    }
+
+    /* ===============================
+       HERO
+    =============================== */
 
     .hero {
       position: relative;
@@ -199,7 +196,6 @@
           rgba(241,233,220,0.97),
           rgba(241,233,220,0.88)
         ),
-
         repeating-linear-gradient(
           0deg,
           #eee4d2,
@@ -274,9 +270,9 @@
       border-radius: 3px;
     }
 
-    /* ========================================
+    /* ===============================
        CHARACTER AREA
-    ======================================== */
+    =============================== */
 
     .character-zone {
       position: relative;
@@ -289,17 +285,6 @@
       align-items: flex-end;
     }
 
-    /*
-      LATER:
-
-      When we have Terencio with a transparent
-      background, upload him as:
-
-      assets/terencio-home.png
-
-      Then we'll turn the image below on.
-    */
-
     .character-zone img {
       width: min(520px, 95%);
       max-height: 620px;
@@ -311,9 +296,9 @@
         );
     }
 
-    /* ========================================
+    /* ===============================
        COLLECTION DIRECTORY
-    ======================================== */
+    =============================== */
 
     .explore {
       padding: 100px 7%;
@@ -392,7 +377,6 @@
           rgba(239,229,210,0.78),
           rgba(239,229,210,0.94)
         ),
-
         repeating-linear-gradient(
           0deg,
           #ede1cb,
@@ -429,13 +413,11 @@
           rgba(137,64,191,0.43),
           transparent 34%
         ),
-
         radial-gradient(
           circle at 20% 80%,
           rgba(41,181,172,0.27),
           transparent 33%
         ),
-
         linear-gradient(
           135deg,
           #040a12,
@@ -456,9 +438,9 @@
         #ece4d6;
     }
 
-    /* ========================================
-       BRAND STATEMENT
-    ======================================== */
+    /* ===============================
+       BRAND MESSAGE
+    =============================== */
 
     .statement {
       padding: 110px 7%;
@@ -491,10 +473,6 @@
       line-height: 1.8;
     }
 
-    /* ========================================
-       FOOTER
-    ======================================== */
-
     footer {
       padding: 45px 7%;
 
@@ -513,15 +491,7 @@
       margin-bottom: 8px;
     }
 
-    /* ========================================
-       MOBILE
-    ======================================== */
-
     @media (max-width: 850px) {
-
-      header {
-        padding: 0 5%;
-      }
 
       nav {
         display: none;
@@ -553,43 +523,38 @@
         grid-template-columns: 1fr;
       }
 
-      .page-card {
-        min-height: 320px;
-      }
-
     }
-
   </style>
 </head>
 
 <body>
 
-<!-- ========================================
-     MUSIC FILE
-======================================== -->
+<!-- SITE SETTINGS -->
+
+<script src="assets/site-config.js"></script>
+
+
+<!-- MUSIC -->
 
 <audio
   id="siteMusic"
-  src="assets/do-you-remember.mp3"
   preload="metadata">
 </audio>
 
 
-<!-- ========================================
-     OPENING SCREEN
-======================================== -->
+<!-- OPENING SCREEN -->
 
 <div id="intro">
 
   <div class="intro-inner">
 
-    <div class="intro-small">
-      Independent Apparel · Art · Culture · Technology
+    <div
+      class="intro-small"
+      id="introTagline">
     </div>
 
     <div class="intro-title">
-      TERENCIO<br>
-      VERDE
+      TERENCIO<br>VERDE
     </div>
 
     <div class="intro-buttons">
@@ -604,8 +569,9 @@
 
     </div>
 
-    <div class="music-credit">
-      Music by Terence Green and the Loose Strings
+    <div
+      class="music-credit"
+      id="musicCredit">
     </div>
 
   </div>
@@ -613,9 +579,7 @@
 </div>
 
 
-<!-- ========================================
-     HEADER
-======================================== -->
+<!-- HEADER -->
 
 <header>
 
@@ -639,8 +603,16 @@
       Web3
     </a>
 
-    <a href="interactive.html">
+    <a
+      id="interactiveNav"
+      href="interactive.html">
       Interactive
+    </a>
+
+    <a
+      id="storeNav"
+      href="store.html">
+      Shop
     </a>
 
   </nav>
@@ -650,9 +622,7 @@
 
 <main>
 
-  <!-- ========================================
-       MAIN HOME
-  ======================================== -->
+  <!-- HERO -->
 
   <section class="hero">
 
@@ -663,8 +633,7 @@
       </div>
 
       <h1>
-        TERENCIO<br>
-        VERDE
+        TERENCIO<br>VERDE
       </h1>
 
       <p>
@@ -684,14 +653,11 @@
     <div class="character-zone">
 
       <!--
+        Transparent Terencio will eventually live here:
 
-      Later, once the transparent Terencio file
-      is uploaded, we will use this:
-
-      <img
-        src="assets/terencio-home.png"
-        alt="Terencio Verde">
-
+        <img
+          src="assets/terencio-home.png"
+          alt="Terencio Verde">
       -->
 
     </div>
@@ -699,9 +665,7 @@
   </section>
 
 
-  <!-- ========================================
-       COLLECTIONS
-  ======================================== -->
+  <!-- COLLECTIONS -->
 
   <section
     class="explore"
@@ -739,8 +703,7 @@
 
         <p>
           Americana, regional culture, local stories,
-          music and apparel inspired by places worth
-          remembering.
+          music and apparel inspired by places worth remembering.
         </p>
 
       </a>
@@ -780,6 +743,7 @@
 
 
       <a
+        id="interactiveCard"
         href="interactive.html"
         class="page-card interactive-card">
 
@@ -800,9 +764,7 @@
   </section>
 
 
-  <!-- ========================================
-       BRAND MESSAGE
-  ======================================== -->
+  <!-- BRAND MESSAGE -->
 
   <section class="statement">
 
@@ -836,17 +798,13 @@
 </main>
 
 
-<!-- ========================================
-     FOOTER
-======================================== -->
-
 <footer>
 
   <strong>
     Terencio Verde
   </strong>
 
-  Independent Apparel · Art · Culture · Technology
+  <span id="footerTagline"></span>
 
   <br><br>
 
@@ -856,6 +814,40 @@
 
 
 <script>
+
+  /*
+    =============================================
+    LOAD SITE SETTINGS
+    =============================================
+  */
+
+  const config =
+    window.TERENCIO_CONFIG || {};
+
+
+  /*
+    BRAND TEXT
+  */
+
+  document.getElementById(
+    "introTagline"
+  ).textContent =
+    config.tagline ||
+    "Independent Apparel · Art · Culture · Technology";
+
+
+  document.getElementById(
+    "footerTagline"
+  ).textContent =
+    config.tagline ||
+    "Independent Apparel · Art · Culture · Technology";
+
+
+  /*
+    =============================================
+    MUSIC SETTINGS
+    =============================================
+  */
 
   const intro =
     document.getElementById("intro");
@@ -869,21 +861,49 @@
   const enterQuiet =
     document.getElementById("enterQuiet");
 
+  const musicCredit =
+    document.getElementById("musicCredit");
+
+
+  audio.src =
+    config.musicFile ||
+    "assets/do-you-remember.mp3";
+
+
+  musicCredit.textContent =
+    config.musicCredit ||
+    "Music by Terence Green and the Loose Strings";
+
+
+  const MUSIC_START =
+    config.musicStart ?? 50;
+
+  const MUSIC_END =
+    config.musicEnd ?? 80;
+
 
   /*
-    Play approximately 30 seconds
-    of the song.
+    If music is disabled in site-config.js,
+    remove the music button.
   */
 
-  const MUSIC_START = 50;
-  const MUSIC_END = 80;
+  if (
+    config.musicEnabled === false
+  ) {
+
+    enterMusic.style.display =
+      "none";
+
+  }
 
 
   enterMusic.addEventListener(
     "click",
     async () => {
 
-      intro.classList.add("hidden");
+      intro.classList.add(
+        "hidden"
+      );
 
       try {
 
@@ -942,6 +962,51 @@
 
     }
   );
+
+
+  /*
+    =============================================
+    STORE VISIBILITY
+    =============================================
+
+    When storeEnabled becomes true in
+    assets/site-config.js, the Shop link
+    automatically appears.
+  */
+
+  if (
+    config.storeEnabled === true
+  ) {
+
+    document.getElementById(
+      "storeNav"
+    ).style.display =
+      "inline";
+
+  }
+
+
+  /*
+    =============================================
+    INTERACTIVE APPAREL VISIBILITY
+    =============================================
+  */
+
+  if (
+    config.interactiveApparelEnabled === false
+  ) {
+
+    document.getElementById(
+      "interactiveNav"
+    ).style.display =
+      "none";
+
+    document.getElementById(
+      "interactiveCard"
+    ).style.display =
+      "none";
+
+  }
 
 </script>
 
