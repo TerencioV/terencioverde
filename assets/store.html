@@ -6,6 +6,9 @@
 
   <title>Store | Terencio Verde</title>
 
+  <!-- Keep this draft store out of search engines for now -->
+  <meta name="robots" content="noindex, nofollow">
+
   <style>
     * {
       box-sizing: border-box;
@@ -40,6 +43,7 @@
 
     main {
       padding: 80px 7%;
+      min-height: 70vh;
     }
 
     .eyebrow {
@@ -65,12 +69,23 @@
       margin-bottom: 50px;
     }
 
-    .empty-message {
-      padding: 30px;
+    .store-closed {
+      padding: 35px;
       background: white;
       border-radius: 8px;
       border: 1px solid rgba(0,0,0,0.06);
+      max-width: 700px;
+    }
+
+    .store-closed h2 {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .store-closed p {
       color: #5b625d;
+      line-height: 1.7;
     }
 
     .product-grid {
@@ -226,8 +241,10 @@
 
 <body>
 
-<header>
+<script src="assets/site-config.js"></script>
+<script src="assets/products/products.js"></script>
 
+<header>
   <a href="index.html">
     <strong>TERENCIO VERDE</strong>
   </a>
@@ -238,7 +255,6 @@
     <a href="web3.html">Web3</a>
     <a href="interactive.html">Interactive</a>
   </nav>
-
 </header>
 
 <main>
@@ -252,13 +268,20 @@
   </h1>
 
   <p class="intro">
-    Products can be prepared here before the public store is launched.
-    Checkout will remain disabled until the payment system is connected.
+    Apparel, artist collaborations, Web3 collections
+    and interactive garments from Terencio Verde.
   </p>
 
+  <div id="storeClosed" class="store-closed">
+    <h2>Store coming soon.</h2>
+    <p>
+      Products are being prepared behind the scenes.
+    </p>
+  </div>
+
   <div
-    class="product-grid"
-    id="productGrid">
+    id="productGrid"
+    class="product-grid">
   </div>
 
 </main>
@@ -302,19 +325,16 @@
   © 2026 Terencio Verde
 </footer>
 
-
-<!--
-  PRODUCT DATABASE
-
-  This pulls all product information from:
-
-  assets/products/products.js
--->
-
-<script src="assets/products/products.js"></script>
-
-
 <script>
+
+  const config =
+    window.TERENCIO_CONFIG || {};
+
+  const allProducts =
+    window.TERENCIO_PRODUCTS || [];
+
+  const storeClosed =
+    document.getElementById("storeClosed");
 
   const productGrid =
     document.getElementById("productGrid");
@@ -334,86 +354,99 @@
   const modalSizes =
     document.getElementById("modalSizes");
 
+  const buyButton =
+    document.getElementById("buyButton");
+
 
   /*
-    Only products with:
-
-    active: true
-
-    will appear in the store.
+    If storeEnabled is false,
+    nobody sees products.
   */
 
-  const products =
-    (window.TERENCIO_PRODUCTS || [])
-    .filter(product => product.active === true);
+  if (config.storeEnabled !== true) {
+
+    productGrid.style.display = "none";
+
+  } else {
+
+    storeClosed.style.display = "none";
+
+    const activeProducts =
+      allProducts.filter(
+        product => product.active === true
+      );
 
 
-  if (products.length === 0) {
+    if (activeProducts.length === 0) {
 
-    productGrid.innerHTML = `
+      productGrid.innerHTML = `
+        <div class="store-closed">
+          <h2>Products coming soon.</h2>
+          <p>
+            The store is open, but no products
+            are active yet.
+          </p>
+        </div>
+      `;
 
-      <div class="empty-message">
-        Store products are currently being prepared.
-      </div>
-
-    `;
-
-  }
-
-
-  products.forEach(product => {
-
-    const card =
-      document.createElement("article");
-
-    card.className =
-      "product-card";
+    }
 
 
-    const nfcBadge =
-      product.nfcEnabled
-      ? `<div class="nfc-badge">Interactive Garment</div>`
-      : "";
+    activeProducts.forEach(product => {
+
+      const card =
+        document.createElement("article");
+
+      card.className =
+        "product-card";
 
 
-    card.innerHTML = `
+      const nfcBadge =
+        product.nfcEnabled === true
+        ? `<div class="nfc-badge">Interactive Garment</div>`
+        : "";
 
-      <img
-        class="product-image"
-        src="${product.image}"
-        alt="${product.name}"
-      >
 
-      <div class="product-info">
+      card.innerHTML = `
 
-        <small>
-          ${product.collection}
-        </small>
+        <img
+          class="product-image"
+          src="${product.image}"
+          alt="${product.name}"
+        >
 
-        <h2>
-          ${product.name}
-        </h2>
+        <div class="product-info">
 
-        <div class="price">
-          $${product.price.toFixed(2)}
+          <small>
+            ${product.collection}
+          </small>
+
+          <h2>
+            ${product.name}
+          </h2>
+
+          <div class="price">
+            $${product.price.toFixed(2)}
+          </div>
+
+          ${nfcBadge}
+
         </div>
 
-        ${nfcBadge}
-
-      </div>
-
-    `;
+      `;
 
 
-    card.addEventListener(
-      "click",
-      () => openProduct(product)
-    );
+      card.addEventListener(
+        "click",
+        () => openProduct(product)
+      );
 
 
-    productGrid.appendChild(card);
+      productGrid.appendChild(card);
 
-  });
+    });
+
+  }
 
 
   function openProduct(product) {
@@ -461,6 +494,23 @@
       modalSizes.appendChild(button);
 
     });
+
+
+    if (config.paymentsEnabled === true) {
+
+      buyButton.disabled = false;
+
+      buyButton.textContent =
+        "Buy Now";
+
+    } else {
+
+      buyButton.disabled = true;
+
+      buyButton.textContent =
+        "Checkout coming soon";
+
+    }
 
 
     productDialog.showModal();
