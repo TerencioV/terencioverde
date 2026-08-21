@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hometown | Terencio Verde</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #efe7d8;
+      color: #18241d;
+    }
+
+    header {
+      background: #123326;
+      color: white;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .hero {
+      min-height: 75vh;
+      padding: 100px 8%;
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          rgba(239, 231, 216, 0.88),
+          rgba(239, 231, 216, 0.88)
+        ),
+        repeating-linear-gradient(
+          0deg,
+          #eadfcb,
+          #eadfcb 42px,
+          #d2c0a3 43px,
+          #d2c0a3 45px
+        );
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      color: #35684e;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      line-height: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 650px;
+      line-height: 1.7;
+    }
+
+    .collections {
+      padding: 90px 8%;
+    }
+
+    .collections h2 {
+      font-family: Georgia, serif;
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .collection-grid {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      min-height: 350px;
+      background: #fffaf0;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-radius: 6px;
+    }
+
+    .card h3 {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #123326;
+      color: white;
+      padding: 40px 8%;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        display: none;
+      }
+
+      .collection-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html"><strong>TERENCIO VERDE</strong></a>
+
+  <nav>
+    <a href="hometown.html">Hometown</a>
+    <a href="collaborations.html">Artist Collabs</a>
+    <a href="web3.html">Web3</a>
+    <a href="interactive.html">Interactive Apparel</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">The Hometown Collection</div>
+
+      <h1>FROM<br>AROUND HERE.</h1>
+
+      <p>
+        Apparel shaped by hometowns, back roads, live music,
+        local stories and American character — starting in the
+        Texas Hill Country and wandering wherever the road leads.
+      </p>
+    </div>
+  </section>
+
+  <section class="collections">
+
+    <h2>Hometown Goods</h2>
+
+    <p>
+      Regional designs, limited shirts and Terencio Verde originals.
+    </p>
+
+    <div class="collection-grid">
+
+      <div class="card">
+        <h3>Hill Country</h3>
+        <p>Texas landscapes, towns, music and local culture.</p>
+      </div>
+
+      <div class="card">
+        <h3>Americana</h3>
+        <p>Designs inspired by places, people and stories across the country.</p>
+      </div>
+
+      <div class="card">
+        <h3>Originals</h3>
+        <p>Terencio Verde characters, graphics and small-batch releases.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Terencio Verde
+</footer>
+
+</body>
+</html>
