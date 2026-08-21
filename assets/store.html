@@ -2,11 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
   <title>Store | Terencio Verde</title>
 
-  <!-- Keep this draft store out of search engines for now -->
+  <meta
+    name="description"
+    content="Terencio Verde apparel, artist collaborations, Web3 collections and interactive garments."
+  >
+
+  <!-- Keep the unfinished store out of search engines -->
   <meta name="robots" content="noindex, nofollow">
 
   <style>
@@ -16,10 +25,15 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #f4efe5;
       color: #18231c;
+      overflow-x: hidden;
     }
 
     a {
@@ -27,59 +41,112 @@
       text-decoration: none;
     }
 
+    button {
+      font: inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      background: #143426;
-      color: white;
-      padding: 20px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      min-height: 68px;
+      padding: 0 6%;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      background: #143426;
+      color: white;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      letter-spacing: 2px;
+      font-size: 1rem;
     }
 
     nav {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 24px;
     }
 
+    nav a {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      opacity: 0.78;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    #storeNav {
+      display: none;
+    }
+
+    /* =========================
+       STORE HEADER
+    ========================= */
+
     main {
-      padding: 80px 7%;
       min-height: 70vh;
+      padding: 80px 7%;
     }
 
     .eyebrow {
       text-transform: uppercase;
       letter-spacing: 3px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
+      font-weight: bold;
       color: #477157;
       margin-bottom: 16px;
-      font-weight: bold;
     }
 
     h1 {
-      font-family: Georgia, serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(3.5rem, 8vw, 6rem);
       line-height: 0.95;
+      font-weight: normal;
       margin-bottom: 20px;
     }
 
     .intro {
       max-width: 700px;
       color: #5b625d;
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 50px;
+      font-size: 1.05rem;
     }
 
+    /* =========================
+       STORE CLOSED
+    ========================= */
+
     .store-closed {
+      max-width: 720px;
+
       padding: 35px;
+
       background: white;
+
       border-radius: 8px;
-      border: 1px solid rgba(0,0,0,0.06);
-      max-width: 700px;
+
+      border:
+        1px solid rgba(0,0,0,0.06);
     }
 
     .store-closed h2 {
       font-family: Georgia, serif;
       font-size: 2rem;
+      font-weight: normal;
       margin-bottom: 10px;
     }
 
@@ -87,6 +154,10 @@
       color: #5b625d;
       line-height: 1.7;
     }
+
+    /* =========================
+       PRODUCTS
+    ========================= */
 
     .product-grid {
       display: grid;
@@ -96,22 +167,36 @@
 
     .product-card {
       background: white;
+
       border-radius: 8px;
+
       overflow: hidden;
+
       cursor: pointer;
-      transition: 0.25s ease;
-      border: 1px solid rgba(0,0,0,0.06);
+
+      border:
+        1px solid rgba(0,0,0,0.06);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+      -webkit-tap-highlight-color: transparent;
     }
 
     .product-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+
+      box-shadow:
+        0 15px 35px rgba(0,0,0,0.08);
     }
 
     .product-image {
       width: 100%;
       aspect-ratio: 1 / 1;
+
       object-fit: cover;
+
       background: #ded8cd;
     }
 
@@ -121,14 +206,22 @@
 
     .product-info small {
       color: #5f715f;
+
       text-transform: uppercase;
+
       letter-spacing: 1px;
+
+      font-size: 0.72rem;
     }
 
     .product-info h2 {
       font-family: Georgia, serif;
+
       font-size: 1.7rem;
-      margin: 6px 0;
+
+      font-weight: normal;
+
+      margin: 7px 0;
     }
 
     .price {
@@ -138,22 +231,43 @@
 
     .nfc-badge {
       display: inline-block;
-      margin-top: 10px;
-      padding: 5px 9px;
+
+      margin-top: 11px;
+
+      padding: 6px 9px;
+
       background: #e5eee8;
+
       color: #315641;
-      font-size: 0.72rem;
+
+      font-size: 0.7rem;
+
       text-transform: uppercase;
+
       letter-spacing: 1px;
+
       border-radius: 3px;
     }
 
+    /* =========================
+       PRODUCT MODAL
+    ========================= */
+
     dialog {
       width: min(760px, 92vw);
+
+      max-height: 90dvh;
+
       border: none;
+
       border-radius: 10px;
+
       padding: 0;
-      box-shadow: 0 30px 90px rgba(0,0,0,0.3);
+
+      overflow-y: auto;
+
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.3);
     }
 
     dialog::backdrop {
@@ -166,52 +280,113 @@
 
     .close {
       float: right;
+
+      width: 48px;
+      height: 48px;
+
       border: none;
-      background: transparent;
+
+      border-radius: 50%;
+
+      background: #f1ece4;
+
       font-size: 1.7rem;
+
       cursor: pointer;
+    }
+
+    .modal-product-image {
+      width: min(400px, 100%);
+
+      aspect-ratio: 1 / 1;
+
+      object-fit: cover;
+
+      background: #ded8cd;
+
+      border-radius: 6px;
+
+      margin:
+        30px auto 25px;
+
+      display: block;
     }
 
     .modal h2 {
       font-family: Georgia, serif;
+
       font-size: 2.4rem;
+
+      font-weight: normal;
+
       margin-bottom: 10px;
     }
 
     .modal p {
       color: #5a615c;
+
       line-height: 1.7;
+
       margin-top: 14px;
+    }
+
+    .size-label {
+      margin-top: 22px;
+      font-weight: bold;
     }
 
     .sizes {
       display: flex;
       flex-wrap: wrap;
+
       gap: 8px;
-      margin: 22px 0;
+
+      margin: 12px 0 22px;
     }
 
     .size-button {
+      min-width: 48px;
+      min-height: 48px;
+
       padding: 9px 14px;
-      border: 1px solid #bdbdbd;
+
+      border:
+        1px solid #bdbdbd;
+
       background: white;
+
       cursor: pointer;
+
+      border-radius: 3px;
+
+      -webkit-tap-highlight-color: transparent;
     }
 
     .size-button.selected {
       background: #143426;
+
       color: white;
+
       border-color: #143426;
     }
 
     .buy-button {
       width: 100%;
+
+      min-height: 52px;
+
       margin-top: 10px;
+
       padding: 15px;
+
       border: none;
+
       background: #143426;
+
       color: white;
+
       font-size: 1rem;
+
       border-radius: 4px;
     }
 
@@ -220,42 +395,173 @@
       cursor: not-allowed;
     }
 
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       margin-top: 80px;
+
+      padding:
+        45px
+        max(7%, env(safe-area-inset-right))
+        calc(45px + env(safe-area-inset-bottom))
+        max(7%, env(safe-area-inset-left));
+
       background: #0d271b;
-      color: rgba(255,255,255,0.65);
-      padding: 40px 7%;
+
+      color:
+        rgba(255,255,255,0.62);
     }
 
-    @media(max-width: 850px) {
-      nav {
-        display: none;
+    footer strong {
+      display: block;
+
+      color: white;
+
+      font-family: Georgia, serif;
+
+      font-size: 1.35rem;
+
+      margin-bottom: 7px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      main {
+        padding:
+          60px
+          6%;
+      }
+
+      h1 {
+        font-size:
+          clamp(3rem, 16vw, 5rem);
+      }
+
+      .intro {
+        font-size: 1rem;
       }
 
       .product-grid {
         grid-template-columns: 1fr;
       }
+
+      .product-card {
+        max-width: 520px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .store-closed {
+        padding: 28px;
+      }
+
+      dialog {
+        width: 94vw;
+
+        max-height:
+          calc(
+            100dvh -
+            env(safe-area-inset-top) -
+            env(safe-area-inset-bottom) -
+            20px
+          );
+      }
+
+      .modal {
+        padding:
+          24px
+          20px
+          calc(
+            24px +
+            env(safe-area-inset-bottom)
+          );
+      }
+
+      .modal h2 {
+        font-size: 2rem;
+      }
+
     }
+
+    @media
+    (max-width: 850px)
+    and
+    (orientation: landscape) {
+
+      main {
+        padding-top: 40px;
+      }
+
+      .modal-product-image {
+        max-height: 260px;
+        object-fit: contain;
+      }
+
+    }
+
   </style>
 </head>
 
 <body>
 
+
+<!-- GLOBAL SETTINGS -->
+
 <script src="assets/site-config.js"></script>
+
+
+<!-- PRODUCT DATABASE -->
+
 <script src="assets/products/products.js"></script>
 
+
+<!-- HEADER -->
+
 <header>
-  <a href="index.html">
-    <strong>TERENCIO VERDE</strong>
+
+  <a
+    class="brand"
+    href="index.html">
+    TERENCIO VERDE
   </a>
 
+
   <nav>
-    <a href="hometown.html">Hometown</a>
-    <a href="collaborations.html">Artist Collabs</a>
-    <a href="web3.html">Web3</a>
-    <a href="interactive.html">Interactive</a>
+
+    <a href="hometown.html">
+      Hometown
+    </a>
+
+    <a href="collaborations.html">
+      Artist Collabs
+    </a>
+
+    <a href="web3.html">
+      Web3
+    </a>
+
+    <a
+      id="interactiveNav"
+      href="interactive.html">
+      Interactive
+    </a>
+
+    <a
+      id="storeNav"
+      href="store.html">
+      Shop
+    </a>
+
   </nav>
+
 </header>
+
 
 <main>
 
@@ -263,21 +569,37 @@
     Terencio Verde Store
   </div>
 
+
   <h1>
     THE GOODS.
   </h1>
 
+
   <p class="intro">
-    Apparel, artist collaborations, Web3 collections
-    and interactive garments from Terencio Verde.
+    Apparel, artist collaborations,
+    digital collections and interactive garments
+    from Terencio Verde.
   </p>
 
-  <div id="storeClosed" class="store-closed">
-    <h2>Store coming soon.</h2>
+
+  <!-- STORE CLOSED MESSAGE -->
+
+  <div
+    id="storeClosed"
+    class="store-closed">
+
+    <h2>
+      Store coming soon.
+    </h2>
+
     <p>
       Products are being prepared behind the scenes.
     </p>
+
   </div>
+
+
+  <!-- PRODUCTS -->
 
   <div
     id="productGrid"
@@ -286,29 +608,51 @@
 
 </main>
 
+
+<!-- PRODUCT WINDOW -->
+
 <dialog id="productDialog">
 
   <div class="modal">
 
     <button
       class="close"
-      onclick="productDialog.close()">
+      id="closeProduct"
+      type="button"
+      aria-label="Close product">
       ×
     </button>
 
+
+    <img
+      id="modalImage"
+      class="modal-product-image"
+      alt=""
+    >
+
+
     <h2 id="modalName"></h2>
+
 
     <div
       class="price"
       id="modalPrice">
     </div>
 
+
     <p id="modalDescription"></p>
+
+
+    <div class="size-label">
+      Select a size
+    </div>
+
 
     <div
       class="sizes"
       id="modalSizes">
     </div>
+
 
     <button
       class="buy-button"
@@ -321,191 +665,361 @@
 
 </dialog>
 
+
 <footer>
+
+  <strong>
+    Terencio Verde
+  </strong>
+
+  <span id="footerTagline"></span>
+
+  <br><br>
+
   © 2026 Terencio Verde
+
 </footer>
 
+
 <script>
+
+  /*
+    ================================
+    CONFIG
+    ================================
+  */
 
   const config =
     window.TERENCIO_CONFIG || {};
 
+
   const allProducts =
     window.TERENCIO_PRODUCTS || [];
 
+
+  /*
+    ================================
+    ELEMENTS
+    ================================
+  */
+
   const storeClosed =
-    document.getElementById("storeClosed");
+    document.getElementById(
+      "storeClosed"
+    );
+
 
   const productGrid =
-    document.getElementById("productGrid");
+    document.getElementById(
+      "productGrid"
+    );
+
 
   const productDialog =
-    document.getElementById("productDialog");
+    document.getElementById(
+      "productDialog"
+    );
+
+
+  const modalImage =
+    document.getElementById(
+      "modalImage"
+    );
+
 
   const modalName =
-    document.getElementById("modalName");
+    document.getElementById(
+      "modalName"
+    );
+
 
   const modalPrice =
-    document.getElementById("modalPrice");
+    document.getElementById(
+      "modalPrice"
+    );
+
 
   const modalDescription =
-    document.getElementById("modalDescription");
+    document.getElementById(
+      "modalDescription"
+    );
+
 
   const modalSizes =
-    document.getElementById("modalSizes");
+    document.getElementById(
+      "modalSizes"
+    );
+
 
   const buyButton =
-    document.getElementById("buyButton");
+    document.getElementById(
+      "buyButton"
+    );
+
+
+  const closeProduct =
+    document.getElementById(
+      "closeProduct"
+    );
 
 
   /*
-    If storeEnabled is false,
-    nobody sees products.
+    ================================
+    FOOTER
+    ================================
   */
 
-  if (config.storeEnabled !== true) {
+  document.getElementById(
+    "footerTagline"
+  ).textContent =
+    config.tagline ||
+    "Independent Apparel · Art · Culture · Technology";
 
-    productGrid.style.display = "none";
 
-  } else {
+  /*
+    ================================
+    NAVIGATION
+    ================================
+  */
 
-    storeClosed.style.display = "none";
+  if (
+    config.storeEnabled === true
+  ) {
+
+    document.getElementById(
+      "storeNav"
+    ).style.display =
+      "inline";
+
+  }
+
+
+  if (
+    config.interactiveApparelEnabled === false
+  ) {
+
+    document.getElementById(
+      "interactiveNav"
+    ).style.display =
+      "none";
+
+  }
+
+
+  /*
+    ================================
+    STORE MASTER SWITCH
+    ================================
+  */
+
+  if (
+    config.storeEnabled !== true
+  ) {
+
+    productGrid.style.display =
+      "none";
+
+  }
+
+
+  else {
+
+    storeClosed.style.display =
+      "none";
+
 
     const activeProducts =
       allProducts.filter(
-        product => product.active === true
+        product =>
+          product.active === true
       );
 
 
-    if (activeProducts.length === 0) {
+    if (
+      activeProducts.length === 0
+    ) {
 
       productGrid.innerHTML = `
+
         <div class="store-closed">
-          <h2>Products coming soon.</h2>
+
+          <h2>
+            Products coming soon.
+          </h2>
+
           <p>
-            The store is open, but no products
-            are active yet.
+            The store is active,
+            but no products have been
+            published yet.
           </p>
+
         </div>
+
       `;
 
     }
 
 
-    activeProducts.forEach(product => {
+    activeProducts.forEach(
+      product => {
 
-      const card =
-        document.createElement("article");
-
-      card.className =
-        "product-card";
-
-
-      const nfcBadge =
-        product.nfcEnabled === true
-        ? `<div class="nfc-badge">Interactive Garment</div>`
-        : "";
+        const card =
+          document.createElement(
+            "article"
+          );
 
 
-      card.innerHTML = `
+        card.className =
+          "product-card";
 
-        <img
-          class="product-image"
-          src="${product.image}"
-          alt="${product.name}"
-        >
 
-        <div class="product-info">
+        card.tabIndex =
+          0;
 
-          <small>
-            ${product.collection}
-          </small>
 
-          <h2>
-            ${product.name}
-          </h2>
+        card.setAttribute(
+          "role",
+          "button"
+        );
 
-          <div class="price">
-            $${product.price.toFixed(2)}
+
+        card.setAttribute(
+          "aria-label",
+          `View ${product.name}`
+        );
+
+
+        const nfcBadge =
+          product.nfcEnabled === true
+
+          ? `
+            <div class="nfc-badge">
+              Interactive Garment
+            </div>
+          `
+
+          : "";
+
+
+        card.innerHTML = `
+
+          <img
+            class="product-image"
+            src="${product.image}"
+            alt="${product.name}"
+          >
+
+
+          <div class="product-info">
+
+            <small>
+              ${product.collection}
+            </small>
+
+
+            <h2>
+              ${product.name}
+            </h2>
+
+
+            <div class="price">
+
+              $${product.price.toFixed(2)}
+
+            </div>
+
+
+            ${nfcBadge}
+
           </div>
 
-          ${nfcBadge}
-
-        </div>
-
-      `;
+        `;
 
 
-      card.addEventListener(
-        "click",
-        () => openProduct(product)
-      );
+        card.addEventListener(
+          "click",
+          () =>
+            openProduct(product)
+        );
 
 
-      productGrid.appendChild(card);
+        card.addEventListener(
+          "keydown",
+          event => {
 
-    });
+            if (
+              event.key === "Enter" ||
+              event.key === " "
+            ) {
+
+              event.preventDefault();
+
+              openProduct(product);
+
+            }
+
+          }
+        );
+
+
+        productGrid.appendChild(
+          card
+        );
+
+      }
+    );
 
   }
 
 
+  /*
+    ================================
+    OPEN PRODUCT
+    ================================
+  */
+
   function openProduct(product) {
+
+    modalImage.src =
+      product.image;
+
+
+    modalImage.alt =
+      product.name;
+
 
     modalName.textContent =
       product.name;
 
+
     modalPrice.textContent =
-      "$" + product.price.toFixed(2);
+      "$" +
+      product.price.toFixed(2);
+
 
     modalDescription.textContent =
       product.description;
 
-    modalSizes.innerHTML = "";
+
+    modalSizes.innerHTML =
+      "";
 
 
-    product.sizes.forEach(size => {
-
-      const button =
-        document.createElement("button");
-
-      button.className =
-        "size-button";
-
-      button.textContent =
-        size;
+    buyButton.disabled =
+      true;
 
 
-      button.addEventListener(
-        "click",
-        () => {
-
-          document
-            .querySelectorAll(".size-button")
-            .forEach(btn =>
-              btn.classList.remove("selected")
-            );
-
-          button.classList.add("selected");
-
-        }
-      );
-
-
-      modalSizes.appendChild(button);
-
-    });
-
-
-    if (config.paymentsEnabled === true) {
-
-      buyButton.disabled = false;
+    if (
+      config.paymentsEnabled === true
+    ) {
 
       buyButton.textContent =
-        "Buy Now";
+        "Select a size";
 
-    } else {
+    }
 
-      buyButton.disabled = true;
+
+    else {
 
       buyButton.textContent =
         "Checkout coming soon";
@@ -513,11 +1027,128 @@
     }
 
 
+    product.sizes.forEach(
+      size => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.className =
+          "size-button";
+
+
+        button.type =
+          "button";
+
+
+        button.textContent =
+          size;
+
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(
+                ".size-button"
+              )
+              .forEach(
+                btn =>
+                  btn.classList.remove(
+                    "selected"
+                  )
+              );
+
+
+            button.classList.add(
+              "selected"
+            );
+
+
+            /*
+              Only enable buying after
+              a size is chosen AND
+              payments are enabled.
+            */
+
+            if (
+              config.paymentsEnabled === true
+            ) {
+
+              buyButton.disabled =
+                false;
+
+
+              buyButton.textContent =
+                "Buy Now";
+
+            }
+
+          }
+        );
+
+
+        modalSizes.appendChild(
+          button
+        );
+
+      }
+    );
+
+
     productDialog.showModal();
 
   }
 
+
+  /*
+    ================================
+    CLOSE PRODUCT
+    ================================
+  */
+
+  closeProduct.addEventListener(
+    "click",
+    () => {
+
+      productDialog.close();
+
+    }
+  );
+
+
+  /*
+    Close if user taps the dark
+    backdrop outside the modal.
+  */
+
+  productDialog.addEventListener(
+    "click",
+    event => {
+
+      if (
+        event.target ===
+        productDialog
+      ) {
+
+        productDialog.close();
+
+      }
+
+    }
+  );
+
 </script>
+
+
+<!-- MOBILE MENU FOR iPHONE + ANDROID -->
+
+<script src="assets/mobile-nav.js"></script>
+
 
 </body>
 </html>
