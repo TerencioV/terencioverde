@@ -65,6 +65,14 @@
       margin-bottom: 50px;
     }
 
+    .empty-message {
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid rgba(0,0,0,0.06);
+      color: #5b625d;
+    }
+
     .product-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -111,6 +119,18 @@
     .price {
       font-weight: bold;
       color: #143426;
+    }
+
+    .nfc-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 9px;
+      background: #e5eee8;
+      color: #315641;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 3px;
     }
 
     dialog {
@@ -232,8 +252,7 @@
   </h1>
 
   <p class="intro">
-    This store is being built in the background.
-    Products, artwork, sizes and pricing can be added now.
+    Products can be prepared here before the public store is launched.
     Checkout will remain disabled until the payment system is connected.
   </p>
 
@@ -283,51 +302,19 @@
   © 2026 Terencio Verde
 </footer>
 
+
+<!--
+  PRODUCT DATABASE
+
+  This pulls all product information from:
+
+  assets/products/products.js
+-->
+
+<script src="assets/products/products.js"></script>
+
+
 <script>
-
-  /*
-    ============================================
-    PRODUCT DATABASE
-
-    To add a shirt later, duplicate one product
-    block and change the information.
-    ============================================
-  */
-
-  const products = [
-
-    {
-      id: "tv001",
-      name: "Terencio Verde Original Tee",
-      collection: "Originals",
-      price: 32.00,
-      image: "assets/products/terencio-original.jpg",
-      description: "Original Terencio Verde graphic tee.",
-      sizes: ["S", "M", "L", "XL", "2XL"]
-    },
-
-    {
-      id: "tv002",
-      name: "Hometown Tee",
-      collection: "Hometown",
-      price: 30.00,
-      image: "assets/products/hometown-tee.jpg",
-      description: "A hometown-inspired Terencio Verde design.",
-      sizes: ["S", "M", "L", "XL", "2XL"]
-    },
-
-    {
-      id: "tv003",
-      name: "Maria Verde Web3 Tee",
-      collection: "Web3",
-      price: 36.00,
-      image: "assets/products/maria-web3.jpg",
-      description: "A Maria Verde design from the Web3 collection.",
-      sizes: ["S", "M", "L", "XL", "2XL"]
-    }
-
-  ];
-
 
   const productGrid =
     document.getElementById("productGrid");
@@ -348,6 +335,32 @@
     document.getElementById("modalSizes");
 
 
+  /*
+    Only products with:
+
+    active: true
+
+    will appear in the store.
+  */
+
+  const products =
+    (window.TERENCIO_PRODUCTS || [])
+    .filter(product => product.active === true);
+
+
+  if (products.length === 0) {
+
+    productGrid.innerHTML = `
+
+      <div class="empty-message">
+        Store products are currently being prepared.
+      </div>
+
+    `;
+
+  }
+
+
   products.forEach(product => {
 
     const card =
@@ -355,6 +368,13 @@
 
     card.className =
       "product-card";
+
+
+    const nfcBadge =
+      product.nfcEnabled
+      ? `<div class="nfc-badge">Interactive Garment</div>`
+      : "";
+
 
     card.innerHTML = `
 
@@ -378,14 +398,18 @@
           $${product.price.toFixed(2)}
         </div>
 
+        ${nfcBadge}
+
       </div>
 
     `;
+
 
     card.addEventListener(
       "click",
       () => openProduct(product)
     );
+
 
     productGrid.appendChild(card);
 
@@ -417,6 +441,7 @@
       button.textContent =
         size;
 
+
       button.addEventListener(
         "click",
         () => {
@@ -431,6 +456,7 @@
 
         }
       );
+
 
       modalSizes.appendChild(button);
 
