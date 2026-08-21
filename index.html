@@ -14,1093 +14,32 @@
 
   <meta
     name="description"
-    content="Terencio Verde — independent apparel, hometown culture, artist collaborations, digital characters and interactive clothing."
+    content="Terencio Verde — independent apparel, art, culture and interactive clothing."
   >
 
-  <style>
 
-    :root {
-      --forest: #18392b;
-      --forest-dark: #0c2118;
-      --cream: #f2eadb;
-      --cream-light: #faf6ee;
-      --taupe: #bba88c;
-      --brown: #4a372b;
-      --turquoise: #5f918b;
-      --turquoise-faded: #87aaa3;
-      --gold: #ad8a49;
-      --black: #171713;
-      --white: #fffdf8;
-    }
+  <!-- SHARED SITE STYLES -->
 
+  <link
+    rel="stylesheet"
+    href="assets/site.css"
+  >
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
+  <!-- HOMEPAGE STYLES -->
 
-    html {
-      scroll-behavior: smooth;
-    }
+  <link
+    rel="stylesheet"
+    href="assets/home.css"
+  >
 
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--cream);
-      color: var(--black);
-      overflow-x: hidden;
-    }
+  <!-- HOMEPAGE TEXTURES -->
 
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
-
-
-    /* ======================================================
-       OPENING MUSIC SCREEN
-    ====================================================== */
-
-    #intro {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 30px;
-
-      text-align: center;
-      color: var(--cream);
-
-      background:
-        radial-gradient(
-          circle at 50% 40%,
-          #315844 0%,
-          #193b2d 43%,
-          #081910 100%
-        );
-
-      transition:
-        opacity .7s ease,
-        visibility .7s ease;
-    }
-
-
-    #intro.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-
-    .intro-inner {
-      width: min(850px, 92vw);
-    }
-
-
-    .intro-mark {
-      margin: 0 auto 24px;
-
-      width: 95px;
-      height: 95px;
-
-      border: 1px solid rgba(205,175,108,.45);
-      border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-family: Georgia, serif;
-      font-size: 2rem;
-
-      color: var(--gold);
-      letter-spacing: 2px;
-    }
-
-
-    .intro-kicker {
-      margin-bottom: 18px;
-
-      font-size: .72rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-
-      color: rgba(255,255,255,.58);
-    }
-
-
-    .intro-title {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: clamp(3.8rem, 10vw, 8rem);
-      line-height: .86;
-
-      font-weight: normal;
-
-      margin-bottom: 35px;
-    }
-
-
-    .intro-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      gap: 12px;
-    }
-
-
-    .intro-buttons button {
-      min-height: 48px;
-      padding: 14px 23px;
-      border-radius: 2px;
-    }
-
-
-    #enterMusic {
-      border: 1px solid var(--cream);
-      background: var(--cream);
-      color: var(--forest);
-    }
-
-
-    #enterQuiet {
-      border: 1px solid rgba(255,255,255,.35);
-      background: transparent;
-      color: white;
-    }
-
-
-    .music-credit {
-      margin-top: 20px;
-      font-size: .72rem;
-      color: rgba(255,255,255,.43);
-    }
-
-
-    /* ======================================================
-       HEADER
-    ====================================================== */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      min-height: 68px;
-
-      padding: 0 6%;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      background: rgba(15,38,28,.96);
-      backdrop-filter: blur(12px);
-
-      color: var(--cream);
-
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-
-
-    .brand {
-      font-family: Georgia, serif;
-      font-size: 1rem;
-      letter-spacing: 2px;
-    }
-
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-
-
-    nav a {
-      font-size: .72rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-
-      opacity: .72;
-
-      transition: opacity .2s ease;
-    }
-
-
-    nav a:hover {
-      opacity: 1;
-    }
-
-
-    #storeNav {
-      display: none;
-    }
-
-
-    /* ======================================================
-       HERO
-    ====================================================== */
-
-    .hero {
-      position: relative;
-
-      min-height: 88vh;
-
-      display: flex;
-      align-items: flex-end;
-
-      padding: 90px 7% 95px;
-
-      color: var(--cream);
-
-      overflow: hidden;
-
-      background-image:
-
-        linear-gradient(
-          90deg,
-          rgba(7,24,16,.87) 0%,
-          rgba(13,40,29,.68) 42%,
-          rgba(12,35,27,.30) 72%,
-          rgba(7,19,13,.46) 100%
-        ),
-
-        url("assets/hero-hometown.jpg"),
-
-        linear-gradient(
-          135deg,
-          #183b2c,
-          #54715d,
-          #8c806b
-        );
-
-      background-size: cover;
-      background-position: center;
-    }
-
-
-    .hero::before {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      pointer-events: none;
-
-      background:
-        linear-gradient(
-          180deg,
-          transparent 55%,
-          rgba(6,17,12,.42)
-        );
-    }
-
-
-    .hero-copy {
-      position: relative;
-      z-index: 3;
-
-      max-width: 840px;
-    }
-
-
-    .hero-logo-wrap {
-      margin-bottom: 28px;
-    }
-
-
-    .hero-logo {
-      display: block;
-
-      width: min(290px, 70vw);
-      height: auto;
-
-      border-radius: 2px;
-
-      box-shadow:
-        0 14px 35px rgba(0,0,0,.18);
-    }
-
-
-    .eyebrow {
-      margin-bottom: 20px;
-
-      font-size: .75rem;
-      font-weight: bold;
-
-      letter-spacing: 3px;
-      text-transform: uppercase;
-
-      color: var(--turquoise-faded);
-    }
-
-
-    .hero h1 {
-      max-width: 900px;
-
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: clamp(4rem, 8vw, 7.7rem);
-      line-height: .91;
-
-      font-weight: normal;
-
-      text-wrap: balance;
-
-      margin-bottom: 26px;
-    }
-
-
-    .hero-subhead {
-      max-width: 650px;
-
-      font-size: clamp(1rem, 2vw, 1.22rem);
-      line-height: 1.7;
-
-      color: rgba(255,255,255,.78);
-    }
-
-
-    .hero-actions {
-      margin-top: 30px;
-
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-
-    .hero-button {
-      min-height: 48px;
-
-      display: inline-flex;
-      align-items: center;
-
-      padding: 13px 21px;
-
-      background: var(--cream);
-      color: var(--forest-dark);
-
-      font-size: .88rem;
-      letter-spacing: .4px;
-    }
-
-
-    .hero-origin {
-      margin-top: 25px;
-
-      max-width: 560px;
-
-      font-family: Georgia, serif;
-      font-style: italic;
-
-      font-size: .92rem;
-
-      color: rgba(255,255,255,.55);
-    }
-
-
-    /* ======================================================
-       BRAND INTRO
-    ====================================================== */
-
-    .brand-intro {
-      position: relative;
-
-      padding: 120px 7%;
-
-      overflow: hidden;
-
-      background:
-
-        linear-gradient(
-          rgba(242,234,219,.96),
-          rgba(242,234,219,.96)
-        ),
-
-        repeating-linear-gradient(
-          0deg,
-          #efe5d3,
-          #efe5d3 45px,
-          #dbcbb0 46px,
-          #dbcbb0 48px
-        );
-    }
-
-
-    .brand-intro::after {
-      content: "TV";
-
-      position: absolute;
-
-      right: 4%;
-      top: 50%;
-
-      transform: translateY(-50%);
-
-      font-family: Georgia, serif;
-
-      font-size: clamp(12rem, 30vw, 30rem);
-      line-height: 1;
-
-      color: rgba(65,103,78,.045);
-
-      pointer-events: none;
-    }
-
-
-    .brand-intro-inner {
-      position: relative;
-      z-index: 2;
-
-      max-width: 920px;
-    }
-
-
-    .brand-intro h2 {
-      margin-bottom: 25px;
-
-      font-family: Georgia, serif;
-
-      font-size: clamp(3rem, 6vw, 5.4rem);
-      line-height: 1;
-
-      font-weight: normal;
-
-      color: var(--forest-dark);
-    }
-
-
-    .brand-intro p {
-      max-width: 760px;
-
-      color: #5a5e56;
-
-      line-height: 1.8;
-      font-size: 1.08rem;
-    }
-
-
-    /* ======================================================
-       COLLECTIONS
-    ====================================================== */
-
-    .collections {
-      padding: 105px 7%;
-      background: var(--cream-light);
-    }
-
-
-    .section-heading {
-      max-width: 800px;
-      margin-bottom: 55px;
-    }
-
-
-    .section-heading h2 {
-      margin-bottom: 19px;
-
-      font-family: Georgia, serif;
-
-      font-size: clamp(3rem, 6vw, 5rem);
-      line-height: 1;
-
-      font-weight: normal;
-
-      color: var(--forest-dark);
-    }
-
-
-    .section-heading p {
-      max-width: 680px;
-
-      line-height: 1.75;
-
-      color: #62645e;
-    }
-
-
-    .collection-grid {
-      display: grid;
-
-      grid-template-columns: repeat(2,1fr);
-
-      gap: 20px;
-    }
-
-
-    .collection-card {
-      position: relative;
-
-      min-height: 470px;
-
-      padding: 35px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      overflow: hidden;
-
-      border-radius: 3px;
-
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-    }
-
-
-    .collection-card:hover {
-      transform: translateY(-5px);
-
-      box-shadow:
-        0 20px 50px rgba(0,0,0,.11);
-    }
-
-
-    .collection-card::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          transparent 25%,
-          rgba(0,0,0,.72)
-        );
-    }
-
-
-    .collection-copy {
-      position: relative;
-      z-index: 2;
-
-      color: white;
-    }
-
-
-    .collection-copy small {
-      display: block;
-
-      margin-bottom: 12px;
-
-      font-size: .7rem;
-
-      text-transform: uppercase;
-      letter-spacing: 2px;
-
-      color: rgba(255,255,255,.65);
-    }
-
-
-    .collection-copy h3 {
-      margin-bottom: 10px;
-
-      font-family: Georgia, serif;
-
-      font-size: clamp(2.1rem, 4vw, 3.2rem);
-
-      font-weight: normal;
-    }
-
-
-    .collection-copy p {
-      max-width: 480px;
-
-      line-height: 1.6;
-
-      color: rgba(255,255,255,.75);
-    }
-
-
-    .hometown-card {
-      background-image:
-
-        linear-gradient(
-          rgba(31,67,47,.20),
-          rgba(31,67,47,.10)
-        ),
-
-        url("assets/hometown-river.jpg"),
-
-        linear-gradient(
-          135deg,
-          #5a7864,
-          #927a5f
-        );
-
-      background-size: cover;
-      background-position: center;
-    }
-
-
-    .collab-card {
-      background-image:
-
-        radial-gradient(
-          circle at 78% 25%,
-          rgba(124,161,130,.30),
-          transparent 32%
-        ),
-
-        url("assets/collaboration-bg.jpg"),
-
-        linear-gradient(
-          135deg,
-          #143728,
-          #071a12
-        );
-
-      background-size: cover;
-      background-position: center;
-    }
-
-
-    .web3-card {
-      background:
-
-        radial-gradient(
-          circle at 75% 25%,
-          rgba(124,65,180,.42),
-          transparent 35%
-        ),
-
-        radial-gradient(
-          circle at 15% 80%,
-          rgba(54,169,163,.24),
-          transparent 33%
-        ),
-
-        linear-gradient(
-          135deg,
-          #050b12,
-          #11172e,
-          #351347
-        );
-    }
-
-
-    .interactive-card {
-      background-image:
-
-        linear-gradient(
-          rgba(41,77,55,.16),
-          rgba(41,77,55,.08)
-        ),
-
-        url("assets/interactive-bg.jpg"),
-
-        linear-gradient(
-          135deg,
-          #807b6b,
-          #3b493e
-        );
-
-      background-size: cover;
-      background-position: center;
-    }
-
-
-    /* ======================================================
-       HOMETOWN PREVIEW
-    ====================================================== */
-
-    .hometown-preview {
-      padding: 105px 7%;
-
-      background: var(--forest);
-
-      color: var(--cream);
-    }
-
-
-    .hometown-preview h2 {
-      max-width: 920px;
-
-      margin-bottom: 45px;
-
-      font-family: Georgia, serif;
-
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: 1;
-
-      font-weight: normal;
-    }
-
-
-    .memory-strip {
-      display: grid;
-
-      grid-template-columns: repeat(4,1fr);
-
-      gap: 10px;
-    }
-
-
-    .memory {
-      min-height: 310px;
-
-      padding: 22px;
-
-      display: flex;
-      align-items: flex-end;
-
-      position: relative;
-
-      overflow: hidden;
-
-      background-size: cover;
-      background-position: center;
-    }
-
-
-    .memory::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(
-          transparent 35%,
-          rgba(0,0,0,.65)
-        );
-    }
-
-
-    .memory span {
-      position: relative;
-      z-index: 2;
-
-      font-family: Georgia, serif;
-      font-size: 1.3rem;
-
-      color: white;
-    }
-
-
-    .memory-river {
-      background-image:
-
-        url("assets/hometown-river.jpg"),
-
-        linear-gradient(
-          #789589,
-          #465a4d
-        );
-    }
-
-
-    .memory-mainstreet {
-      background-image:
-
-        url("assets/hometown-mainstreet.jpg"),
-
-        linear-gradient(
-          #8e6c51,
-          #5a4030
-        );
-    }
-
-
-    .memory-music {
-      background-image:
-
-        url("assets/hometown-music.jpg"),
-
-        linear-gradient(
-          #554636,
-          #231b15
-        );
-    }
-
-
-    .memory-fire {
-      background-image:
-
-        url("assets/hometown-fire.jpg"),
-
-        linear-gradient(
-          #755137,
-          #20140d
-        );
-    }
-
-
-    /* ======================================================
-       GLOBAL STATEMENT
-    ====================================================== */
-
-    .global {
-      padding: 120px 7%;
-
-      background:
-        linear-gradient(
-          90deg,
-          #111e18,
-          #18392b
-        );
-
-      color: white;
-    }
-
-
-    .global-inner {
-      max-width: 1000px;
-    }
-
-
-    .global h2 {
-      margin-bottom: 26px;
-
-      font-family: Georgia, serif;
-
-      font-size: clamp(3.2rem, 7vw, 6rem);
-      line-height: .96;
-
-      font-weight: normal;
-    }
-
-
-    .global p {
-      max-width: 760px;
-
-      color: rgba(255,255,255,.68);
-
-      font-size: 1.08rem;
-      line-height: 1.8;
-    }
-
-
-    .global-accent {
-      margin-top: 35px;
-
-      width: 100px;
-      height: 3px;
-
-      background: var(--gold);
-    }
-
-
-    /* ======================================================
-       FOOTER
-    ====================================================== */
-
-    footer {
-      padding:
-        55px
-        max(7%,env(safe-area-inset-right))
-        calc(55px + env(safe-area-inset-bottom))
-        max(7%,env(safe-area-inset-left));
-
-      background: #071710;
-
-      color: rgba(255,255,255,.55);
-    }
-
-
-    .footer-mark {
-      margin-bottom: 20px;
-
-      width: 55px;
-      height: 55px;
-
-      border: 1px solid rgba(173,138,73,.45);
-      border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      font-family: Georgia, serif;
-
-      color: var(--gold);
-    }
-
-
-    footer strong {
-      display: block;
-
-      margin-bottom: 7px;
-
-      color: white;
-
-      font-family: Georgia, serif;
-      font-size: 1.35rem;
-    }
-
-
-    .footer-contact {
-      margin-top: 24px;
-    }
-
-
-    .footer-contact-label {
-      margin-bottom: 7px;
-
-      font-size: .68rem;
-
-      text-transform: uppercase;
-      letter-spacing: 2px;
-
-      color: var(--turquoise-faded);
-    }
-
-
-    .footer-email {
-      display: inline-block;
-
-      min-height: 44px;
-
-      line-height: 44px;
-
-      color: var(--cream);
-
-      font-size: .95rem;
-
-      transition: color .2s ease;
-    }
-
-
-    .footer-email:hover {
-      color: var(--gold);
-    }
-
-
-    .copyright {
-      margin-top: 26px;
-
-      font-size: .8rem;
-    }
-
-
-    /* ======================================================
-       MOBILE
-    ====================================================== */
-
-    @media (max-width: 850px) {
-
-      .hero {
-        min-height: 82dvh;
-
-        padding:
-          80px
-          6%
-          60px;
-
-        background-position: center;
-      }
-
-
-      .hero-logo {
-        width: min(250px, 75vw);
-      }
-
-
-      .hero h1 {
-        font-size: clamp(3.3rem, 14vw, 5.4rem);
-      }
-
-
-      .hero-subhead {
-        font-size: 1rem;
-      }
-
-
-      .brand-intro {
-        padding: 80px 6%;
-      }
-
-
-      .brand-intro::after {
-        right: -10%;
-        font-size: 13rem;
-      }
-
-
-      .collections {
-        padding: 75px 6%;
-      }
-
-
-      .collection-grid {
-        grid-template-columns: 1fr;
-      }
-
-
-      .collection-card {
-        min-height: 360px;
-      }
-
-
-      .hometown-preview {
-        padding: 75px 6%;
-      }
-
-
-      .memory-strip {
-        grid-template-columns: 1fr 1fr;
-      }
-
-
-      .memory {
-        min-height: 240px;
-      }
-
-
-      .global {
-        padding: 85px 6%;
-      }
-
-
-      .intro-title {
-        font-size: clamp(3.4rem,18vw,5.5rem);
-      }
-
-    }
-
-
-    @media (max-width: 520px) {
-
-      .memory-strip {
-        grid-template-columns: 1fr;
-      }
-
-
-      .memory {
-        min-height: 230px;
-      }
-
-
-      .hero-actions {
-        width: 100%;
-      }
-
-
-      .hero-button {
-        width: 100%;
-        justify-content: center;
-      }
-
-    }
-
-  </style>
+  <link
+    rel="stylesheet"
+    href="assets/home-sections.css"
+  >
 
 </head>
 
@@ -1108,8 +47,16 @@
 <body>
 
 
+<!-- ======================================================
+     SITE CONFIG
+====================================================== -->
+
 <script src="assets/site-config.js"></script>
 
+
+<!-- ======================================================
+     MUSIC
+====================================================== -->
 
 <audio
   id="siteMusic"
@@ -1117,87 +64,126 @@
 </audio>
 
 
-<!-- OPENING SCREEN -->
+<!-- ======================================================
+     OPENING SCREEN
+====================================================== -->
 
 <div id="intro">
 
   <div class="intro-inner">
 
+
     <div class="intro-mark">
       TV
     </div>
+
 
     <div
       class="intro-kicker"
       id="introTagline">
     </div>
 
+
     <div class="intro-title">
+
       TERENCIO
       <br>
       VERDE
+
     </div>
+
 
     <div class="intro-buttons">
 
+
       <button id="enterMusic">
+
         Enter with music
+
       </button>
+
 
       <button id="enterQuiet">
+
         Enter quietly
+
       </button>
 
+
     </div>
+
 
     <div
       class="music-credit"
       id="musicCredit">
     </div>
 
+
   </div>
 
 </div>
 
 
-<!-- HEADER -->
+<!-- ======================================================
+     HEADER
+====================================================== -->
 
-<header>
+<header class="site-header">
+
 
   <a
-    class="brand"
+    class="site-brand"
     href="index.html">
+
     TERENCIO VERDE
+
   </a>
 
 
-  <nav>
+  <nav class="site-nav">
+
 
     <a href="hometown.html">
+
       Hometown
+
     </a>
+
 
     <a href="collaborations.html">
+
       Artist Collabs
+
     </a>
 
+
     <a href="web3.html">
+
       Web3
+
     </a>
+
 
     <a
       id="interactiveNav"
       href="interactive.html">
+
       Interactive
+
     </a>
+
 
     <a
       id="storeNav"
       href="store.html">
+
       Shop
+
     </a>
 
+
   </nav>
+
 
 </header>
 
@@ -1205,331 +191,458 @@
 <main>
 
 
-<!-- HERO -->
+<!-- ======================================================
+     HERO
+====================================================== -->
 
-<section class="hero">
-
-  <div class="hero-copy">
+<section class="home-hero">
 
 
-    <div class="hero-logo-wrap">
+  <div class="home-hero-inner">
 
-      <img
-        class="hero-logo"
-        src="assets/tv%20banner.png"
-        alt="Terencio Verde"
-        loading="eager"
-      >
+
+    <div class="home-hero-copy">
+
+
+      <div class="eyebrow">
+
+        Independent Apparel
+
+      </div>
+
+
+      <h1>
+
+        The Place
+        <br>
+        That Stays
+        <br>
+        With You.
+
+      </h1>
+
+
+      <p class="home-hero-subhead">
+
+        Rooted in Central Texas.
+        Made for every hometown
+        worth remembering.
+
+      </p>
+
+
+      <p class="home-hero-note">
+
+        Independent apparel shaped by
+        art, music, memory and place.
+
+      </p>
+
 
     </div>
 
 
-    <div class="eyebrow">
-      Independent Apparel
+  </div>
+
+
+</section>
+
+
+<!-- ======================================================
+     BRAND INTRODUCTION
+====================================================== -->
+
+<section class="home-intro">
+
+
+  <div class="home-intro-inner">
+
+
+    <div class="home-intro-content">
+
+
+      <div class="eyebrow">
+
+        Terencio Verde
+
+      </div>
+
+
+      <h2>
+
+        Rooted somewhere.
+        Limited nowhere.
+
+      </h2>
+
+
+      <p>
+
+        Terencio Verde begins with a sense of place —
+        familiar roads, old storefronts, live music,
+        river towns and the things people remember
+        long after they leave.
+
+        <br><br>
+
+        From there, the brand moves outward through
+        independent artists, original artwork,
+        digital characters, collaborations and
+        interactive garments while keeping apparel
+        at the center.
+
+      </p>
+
+
     </div>
 
 
-    <h1>
-      The Place
-      That Stays
-      With You.
-    </h1>
+  </div>
 
 
-    <p class="hero-subhead">
-
-      Rooted in Central Texas.
-      Made for every hometown
-      worth remembering.
-
-    </p>
+</section>
 
 
-    <div class="hero-actions">
+<!-- ======================================================
+     COLLECTION DIRECTORY
+====================================================== -->
+
+<section class="home-collections">
+
+
+  <div class="home-collections-inner">
+
+
+    <div class="home-section-heading">
+
+
+      <div class="eyebrow">
+
+        Explore Terencio Verde
+
+      </div>
+
+
+      <h2>
+
+        Different worlds.
+        One label.
+
+      </h2>
+
+
+      <p>
+
+        Each collection has its own identity,
+        but everything belongs to the same
+        Terencio Verde story.
+
+      </p>
+
+
+    </div>
+
+
+    <div class="home-collection-grid">
+
+
+      <!-- HOMETOWN -->
 
       <a
-        class="hero-button"
-        href="#collections">
-        Explore the Collections
+        class="home-collection-card home-card-hometown"
+        href="hometown.html">
+
+
+        <div class="home-collection-content">
+
+
+          <small>
+
+            Collection 01
+
+          </small>
+
+
+          <h3>
+
+            Hometown
+
+          </h3>
+
+
+          <p>
+
+            Familiar places, regional culture,
+            Americana and the things people
+            carry with them wherever they go.
+
+          </p>
+
+
+        </div>
+
+
       </a>
 
-    </div>
+
+      <!-- ARTIST COLLABORATIONS -->
+
+      <a
+        class="home-collection-card home-card-collabs"
+        href="collaborations.html">
 
 
-    <div class="hero-origin">
+        <div class="home-collection-content">
 
-      Independent apparel shaped by
-      art, music, memory and place.
+
+          <small>
+
+            Collection 02
+
+          </small>
+
+
+          <h3>
+
+            Artist Collaborations
+
+          </h3>
+
+
+          <p>
+
+            Limited apparel created with
+            independent and international artists.
+
+          </p>
+
+
+        </div>
+
+
+      </a>
+
+
+      <!-- WEB3 -->
+
+      <a
+        class="home-collection-card home-card-web3"
+        href="web3.html">
+
+
+        <div class="home-collection-content">
+
+
+          <small>
+
+            Collection 03
+
+          </small>
+
+
+          <h3>
+
+            Web3
+
+          </h3>
+
+
+          <p>
+
+            Digital characters, original artwork
+            and strange worlds taking physical form.
+
+          </p>
+
+
+        </div>
+
+
+      </a>
+
+
+      <!-- INTERACTIVE APPAREL -->
+
+      <a
+        id="interactiveCard"
+        class="home-collection-card home-card-interactive"
+        href="interactive.html">
+
+
+        <div class="home-collection-content">
+
+
+          <small>
+
+            Technology
+
+          </small>
+
+
+          <h3>
+
+            Interactive Apparel
+
+          </h3>
+
+
+          <p>
+
+            NFC-enabled garments connecting
+            clothing with art, music,
+            stories and digital experiences.
+
+          </p>
+
+
+        </div>
+
+
+      </a>
+
 
     </div>
 
 
   </div>
 
+
 </section>
 
 
-<!-- BRAND INTRODUCTION -->
+<!-- ======================================================
+     HOMETOWN PREVIEW
+====================================================== -->
 
-<section class="brand-intro">
+<section class="home-hometown">
 
-  <div class="brand-intro-inner">
+
+  <div class="home-hometown-inner">
+
 
     <div class="eyebrow">
-      Independent Apparel
+
+      Hometown
+
     </div>
 
+
     <h2>
-      Rooted somewhere.
-      Limited nowhere.
+
+      Old roads.
+      Familiar places.
+      Things worth remembering.
+
     </h2>
 
-    <p>
 
-      Terencio Verde began with a sense of place:
-      old roads, familiar storefronts, live music,
-      river towns and things that carry a little
-      history with them.
+    <div class="home-memory-grid">
 
-      The brand moves outward from there —
-      through independent artists, digital characters,
-      global collaborations and interactive garments —
-      while keeping the clothing at the center.
 
-    </p>
+      <div class="home-memory home-memory-river">
+
+        <span>
+
+          River Days
+
+        </span>
+
+      </div>
+
+
+      <div class="home-memory home-memory-mainstreet">
+
+        <span>
+
+          Main Street
+
+        </span>
+
+      </div>
+
+
+      <div class="home-memory home-memory-music">
+
+        <span>
+
+          Live Music
+
+        </span>
+
+      </div>
+
+
+      <div class="home-memory home-memory-fire">
+
+        <span>
+
+          Fire & Smoke
+
+        </span>
+
+      </div>
+
+
+    </div>
+
 
   </div>
+
 
 </section>
 
 
-<!-- COLLECTIONS -->
+<!-- ======================================================
+     GLOBAL BRAND MESSAGE
+====================================================== -->
 
-<section
-  class="collections"
-  id="collections">
-
-
-  <div class="section-heading">
-
-    <div class="eyebrow">
-      Explore Terencio Verde
-    </div>
-
-    <h2>
-      Different worlds.
-      One label.
-    </h2>
-
-    <p>
-
-      Each collection has its own character,
-      but everything belongs to the same
-      Terencio Verde story.
-
-    </p>
-
-  </div>
+<section class="home-global">
 
 
-  <div class="collection-grid">
+  <div class="home-global-inner">
 
 
-    <a
-      href="hometown.html"
-      class="collection-card hometown-card">
+    <div class="home-global-content">
 
-      <div class="collection-copy">
 
-        <small>
-          Collection 01
-        </small>
+      <div class="eyebrow">
 
-        <h3>
-          Hometown
-        </h3>
-
-        <p>
-
-          Regional culture, familiar places,
-          Americana and the things people
-          carry with them long after they leave.
-
-        </p>
+        Beyond Home
 
       </div>
 
-    </a>
+
+      <h2>
+
+        Local roots.
+        Global ideas.
+
+      </h2>
 
 
-    <a
-      href="collaborations.html"
-      class="collection-card collab-card">
+      <p>
 
-      <div class="collection-copy">
+        Central Texas is part of the
+        Terencio Verde story — not its boundary.
 
-        <small>
-          Collection 02
-        </small>
+        <br><br>
 
-        <h3>
-          Artist Collaborations
-        </h3>
+        Artists, characters, designs and ideas
+        can come from anywhere, and every
+        collection gets room to carry
+        its own identity.
 
-        <p>
-
-          Limited apparel created with
-          independent and international artists.
-
-        </p>
-
-      </div>
-
-    </a>
+      </p>
 
 
-    <a
-      href="web3.html"
-      class="collection-card web3-card">
-
-      <div class="collection-copy">
-
-        <small>
-          Collection 03
-        </small>
-
-        <h3>
-          Web3
-        </h3>
-
-        <p>
-
-          Digital characters, NFT artwork
-          and strange worlds taking
-          physical form.
-
-        </p>
-
-      </div>
-
-    </a>
+      <div class="home-global-line"></div>
 
 
-    <a
-      id="interactiveCard"
-      href="interactive.html"
-      class="collection-card interactive-card">
-
-      <div class="collection-copy">
-
-        <small>
-          Technology
-        </small>
-
-        <h3>
-          Interactive Apparel
-        </h3>
-
-        <p>
-
-          NFC-enabled garments connecting
-          clothing with art, music,
-          stories and digital experiences.
-
-        </p>
-
-      </div>
-
-    </a>
-
-
-  </div>
-
-</section>
-
-
-<!-- HOMETOWN PREVIEW -->
-
-<section class="hometown-preview">
-
-  <div class="eyebrow">
-    Hometown
-  </div>
-
-  <h2>
-
-    Old roads.
-    Familiar places.
-    Things worth remembering.
-
-  </h2>
-
-
-  <div class="memory-strip">
-
-
-    <div class="memory memory-river">
-      <span>
-        River Days
-      </span>
-    </div>
-
-
-    <div class="memory memory-mainstreet">
-      <span>
-        Main Street
-      </span>
-    </div>
-
-
-    <div class="memory memory-music">
-      <span>
-        Live Music
-      </span>
-    </div>
-
-
-    <div class="memory memory-fire">
-      <span>
-        Fire & Smoke
-      </span>
     </div>
 
 
   </div>
 
-</section>
-
-
-<!-- GLOBAL BRAND MESSAGE -->
-
-<section class="global">
-
-  <div class="global-inner">
-
-    <div class="eyebrow">
-      Beyond Home
-    </div>
-
-    <h2>
-      Local roots.
-      Global ideas.
-    </h2>
-
-    <p>
-
-      Central Texas is part of the Terencio Verde
-      story, not its boundary.
-
-      Artists, characters, designs and ideas can
-      come from anywhere — and every collection
-      gets room to carry its own identity.
-
-    </p>
-
-    <div class="global-accent"></div>
-
-  </div>
 
 </section>
 
@@ -1537,207 +650,83 @@
 </main>
 
 
-<!-- FOOTER -->
+<!-- ======================================================
+     FOOTER
+====================================================== -->
 
-<footer>
-
-
-  <div class="footer-mark">
-    TV
-  </div>
+<footer class="site-footer">
 
 
-  <strong>
-    Terencio Verde
-  </strong>
+  <div class="footer-inner">
 
 
-  <span id="footerTagline"></span>
+    <div class="footer-mark">
 
+      TV
 
-  <div class="footer-contact">
-
-    <div class="footer-contact-label">
-      Contact
     </div>
 
-    <a
-      class="footer-email"
-      href="mailto:verdeterencio@gmail.com">
-      verdeterencio@gmail.com
-    </a>
 
-  </div>
+    <strong class="footer-brand">
+
+      Terencio Verde
+
+    </strong>
 
 
-  <div class="copyright">
-    © 2026 Terencio Verde
+    <span
+      class="footer-tagline"
+      id="footerTagline">
+    </span>
+
+
+    <div class="footer-contact">
+
+
+      <div class="footer-label">
+
+        Contact
+
+      </div>
+
+
+      <a
+        class="footer-email"
+        href="mailto:verdeterencio@gmail.com">
+
+        verdeterencio@gmail.com
+
+      </a>
+
+
+    </div>
+
+
+    <div class="footer-copyright">
+
+      ©
+      <span id="footerYear">2026</span>
+      Terencio Verde
+
+    </div>
+
+
   </div>
 
 
 </footer>
 
 
-<script>
+<!-- ======================================================
+     HOMEPAGE JAVASCRIPT
+====================================================== -->
 
+<script src="assets/home.js"></script>
 
-  const config =
-    window.TERENCIO_CONFIG || {};
 
-
-  document
-    .getElementById("introTagline")
-    .textContent =
-      config.tagline ||
-      "Independent Apparel · Art · Culture · Technology";
-
-
-  document
-    .getElementById("footerTagline")
-    .textContent =
-      config.tagline ||
-      "Independent Apparel · Art · Culture · Technology";
-
-
-  /* MUSIC */
-
-  const intro =
-    document.getElementById("intro");
-
-
-  const audio =
-    document.getElementById("siteMusic");
-
-
-  const enterMusic =
-    document.getElementById("enterMusic");
-
-
-  const enterQuiet =
-    document.getElementById("enterQuiet");
-
-
-  const musicCredit =
-    document.getElementById("musicCredit");
-
-
-  audio.src =
-    config.musicFile ||
-    "assets/do-you-remember.mp3";
-
-
-  musicCredit.textContent =
-    config.musicCredit ||
-    "Music by Terence Green and the Loose Strings";
-
-
-  const MUSIC_START =
-    config.musicStart ?? 50;
-
-
-  const MUSIC_END =
-    config.musicEnd ?? 80;
-
-
-  if (
-    config.musicEnabled === false
-  ) {
-    enterMusic.style.display = "none";
-  }
-
-
-  enterMusic.addEventListener(
-    "click",
-
-    async () => {
-
-      intro.classList.add("hidden");
-
-      try {
-
-        audio.currentTime = MUSIC_START;
-
-        audio.volume = .65;
-
-        await audio.play();
-
-        const watcher =
-          setInterval(
-            () => {
-
-              if (
-                audio.currentTime >= MUSIC_END
-              ) {
-
-                audio.pause();
-
-                clearInterval(watcher);
-
-              }
-
-            },
-
-            250
-          );
-
-      }
-
-      catch (error) {
-
-        console.log(
-          "Music playback unavailable.",
-          error
-        );
-
-      }
-
-    }
-  );
-
-
-  enterQuiet.addEventListener(
-    "click",
-
-    () => {
-
-      intro.classList.add("hidden");
-
-    }
-  );
-
-
-  /* STORE */
-
-  if (
-    config.storeEnabled === true
-  ) {
-
-    document
-      .getElementById("storeNav")
-      .style.display = "inline";
-
-  }
-
-
-  /* INTERACTIVE APPAREL */
-
-  if (
-    config.interactiveApparelEnabled === false
-  ) {
-
-    document
-      .getElementById("interactiveNav")
-      .style.display = "none";
-
-    document
-      .getElementById("interactiveCard")
-      .style.display = "none";
-
-  }
-
-
-</script>
-
+<!-- ======================================================
+     MOBILE NAVIGATION
+====================================================== -->
 
 <script src="assets/mobile-nav.js"></script>
 
