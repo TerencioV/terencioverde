@@ -1,613 +1,1738 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
   <title>Terencio Verde</title>
 
   <meta
     name="description"
-    content="Terencio Verde — independent apparel, artist collaborations, digital art and interactive clothing."
+    content="Terencio Verde — independent apparel, hometown culture, artist collaborations, digital characters and interactive clothing."
   >
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+
+    /* ======================================================
+       TERENCIO VERDE
+       MAIN HOMEPAGE
+    ====================================================== */
+
+    :root {
+
+      --forest:
+        #18392b;
+
+      --forest-dark:
+        #0c2118;
+
+      --cream:
+        #f2eadb;
+
+      --cream-light:
+        #faf6ee;
+
+      --taupe:
+        #bba88c;
+
+      --brown:
+        #4a372b;
+
+      --turquoise:
+        #5f918b;
+
+      --turquoise-faded:
+        #87aaa3;
+
+      --gold:
+        #ad8a49;
+
+      --black:
+        #171713;
+
+      --white:
+        #fffdf8;
+
     }
+
+
+    * {
+
+      box-sizing:
+        border-box;
+
+      margin:
+        0;
+
+      padding:
+        0;
+
+    }
+
 
     html {
-      scroll-behavior: smooth;
+
+      scroll-behavior:
+        smooth;
+
     }
+
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f2eadf;
-      color: #173125;
-      overflow-x: hidden;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        var(--cream);
+
+      color:
+        var(--black);
+
+      overflow-x:
+        hidden;
+
     }
+
 
     a {
-      color: inherit;
-      text-decoration: none;
+
+      color:
+        inherit;
+
+      text-decoration:
+        none;
+
     }
+
 
     button {
-      font: inherit;
-      cursor: pointer;
+
+      font:
+        inherit;
+
+      cursor:
+        pointer;
+
     }
 
-    /* ===============================
-       MUSIC INTRO
-    =============================== */
+
+    /* ======================================================
+       OPENING MUSIC SCREEN
+    ====================================================== */
 
     #intro {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position:
+        fixed;
 
-      text-align: center;
-      color: white;
+      inset:
+        0;
+
+      z-index:
+        9999;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        30px;
+
+      text-align:
+        center;
+
+      color:
+        var(--cream);
 
       background:
+
         radial-gradient(
-          circle at center,
-          #315945 0%,
-          #173829 45%,
-          #081a12 100%
+          circle at 50% 40%,
+          #315844 0%,
+          #193b2d 43%,
+          #081910 100%
         );
 
       transition:
-        opacity 0.7s ease,
-        visibility 0.7s ease;
+        opacity .7s ease,
+        visibility .7s ease;
+
     }
+
 
     #intro.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+
+      opacity:
+        0;
+
+      visibility:
+        hidden;
+
+      pointer-events:
+        none;
+
     }
+
 
     .intro-inner {
-      width: min(850px, 90vw);
-      padding: 30px;
+
+      width:
+        min(850px, 92vw);
+
     }
 
-    .intro-small {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 0.72rem;
-      opacity: 0.65;
-      margin-bottom: 25px;
+
+    .intro-mark {
+
+      margin:
+        0 auto 24px;
+
+      width:
+        95px;
+
+      height:
+        95px;
+
+      border:
+        1px solid rgba(205, 175, 108, .45);
+
+      border-radius:
+        50%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        2rem;
+
+      color:
+        var(--gold);
+
+      letter-spacing:
+        2px;
+
     }
+
+
+    .intro-kicker {
+
+      margin-bottom:
+        18px;
+
+      font-size:
+        .72rem;
+
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
+
+      color:
+        rgba(255,255,255,.58);
+
+    }
+
 
     .intro-title {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.8rem, 10vw, 8rem);
-      line-height: 0.86;
-      font-weight: normal;
-      margin-bottom: 36px;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(
+          3.8rem,
+          10vw,
+          8rem
+        );
+
+      line-height:
+        .86;
+
+      font-weight:
+        normal;
+
+      margin-bottom:
+        35px;
+
     }
+
 
     .intro-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
+
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        12px;
+
     }
+
 
     .intro-buttons button {
-      padding: 14px 24px;
-      border-radius: 3px;
-      min-height: 48px;
+
+      min-height:
+        48px;
+
+      padding:
+        14px 23px;
+
+      border-radius:
+        2px;
+
     }
+
 
     #enterMusic {
-      background: #f2eadf;
-      color: #173829;
-      border: 1px solid #f2eadf;
+
+      border:
+        1px solid var(--cream);
+
+      background:
+        var(--cream);
+
+      color:
+        var(--forest);
+
     }
+
 
     #enterQuiet {
-      background: transparent;
-      color: white;
-      border: 1px solid rgba(255,255,255,0.45);
+
+      border:
+        1px solid rgba(255,255,255,.35);
+
+      background:
+        transparent;
+
+      color:
+        white;
+
     }
+
 
     .music-credit {
-      margin-top: 20px;
-      font-size: 0.72rem;
-      opacity: 0.5;
+
+      margin-top:
+        20px;
+
+      font-size:
+        .72rem;
+
+      color:
+        rgba(255,255,255,.43);
+
     }
 
-    /* ===============================
+
+    /* ======================================================
        HEADER
-    =============================== */
+    ====================================================== */
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
 
-      min-height: 68px;
+      position:
+        sticky;
 
-      padding: 0 6%;
+      top:
+        0;
 
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      z-index:
+        1000;
 
-      background: #123326;
-      color: white;
+      min-height:
+        68px;
+
+      padding:
+        0 6%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      background:
+        rgba(15, 38, 28, .96);
+
+      backdrop-filter:
+        blur(12px);
+
+      color:
+        var(--cream);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.06);
+
     }
+
 
     .brand {
-      font-family: Georgia, serif;
-      letter-spacing: 2px;
-      font-size: 1rem;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        1rem;
+
+      letter-spacing:
+        2px;
+
     }
+
 
     nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        25px;
+
     }
+
 
     nav a {
-      font-size: 0.73rem;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      opacity: 0.75;
-    }
 
-    nav a:hover {
-      opacity: 1;
-    }
+      font-size:
+        .72rem;
 
-    #storeNav {
-      display: none;
-    }
+      text-transform:
+        uppercase;
 
-    /* ===============================
-       HERO
-    =============================== */
+      letter-spacing:
+        1.2px;
 
-    .hero {
-      position: relative;
-
-      min-height: 82vh;
-
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-
-      padding: 80px 7%;
-
-      overflow: hidden;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(241,233,220,0.97),
-          rgba(241,233,220,0.88)
-        ),
-        repeating-linear-gradient(
-          0deg,
-          #eee4d2,
-          #eee4d2 44px,
-          #d8c7ac 45px,
-          #d8c7ac 47px
-        );
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-
-      width: 650px;
-      height: 650px;
-
-      right: -250px;
-      top: -180px;
-
-      border-radius: 50%;
-
-      background: rgba(28,83,56,0.07);
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      max-width: 760px;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.76rem;
-      font-weight: bold;
-      color: #46725a;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-family: Georgia, "Times New Roman", serif;
-
-      font-size: clamp(3.8rem, 8vw, 7rem);
-
-      line-height: 0.87;
-      font-weight: normal;
-
-      color: #143426;
-
-      margin-bottom: 30px;
-    }
-
-    .hero p {
-      max-width: 630px;
-
-      font-size: 1.15rem;
-      line-height: 1.75;
-
-      color: #4d5650;
-    }
-
-    .hero-button {
-      display: inline-block;
-
-      margin-top: 30px;
-
-      padding: 14px 21px;
-
-      background: #143426;
-      color: white;
-
-      border-radius: 3px;
-    }
-
-    /* ===============================
-       CHARACTER AREA
-    =============================== */
-
-    .character-zone {
-      position: relative;
-      z-index: 2;
-
-      min-height: 520px;
-
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-
-    .character-zone img {
-      width: min(520px, 95%);
-      max-height: 620px;
-      object-fit: contain;
-
-      filter:
-        drop-shadow(
-          0 30px 28px rgba(0,0,0,0.18)
-        );
-    }
-
-    /* ===============================
-       COLLECTION DIRECTORY
-    =============================== */
-
-    .explore {
-      padding: 100px 7%;
-      background: #fbf7ef;
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 50px;
-    }
-
-    .section-heading h2 {
-      font-family: Georgia, serif;
-
-      font-size: clamp(3rem, 6vw, 5rem);
-      line-height: 1;
-
-      font-weight: normal;
-
-      margin-bottom: 20px;
-    }
-
-    .section-heading p {
-      max-width: 650px;
-      line-height: 1.7;
-      color: #5d655f;
-    }
-
-    .page-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .page-card {
-      position: relative;
-
-      min-height: 390px;
-
-      padding: 35px;
-
-      border-radius: 7px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-
-      overflow: hidden;
+      opacity:
+        .72;
 
       transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        opacity .2s ease;
+
     }
 
-    .page-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.10);
+
+    nav a:hover {
+
+      opacity:
+        1;
+
     }
 
-    .page-card h3 {
-      font-family: Georgia, serif;
-      font-weight: normal;
-      font-size: 2.5rem;
-      line-height: 1;
-      margin-bottom: 12px;
+
+    #storeNav {
+
+      display:
+        none;
+
     }
 
-    .page-card p {
-      max-width: 480px;
-      line-height: 1.6;
-    }
 
-    .hometown-card {
-      background:
+    /* ======================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+
+      position:
+        relative;
+
+      min-height:
+        88vh;
+
+      display:
+        flex;
+
+      align-items:
+        flex-end;
+
+      padding:
+        90px 7% 95px;
+
+      color:
+        var(--cream);
+
+      overflow:
+        hidden;
+
+      /*
+        When you upload a real hero image,
+        name it:
+
+        assets/hero-hometown.jpg
+
+        Until then, the gradients underneath
+        still give the page a finished look.
+      */
+
+      background-image:
+
         linear-gradient(
-          rgba(239,229,210,0.78),
-          rgba(239,229,210,0.94)
+          90deg,
+          rgba(7, 24, 16, .87) 0%,
+          rgba(13, 40, 29, .68) 42%,
+          rgba(12, 35, 27, .30) 72%,
+          rgba(7, 19, 13, .46) 100%
         ),
+
+        url("assets/hero-hometown.jpg"),
+
+        linear-gradient(
+          135deg,
+          #183b2c,
+          #54715d,
+          #8c806b
+        );
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
+    }
+
+
+    .hero::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      pointer-events:
+        none;
+
+      background:
+
+        linear-gradient(
+          180deg,
+          transparent 55%,
+          rgba(6, 17, 12, .42)
+        );
+
+    }
+
+
+    .hero-copy {
+
+      position:
+        relative;
+
+      z-index:
+        3;
+
+      max-width:
+        840px;
+
+    }
+
+
+    .eyebrow {
+
+      margin-bottom:
+        20px;
+
+      font-size:
+        .75rem;
+
+      font-weight:
+        bold;
+
+      letter-spacing:
+        3px;
+
+      text-transform:
+        uppercase;
+
+      color:
+        var(--turquoise-faded);
+
+    }
+
+
+    .hero h1 {
+
+      max-width:
+        900px;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size:
+        clamp(
+          4rem,
+          8vw,
+          7.7rem
+        );
+
+      line-height:
+        .91;
+
+      font-weight:
+        normal;
+
+      text-wrap:
+        balance;
+
+      margin-bottom:
+        26px;
+
+    }
+
+
+    .hero-subhead {
+
+      max-width:
+        650px;
+
+      font-size:
+        clamp(
+          1rem,
+          2vw,
+          1.22rem
+        );
+
+      line-height:
+        1.7;
+
+      color:
+        rgba(255,255,255,.78);
+
+    }
+
+
+    .hero-actions {
+
+      margin-top:
+        30px;
+
+      display:
+        flex;
+
+      gap:
+        12px;
+
+      flex-wrap:
+        wrap;
+
+    }
+
+
+    .hero-button {
+
+      min-height:
+        48px;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      padding:
+        13px 21px;
+
+      background:
+        var(--cream);
+
+      color:
+        var(--forest-dark);
+
+      font-size:
+        .88rem;
+
+      letter-spacing:
+        .4px;
+
+    }
+
+
+    .hero-origin {
+
+      margin-top:
+        25px;
+
+      max-width:
+        560px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-style:
+        italic;
+
+      font-size:
+        .92rem;
+
+      color:
+        rgba(255,255,255,.55);
+
+    }
+
+
+    /* ======================================================
+       BRAND INTRO
+    ====================================================== */
+
+    .brand-intro {
+
+      position:
+        relative;
+
+      padding:
+        120px 7%;
+
+      overflow:
+        hidden;
+
+      background:
+
+        linear-gradient(
+          rgba(242,234,219,.96),
+          rgba(242,234,219,.96)
+        ),
+
         repeating-linear-gradient(
           0deg,
-          #ede1cb,
-          #ede1cb 43px,
-          #d0b998 44px,
-          #d0b998 46px
+          #efe5d3,
+          #efe5d3 45px,
+          #dbcbb0 46px,
+          #dbcbb0 48px
         );
 
-      color: #173326;
     }
+
+
+    .brand-intro::after {
+
+      content:
+        "TV";
+
+      position:
+        absolute;
+
+      right:
+        4%;
+
+      top:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          12rem,
+          30vw,
+          30rem
+        );
+
+      line-height:
+        1;
+
+      color:
+        rgba(65, 103, 78, .045);
+
+      pointer-events:
+        none;
+
+    }
+
+
+    .brand-intro-inner {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      max-width:
+        920px;
+
+    }
+
+
+    .brand-intro h2 {
+
+      margin-bottom:
+        25px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          3rem,
+          6vw,
+          5.4rem
+        );
+
+      line-height:
+        1;
+
+      font-weight:
+        normal;
+
+      color:
+        var(--forest-dark);
+
+    }
+
+
+    .brand-intro p {
+
+      max-width:
+        760px;
+
+      color:
+        #5a5e56;
+
+      line-height:
+        1.8;
+
+      font-size:
+        1.08rem;
+
+    }
+
+
+    /* ======================================================
+       COLLECTION DIRECTORY
+    ====================================================== */
+
+    .collections {
+
+      padding:
+        105px 7%;
+
+      background:
+        var(--cream-light);
+
+    }
+
+
+    .section-heading {
+
+      max-width:
+        800px;
+
+      margin-bottom:
+        55px;
+
+    }
+
+
+    .section-heading h2 {
+
+      margin-bottom:
+        19px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          3rem,
+          6vw,
+          5rem
+        );
+
+      line-height:
+        1;
+
+      font-weight:
+        normal;
+
+      color:
+        var(--forest-dark);
+
+    }
+
+
+    .section-heading p {
+
+      max-width:
+        680px;
+
+      line-height:
+        1.75;
+
+      color:
+        #62645e;
+
+    }
+
+
+    .collection-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        20px;
+
+    }
+
+
+    .collection-card {
+
+      position:
+        relative;
+
+      min-height:
+        470px;
+
+      padding:
+        35px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        flex-end;
+
+      overflow:
+        hidden;
+
+      border-radius:
+        3px;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    }
+
+
+    .collection-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.11);
+
+    }
+
+
+    .collection-card::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      background:
+
+        linear-gradient(
+          transparent 25%,
+          rgba(0,0,0,.72)
+        );
+
+    }
+
+
+    .collection-copy {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      color:
+        white;
+
+    }
+
+
+    .collection-copy small {
+
+      display:
+        block;
+
+      margin-bottom:
+        12px;
+
+      font-size:
+        .7rem;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        2px;
+
+      color:
+        rgba(255,255,255,.65);
+
+    }
+
+
+    .collection-copy h3 {
+
+      margin-bottom:
+        10px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          2.1rem,
+          4vw,
+          3.2rem
+        );
+
+      font-weight:
+        normal;
+
+    }
+
+
+    .collection-copy p {
+
+      max-width:
+        480px;
+
+      line-height:
+        1.6;
+
+      color:
+        rgba(255,255,255,.75);
+
+    }
+
+
+    /* HOMETOWN */
+
+    .hometown-card {
+
+      background-image:
+
+        linear-gradient(
+          rgba(31, 67, 47, .20),
+          rgba(31, 67, 47, .10)
+        ),
+
+        url("assets/hometown-river.jpg"),
+
+        linear-gradient(
+          135deg,
+          #5a7864,
+          #927a5f
+        );
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
+    }
+
+
+    /* ARTIST COLLABS */
 
     .collab-card {
-      color: white;
 
-      background:
+      background-image:
+
         radial-gradient(
-          circle at 75% 20%,
-          rgba(86,138,97,0.42),
-          transparent 38%
+          circle at 78% 25%,
+          rgba(124, 161, 130, .30),
+          transparent 32%
         ),
+
+        url("assets/collaboration-bg.jpg"),
+
         linear-gradient(
           135deg,
-          #173a2a,
-          #0c2118
+          #143728,
+          #071a12
         );
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
     }
+
+
+    /* WEB3 */
 
     .web3-card {
-      color: white;
 
       background:
-        radial-gradient(
-          circle at 75% 20%,
-          rgba(137,64,191,0.43),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 20% 80%,
-          rgba(41,181,172,0.27),
-          transparent 33%
-        ),
-        linear-gradient(
-          135deg,
-          #040a12,
-          #10172d,
-          #321244
-        );
-    }
 
-    .interactive-card {
-      color: #173326;
-
-      background:
         radial-gradient(
-          circle at 75% 20%,
-          rgba(51,99,70,0.15),
+          circle at 75% 25%,
+          rgba(124, 65, 180, .42),
           transparent 35%
         ),
-        #ece4d6;
+
+        radial-gradient(
+          circle at 15% 80%,
+          rgba(54, 169, 163, .24),
+          transparent 33%
+        ),
+
+        linear-gradient(
+          135deg,
+          #050b12,
+          #11172e,
+          #351347
+        );
+
     }
 
-    /* ===============================
-       BRAND MESSAGE
-    =============================== */
 
-    .statement {
-      padding: 110px 7%;
+    /* INTERACTIVE */
 
-      background: #143426;
-      color: white;
+    .interactive-card {
+
+      background-image:
+
+        linear-gradient(
+          rgba(41, 77, 55, .16),
+          rgba(41, 77, 55, .08)
+        ),
+
+        url("assets/interactive-bg.jpg"),
+
+        linear-gradient(
+          135deg,
+          #807b6b,
+          #3b493e
+        );
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
     }
 
-    .statement-inner {
-      max-width: 940px;
+
+    /* ======================================================
+       HOMETOWN PREVIEW STRIP
+    ====================================================== */
+
+    .hometown-preview {
+
+      padding:
+        105px 7%;
+
+      background:
+        var(--forest);
+
+      color:
+        var(--cream);
+
     }
 
-    .statement h2 {
-      font-family: Georgia, serif;
 
-      font-size: clamp(3rem, 7vw, 5.8rem);
+    .hometown-preview h2 {
 
-      font-weight: normal;
-      line-height: 0.98;
+      max-width:
+        920px;
 
-      margin-bottom: 27px;
+      margin-bottom:
+        45px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          3rem,
+          6vw,
+          5.5rem
+        );
+
+      line-height:
+        1;
+
+      font-weight:
+        normal;
+
     }
 
-    .statement p {
-      max-width: 760px;
 
-      color: rgba(255,255,255,0.72);
+    .memory-strip {
 
-      font-size: 1.08rem;
-      line-height: 1.8;
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap:
+        10px;
+
     }
 
-    /* ===============================
+
+    .memory {
+
+      min-height:
+        310px;
+
+      padding:
+        22px;
+
+      display:
+        flex;
+
+      align-items:
+        flex-end;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      background-size:
+        cover;
+
+      background-position:
+        center;
+
+    }
+
+
+    .memory::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      background:
+        linear-gradient(
+          transparent 35%,
+          rgba(0,0,0,.65)
+        );
+
+    }
+
+
+    .memory span {
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        1.3rem;
+
+      color:
+        white;
+
+    }
+
+
+    .memory-river {
+
+      background-image:
+
+        url("assets/hometown-river.jpg"),
+
+        linear-gradient(
+          #789589,
+          #465a4d
+        );
+
+    }
+
+
+    .memory-mainstreet {
+
+      background-image:
+
+        url("assets/hometown-mainstreet.jpg"),
+
+        linear-gradient(
+          #8e6c51,
+          #5a4030
+        );
+
+    }
+
+
+    .memory-music {
+
+      background-image:
+
+        url("assets/hometown-music.jpg"),
+
+        linear-gradient(
+          #554636,
+          #231b15
+        );
+
+    }
+
+
+    .memory-fire {
+
+      background-image:
+
+        url("assets/hometown-fire.jpg"),
+
+        linear-gradient(
+          #755137,
+          #20140d
+        );
+
+    }
+
+
+    /* ======================================================
+       GLOBAL STATEMENT
+    ====================================================== */
+
+    .global {
+
+      padding:
+        120px 7%;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          #111e18,
+          #18392b
+        );
+
+      color:
+        white;
+
+    }
+
+
+    .global-inner {
+
+      max-width:
+        1000px;
+
+    }
+
+
+    .global h2 {
+
+      margin-bottom:
+        26px;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        clamp(
+          3.2rem,
+          7vw,
+          6rem
+        );
+
+      line-height:
+        .96;
+
+      font-weight:
+        normal;
+
+    }
+
+
+    .global p {
+
+      max-width:
+        760px;
+
+      color:
+        rgba(255,255,255,.68);
+
+      font-size:
+        1.08rem;
+
+      line-height:
+        1.8;
+
+    }
+
+
+    .global-accent {
+
+      margin-top:
+        35px;
+
+      width:
+        100px;
+
+      height:
+        3px;
+
+      background:
+        var(--gold);
+
+    }
+
+
+    /* ======================================================
        FOOTER
-    =============================== */
+    ====================================================== */
 
     footer {
+
       padding:
-        45px
+
+        55px
         max(7%, env(safe-area-inset-right))
-        calc(45px + env(safe-area-inset-bottom))
+        calc(
+          55px +
+          env(safe-area-inset-bottom)
+        )
         max(7%, env(safe-area-inset-left));
 
-      background: #091f16;
-      color: rgba(255,255,255,0.60);
+      background:
+        #071710;
+
+      color:
+        rgba(255,255,255,.55);
+
     }
+
+
+    .footer-mark {
+
+      margin-bottom:
+        20px;
+
+      width:
+        55px;
+
+      height:
+        55px;
+
+      border:
+        1px solid rgba(173, 138, 73, .45);
+
+      border-radius:
+        50%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      font-family:
+        Georgia,
+        serif;
+
+      color:
+        var(--gold);
+
+    }
+
 
     footer strong {
-      display: block;
 
-      font-family: Georgia, serif;
-      font-size: 1.45rem;
+      display:
+        block;
 
-      color: white;
+      margin-bottom:
+        7px;
 
-      margin-bottom: 8px;
+      color:
+        white;
+
+      font-family:
+        Georgia,
+        serif;
+
+      font-size:
+        1.35rem;
+
     }
 
-    /* ===============================
+
+    /* ======================================================
        MOBILE
-    =============================== */
-
-    @media (max-width: 850px) {
-
-      .hero {
-        grid-template-columns: 1fr;
-
-        min-height: auto;
-
-        padding:
-          65px
-          6%
-          55px;
-      }
-
-      .hero-copy {
-        text-align: center;
-        margin: auto;
-      }
-
-      .hero h1 {
-        font-size: clamp(3rem, 16vw, 5rem);
-      }
-
-      .hero p {
-        margin: auto;
-        font-size: 1rem;
-      }
-
-      .hero-button {
-        min-height: 48px;
-      }
-
-      .character-zone {
-        min-height: 220px;
-        margin-top: 20px;
-      }
-
-      .explore {
-        padding:
-          70px
-          6%;
-      }
-
-      .page-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .page-card {
-        min-height: 310px;
-        padding: 28px;
-      }
-
-      .page-card h3 {
-        font-size: 2.1rem;
-      }
-
-      .statement {
-        padding:
-          75px
-          6%;
-      }
-
-      .statement h2 {
-        font-size:
-          clamp(2.6rem, 13vw, 4.2rem);
-      }
-
-      .intro-title {
-        font-size:
-          clamp(3.2rem, 18vw, 5.5rem);
-      }
-
-      .intro-small {
-        letter-spacing: 2px;
-        line-height: 1.6;
-      }
-
-    }
+    ====================================================== */
 
     @media
-    (max-width: 850px)
-    and
-    (orientation: landscape) {
+    (max-width: 850px) {
+
 
       .hero {
-        padding-top: 45px;
+
+        min-height:
+          82dvh;
+
+        padding:
+
+          80px
+          6%
+          60px;
+
+        background-position:
+          center;
+
       }
 
-      .character-zone {
-        min-height: 160px;
+
+      .hero h1 {
+
+        font-size:
+          clamp(
+            3.3rem,
+            14vw,
+            5.4rem
+          );
+
+      }
+
+
+      .hero-subhead {
+
+        font-size:
+          1rem;
+
+      }
+
+
+      .brand-intro {
+
+        padding:
+          80px 6%;
+
+      }
+
+
+      .brand-intro::after {
+
+        right:
+          -10%;
+
+        font-size:
+          13rem;
+
+      }
+
+
+      .collections {
+
+        padding:
+          75px 6%;
+
+      }
+
+
+      .collection-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .collection-card {
+
+        min-height:
+          360px;
+
+      }
+
+
+      .hometown-preview {
+
+        padding:
+          75px 6%;
+
+      }
+
+
+      .memory-strip {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+      .memory {
+
+        min-height:
+          240px;
+
+      }
+
+
+      .global {
+
+        padding:
+          85px 6%;
+
+      }
+
+
+      .intro-title {
+
+        font-size:
+          clamp(
+            3.4rem,
+            18vw,
+            5.5rem
+          );
+
+      }
+
+    }
+
+
+    @media
+    (max-width: 520px) {
+
+
+      .memory-strip {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .memory {
+
+        min-height:
+          230px;
+
+      }
+
+
+      .hero-actions {
+
+        width:
+          100%;
+
+      }
+
+
+      .hero-button {
+
+        width:
+          100%;
+
+        justify-content:
+          center;
+
       }
 
     }
 
   </style>
+
 </head>
+
 
 <body>
 
-<!-- SITE SETTINGS -->
+
+<!-- ======================================================
+     GLOBAL CONFIG
+====================================================== -->
 
 <script src="assets/site-config.js"></script>
 
 
-<!-- MUSIC -->
+<!-- ======================================================
+     MUSIC
+====================================================== -->
 
 <audio
   id="siteMusic"
@@ -615,33 +1740,48 @@
 </audio>
 
 
-<!-- OPENING SCREEN -->
+<!-- ======================================================
+     INTRO
+====================================================== -->
 
 <div id="intro">
 
   <div class="intro-inner">
 
+    <div class="intro-mark">
+      TV
+    </div>
+
     <div
-      class="intro-small"
+      class="intro-kicker"
       id="introTagline">
     </div>
 
     <div class="intro-title">
-      TERENCIO<br>
+
+      TERENCIO
+      <br>
       VERDE
+
     </div>
 
     <div class="intro-buttons">
 
       <button id="enterMusic">
+
         Enter with music
+
       </button>
 
+
       <button id="enterQuiet">
+
         Enter quietly
+
       </button>
 
     </div>
+
 
     <div
       class="music-credit"
@@ -653,40 +1793,59 @@
 </div>
 
 
-<!-- HEADER -->
+<!-- ======================================================
+     HEADER
+====================================================== -->
 
 <header>
 
   <a
-    href="index.html"
-    class="brand">
+    class="brand"
+    href="index.html">
+
     TERENCIO VERDE
+
   </a>
+
 
   <nav>
 
     <a href="hometown.html">
+
       Hometown
+
     </a>
+
 
     <a href="collaborations.html">
+
       Artist Collabs
+
     </a>
 
+
     <a href="web3.html">
+
       Web3
+
     </a>
+
 
     <a
       id="interactiveNav"
       href="interactive.html">
+
       Interactive
+
     </a>
+
 
     <a
       id="storeNav"
       href="store.html">
+
       Shop
+
     </a>
 
   </nav>
@@ -696,253 +1855,603 @@
 
 <main>
 
-  <!-- HERO -->
 
-  <section class="hero">
+<!-- ======================================================
+     HERO
+====================================================== -->
 
-    <div class="hero-copy">
+<section class="hero">
 
-      <div class="eyebrow">
-        Independent Apparel · Global Collaborations
-      </div>
 
-      <h1>
-        TERENCIO<br>
-        VERDE
-      </h1>
+  <div class="hero-copy">
 
-      <p>
-        Apparel shaped by art, music, hometown culture,
-        digital characters and ideas from around the world.
-      </p>
+
+    <div class="eyebrow">
+
+      TERENCIO VERDE
+
+    </div>
+
+
+    <h1>
+
+      The Place
+      That Stays
+      With You.
+
+    </h1>
+
+
+    <p class="hero-subhead">
+
+      Rooted in Central Texas.
+      Made for every hometown
+      worth remembering.
+
+    </p>
+
+
+    <div class="hero-actions">
 
       <a
         class="hero-button"
-        href="#explore">
-        Explore Terencio Verde
+        href="#collections">
+
+        Explore the Collections
+
       </a>
 
     </div>
 
 
-    <div class="character-zone">
+    <div class="hero-origin">
 
-      <!--
-        Later:
-
-        <img
-          src="assets/terencio-home.png"
-          alt="Terencio Verde">
-      -->
-
-    </div>
-
-  </section>
-
-
-  <!-- COLLECTIONS -->
-
-  <section
-    class="explore"
-    id="explore">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        Explore the brand
-      </div>
-
-      <h2>
-        Different worlds.
-        One label.
-      </h2>
-
-      <p>
-        Terencio Verde moves between hometown culture,
-        international art, digital characters and
-        interactive apparel.
-      </p>
+      Independent apparel shaped by
+      art, music, memory and place.
 
     </div>
 
 
-    <div class="page-grid">
+  </div>
 
-      <a
-        href="hometown.html"
-        class="page-card hometown-card">
+
+</section>
+
+
+<!-- ======================================================
+     BRAND INTRODUCTION
+====================================================== -->
+
+<section class="brand-intro">
+
+
+  <div class="brand-intro-inner">
+
+
+    <div class="eyebrow">
+
+      Independent Apparel
+
+    </div>
+
+
+    <h2>
+
+      Rooted somewhere.
+      Limited nowhere.
+
+    </h2>
+
+
+    <p>
+
+      Terencio Verde began with a sense of place:
+      old roads, familiar storefronts, live music,
+      river towns and things that carry a little
+      history with them.
+
+      The brand moves outward from there —
+      through independent artists, digital characters,
+      global collaborations and interactive garments —
+      while keeping the clothing at the center.
+
+    </p>
+
+
+  </div>
+
+
+</section>
+
+
+<!-- ======================================================
+     COLLECTIONS
+====================================================== -->
+
+<section
+  class="collections"
+  id="collections">
+
+
+  <div class="section-heading">
+
+
+    <div class="eyebrow">
+
+      Explore Terencio Verde
+
+    </div>
+
+
+    <h2>
+
+      Different worlds.
+      One label.
+
+    </h2>
+
+
+    <p>
+
+      Each collection has its own character,
+      but everything belongs to the same
+      Terencio Verde story.
+
+    </p>
+
+
+  </div>
+
+
+  <div class="collection-grid">
+
+
+    <!-- HOMETOWN -->
+
+    <a
+      href="hometown.html"
+      class="
+        collection-card
+        hometown-card
+      ">
+
+
+      <div class="collection-copy">
+
+
+        <small>
+
+          Collection 01
+
+        </small>
+
 
         <h3>
+
           Hometown
+
         </h3>
 
-        <p>
-          Americana, regional culture, local stories,
-          music and apparel inspired by places worth remembering.
-        </p>
-
-      </a>
-
-
-      <a
-        href="collaborations.html"
-        class="page-card collab-card">
-
-        <h3>
-          Artist Collaborations
-        </h3>
 
         <p>
-          Original apparel created with emerging,
-          independent and international artists.
+
+          Regional culture, familiar places,
+          Americana and the things people
+          carry with them long after they leave.
+
         </p>
 
-      </a>
 
-
-      <a
-        href="web3.html"
-        class="page-card web3-card">
-
-        <h3>
-          Web3
-        </h3>
-
-        <p>
-          Digital characters, NFT artwork,
-          Cosmic Dream Bog and strange ideas
-          becoming physical merchandise.
-        </p>
-
-      </a>
-
-
-      <a
-        id="interactiveCard"
-        href="interactive.html"
-        class="page-card interactive-card">
-
-        <h3>
-          Interactive Apparel
-        </h3>
-
-        <p>
-          NFC-enabled garments that connect
-          clothing with artists, music,
-          stories and digital experiences.
-        </p>
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- BRAND MESSAGE -->
-
-  <section class="statement">
-
-    <div class="statement-inner">
-
-      <div
-        class="eyebrow"
-        style="color:#b7d0bd;">
-        Terencio Verde
       </div>
 
-      <h2>
-        Rooted somewhere.
-        Limited nowhere.
-      </h2>
 
-      <p>
-        Terencio Verde has roots in Texas,
-        but the brand isn't confined to one town,
-        one country or one creative scene.
+    </a>
 
-        It brings together apparel, artists,
-        characters, music and technology from
-        wherever interesting ideas happen.
-      </p>
+
+    <!-- ARTIST COLLABS -->
+
+    <a
+      href="collaborations.html"
+      class="
+        collection-card
+        collab-card
+      ">
+
+
+      <div class="collection-copy">
+
+
+        <small>
+
+          Collection 02
+
+        </small>
+
+
+        <h3>
+
+          Artist
+          Collaborations
+
+        </h3>
+
+
+        <p>
+
+          Limited apparel created with
+          independent and international artists.
+
+        </p>
+
+
+      </div>
+
+
+    </a>
+
+
+    <!-- WEB3 -->
+
+    <a
+      href="web3.html"
+      class="
+        collection-card
+        web3-card
+      ">
+
+
+      <div class="collection-copy">
+
+
+        <small>
+
+          Collection 03
+
+        </small>
+
+
+        <h3>
+
+          Web3
+
+        </h3>
+
+
+        <p>
+
+          Digital characters, NFT artwork
+          and strange worlds taking
+          physical form.
+
+        </p>
+
+
+      </div>
+
+
+    </a>
+
+
+    <!-- INTERACTIVE -->
+
+    <a
+      id="interactiveCard"
+      href="interactive.html"
+      class="
+        collection-card
+        interactive-card
+      ">
+
+
+      <div class="collection-copy">
+
+
+        <small>
+
+          Technology
+
+        </small>
+
+
+        <h3>
+
+          Interactive
+          Apparel
+
+        </h3>
+
+
+        <p>
+
+          NFC-enabled garments connecting
+          clothing with art, music,
+          stories and digital experiences.
+
+        </p>
+
+
+      </div>
+
+
+    </a>
+
+
+  </div>
+
+
+</section>
+
+
+<!-- ======================================================
+     HOMETOWN PREVIEW
+====================================================== -->
+
+<section class="hometown-preview">
+
+
+  <div class="eyebrow">
+
+    Hometown
+
+  </div>
+
+
+  <h2>
+
+    Old roads.
+    Familiar places.
+    Things worth remembering.
+
+  </h2>
+
+
+  <div class="memory-strip">
+
+
+    <div
+      class="
+        memory
+        memory-river
+      ">
+
+      <span>
+
+        River Days
+
+      </span>
 
     </div>
 
-  </section>
+
+    <div
+      class="
+        memory
+        memory-mainstreet
+      ">
+
+      <span>
+
+        Main Street
+
+      </span>
+
+    </div>
+
+
+    <div
+      class="
+        memory
+        memory-music
+      ">
+
+      <span>
+
+        Live Music
+
+      </span>
+
+    </div>
+
+
+    <div
+      class="
+        memory
+        memory-fire
+      ">
+
+      <span>
+
+        Fire & Smoke
+
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+<!-- ======================================================
+     GLOBAL BRAND MESSAGE
+====================================================== -->
+
+<section class="global">
+
+
+  <div class="global-inner">
+
+
+    <div class="eyebrow">
+
+      Beyond Home
+
+    </div>
+
+
+    <h2>
+
+      Local roots.
+      Global ideas.
+
+    </h2>
+
+
+    <p>
+
+      Central Texas is part of the Terencio Verde
+      story, not its boundary.
+
+      Artists, characters, designs and ideas can
+      come from anywhere — and every collection
+      gets room to carry its own identity.
+
+    </p>
+
+
+    <div class="global-accent">
+    </div>
+
+
+  </div>
+
+
+</section>
+
 
 </main>
 
 
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
 <footer>
 
+
+  <div class="footer-mark">
+
+    TV
+
+  </div>
+
+
   <strong>
+
     Terencio Verde
+
   </strong>
 
-  <span id="footerTagline"></span>
 
-  <br><br>
+  <span id="footerTagline">
+  </span>
+
+
+  <br>
+  <br>
+
 
   © 2026 Terencio Verde
+
 
 </footer>
 
 
 <script>
 
+
+  /* ====================================================
+     SITE CONFIG
+  ==================================================== */
+
+
   const config =
     window.TERENCIO_CONFIG || {};
 
 
-  /* BRAND TEXT */
+  document
+    .getElementById(
+      "introTagline"
+    )
+    .textContent =
 
-  document.getElementById(
-    "introTagline"
-  ).textContent =
-    config.tagline ||
-    "Independent Apparel · Art · Culture · Technology";
+      config.tagline ||
 
-
-  document.getElementById(
-    "footerTagline"
-  ).textContent =
-    config.tagline ||
-    "Independent Apparel · Art · Culture · Technology";
+      "Independent Apparel · Art · Culture · Technology";
 
 
-  /* MUSIC */
+  document
+    .getElementById(
+      "footerTagline"
+    )
+    .textContent =
+
+      config.tagline ||
+
+      "Independent Apparel · Art · Culture · Technology";
+
+
+  /* ====================================================
+     MUSIC
+  ==================================================== */
+
 
   const intro =
-    document.getElementById("intro");
+    document.getElementById(
+      "intro"
+    );
+
 
   const audio =
-    document.getElementById("siteMusic");
+    document.getElementById(
+      "siteMusic"
+    );
+
 
   const enterMusic =
-    document.getElementById("enterMusic");
+    document.getElementById(
+      "enterMusic"
+    );
+
 
   const enterQuiet =
-    document.getElementById("enterQuiet");
+    document.getElementById(
+      "enterQuiet"
+    );
+
 
   const musicCredit =
-    document.getElementById("musicCredit");
+    document.getElementById(
+      "musicCredit"
+    );
 
 
   audio.src =
+
     config.musicFile ||
+
     "assets/do-you-remember.mp3";
 
 
   musicCredit.textContent =
+
     config.musicCredit ||
+
     "Music by Terence Green and the Loose Strings";
 
 
   const MUSIC_START =
-    config.musicStart ?? 50;
+
+    config.musicStart ??
+    50;
+
 
   const MUSIC_END =
-    config.musicEnd ?? 80;
+
+    config.musicEnd ??
+    80;
 
 
   if (
@@ -957,33 +2466,43 @@
 
   enterMusic.addEventListener(
     "click",
+
     async () => {
+
 
       intro.classList.add(
         "hidden"
       );
 
+
       try {
+
 
         audio.currentTime =
           MUSIC_START;
 
+
         audio.volume =
-          0.65;
+          .65;
+
 
         await audio.play();
 
 
         const watcher =
           setInterval(
+
             () => {
+
 
               if (
                 audio.currentTime >=
                 MUSIC_END
               ) {
 
+
                 audio.pause();
+
 
                 clearInterval(
                   watcher
@@ -991,20 +2510,28 @@
 
               }
 
+
             },
+
             250
+
           );
+
 
       }
 
-      catch(error) {
+
+      catch (error) {
+
 
         console.log(
           "Music playback unavailable.",
           error
         );
 
+
       }
+
 
     }
   );
@@ -1012,55 +2539,79 @@
 
   enterQuiet.addEventListener(
     "click",
+
     () => {
+
 
       intro.classList.add(
         "hidden"
       );
 
+
     }
   );
 
 
-  /* STORE VISIBILITY */
+  /* ====================================================
+     STORE
+  ==================================================== */
+
 
   if (
     config.storeEnabled === true
   ) {
 
-    document.getElementById(
-      "storeNav"
-    ).style.display =
-      "inline";
+
+    document
+      .getElementById(
+        "storeNav"
+      )
+      .style.display =
+        "inline";
+
 
   }
 
 
-  /* INTERACTIVE APPAREL VISIBILITY */
+  /* ====================================================
+     INTERACTIVE APPAREL
+  ==================================================== */
+
 
   if (
     config.interactiveApparelEnabled === false
   ) {
 
-    document.getElementById(
-      "interactiveNav"
-    ).style.display =
-      "none";
 
-    document.getElementById(
-      "interactiveCard"
-    ).style.display =
-      "none";
+    document
+      .getElementById(
+        "interactiveNav"
+      )
+      .style.display =
+        "none";
+
+
+    document
+      .getElementById(
+        "interactiveCard"
+      )
+      .style.display =
+        "none";
+
 
   }
+
 
 </script>
 
 
-<!-- MOBILE MENU FOR iPHONE + ANDROID -->
+<!-- ======================================================
+     MOBILE NAVIGATION
+====================================================== -->
 
 <script src="assets/mobile-nav.js"></script>
 
 
 </body>
+
 </html>
