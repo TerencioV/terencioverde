@@ -1,6 +1,6 @@
 /* =========================================================
    TERENCIO VERDE
-   COMPLETE HOMEPAGE STYLES
+   COMPLETEA HOMEPAGE STYLES
    SELF-CONTAINED
    ========================================================= */
 
@@ -503,7 +503,7 @@ button {
       rgba(4, 17, 12, .15) 100%
     ),
 
-  url("assets/ceiling-texture-cropped.png");
+    url("ceiling-texture-cropped.png");
 
   background-size: cover;
 
