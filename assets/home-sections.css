@@ -158,19 +158,15 @@ body::before {
     rgba(75, 51, 32, .18);
 
   background:
-
     linear-gradient(
-      rgba(242,234,219,.93),
-      rgba(242,234,219,.93)
+      rgba(242,234,219,.62),
+      rgba(242,234,219,.70)
     ),
+    url("/assets/wood-texture-cropped.png");
 
-    repeating-linear-gradient(
-      0deg,
-      #e8ddca 0,
-      #e8ddca 48px,
-      #cab89d 49px,
-      #cab89d 51px
-    );
+  background-size: cover;
+
+  background-position: center;
 }
 
 
