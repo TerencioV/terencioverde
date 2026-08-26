@@ -159,8 +159,8 @@ body::before {
 
   background:
     linear-gradient(
-      rgba(242,234,219,.62),
-      rgba(242,234,219,.70)
+      rgba(242,234,219,.84),
+      rgba(242,234,219,.88)
     ),
     url("/assets/wood-texture-cropped.png");
 
@@ -293,7 +293,7 @@ body::before {
       rgba(8, 29, 20, .30)
     ),
 
-    url("hometown-river.jpg"),
+    url("/assets/hometown-mainstreet.jpg"),
 
     linear-gradient(
       135deg,
@@ -418,9 +418,11 @@ body::before {
   background:
 
     linear-gradient(
-      rgba(17, 49, 34, .94),
-      rgba(10, 34, 23, .97)
+      rgba(10, 34, 23, .84),
+      rgba(7, 28, 19, .92)
     ),
+
+    url("/assets/hero-hometown.png"),
 
     repeating-linear-gradient(
       90deg,
@@ -429,6 +431,16 @@ body::before {
       #102d20 83px,
       #102d20 84px
     );
+
+  background-size:
+    cover,
+    cover,
+    auto;
+
+  background-position:
+    center,
+    center,
+    center;
 
   border-top:
     8px solid
