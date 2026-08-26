@@ -419,20 +419,24 @@ body::before {
 
   overflow: hidden;
 
-  background:
-
+  background-image:
     linear-gradient(
-      rgba(17, 49, 34, .94),
-      rgba(10, 34, 23, .97)
+      rgba(10, 31, 21, .62),
+      rgba(7, 25, 17, .74)
     ),
+    url("/assets/hometown-background.jpg");
 
-    repeating-linear-gradient(
-      90deg,
-      #163829 0,
-      #163829 82px,
-      #102d20 83px,
-      #102d20 84px
-    );
+  background-size:
+    auto,
+    auto 100%;
+
+  background-position:
+    center,
+    center top;
+
+  background-repeat:
+    no-repeat,
+    repeat-x;
 
   border-top:
     8px solid
