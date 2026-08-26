@@ -525,20 +525,24 @@ body::before {
 
   overflow: hidden;
 
-  background:
-
+  background-image:
     linear-gradient(
-      rgba(7, 26, 18, .96),
-      rgba(12, 42, 29, .97)
+      rgba(7, 26, 18, .78),
+      rgba(12, 42, 29, .86)
     ),
+    url("/assets/global-background.jpg");
 
-    repeating-linear-gradient(
-      90deg,
-      #102d20,
-      #102d20 100px,
-      #0b2419 101px,
-      #0b2419 103px
-    );
+  background-size:
+    auto,
+    auto 100%;
+
+  background-position:
+    center,
+    center top;
+
+  background-repeat:
+    no-repeat,
+    repeat-x;
 }
 
 
