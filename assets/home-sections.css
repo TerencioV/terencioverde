@@ -211,20 +211,24 @@ body::before {
 .home-collections {
   position: relative;
 
-  background:
-
+  background-image:
     linear-gradient(
-      rgba(250,246,238,.97),
-      rgba(250,246,238,.97)
+      rgba(250,246,238,.78),
+      rgba(250,246,238,.84)
     ),
+    url("/assets/collections-background.jpg");
 
-    repeating-linear-gradient(
-      90deg,
-      #f1e8d9 0,
-      #f1e8d9 90px,
-      #e8dcc9 91px,
-      #e8dcc9 92px
-    );
+  background-size:
+    cover,
+    cover;
+
+  background-position:
+    center,
+    center;
+
+  background-repeat:
+    no-repeat,
+    no-repeat;
 }
 
 
@@ -293,7 +297,7 @@ body::before {
       rgba(8, 29, 20, .30)
     ),
 
-    url("/assets/hometown-mainstreet.jpg"),
+    url("hometown-river.jpg"),
 
     linear-gradient(
       135deg,
@@ -418,11 +422,9 @@ body::before {
   background:
 
     linear-gradient(
-      rgba(10, 34, 23, .84),
-      rgba(7, 28, 19, .92)
+      rgba(17, 49, 34, .94),
+      rgba(10, 34, 23, .97)
     ),
-
-    url("/assets/hero-hometown.png"),
 
     repeating-linear-gradient(
       90deg,
@@ -431,16 +433,6 @@ body::before {
       #102d20 83px,
       #102d20 84px
     );
-
-  background-size:
-    cover,
-    cover,
-    auto;
-
-  background-position:
-    center,
-    center,
-    center;
 
   border-top:
     8px solid
