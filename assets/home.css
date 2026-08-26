@@ -973,7 +973,7 @@ button {
       rgba(10,35,24,.12)
     ),
 
-    url("hometown-river.jpg"),
+    url("/assets/hometown-river.jpg"),
 
     linear-gradient(
       135deg,
@@ -1196,7 +1196,7 @@ button {
 
 .home-memory-river {
   background:
-    url("hometown-river.jpg"),
+    url("/assets/hometown-river.jpg"),
     #546f5e;
 
   background-size: cover;
@@ -1207,7 +1207,7 @@ button {
 
 .home-memory-mainstreet {
   background:
-    url("hometown-mainstreet.jpg"),
+    url("/assets/hometown-mainstreet.jpg"),
     #765943;
 
   background-size: cover;
@@ -1218,7 +1218,7 @@ button {
 
 .home-memory-music {
   background:
-    url("hometown-music.jpg"),
+    url("/assets/hometown-music.jpg"),
     #43382d;
 
   background-size: cover;
@@ -1229,7 +1229,7 @@ button {
 
 .home-memory-fire {
   background:
-    url("hometown-fire.jpg"),
+    url("/assets/hometown-fire.jpg"),
     #60432e;
 
   background-size: cover;
