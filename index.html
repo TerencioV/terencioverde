@@ -17,34 +17,11 @@
     content="Terencio Verde — independent apparel, art, culture, collaborations and interactive clothing."
   >
 
-
-  <!-- =====================================================
-       SITE STYLES
-  ====================================================== -->
-
-  <link
-    rel="stylesheet"
-    href="/assets/site.css?v=4"
-  >
-
-  <link
-    rel="stylesheet"
-    href="/assets/home.css?v=6"
-  >
-
-  <link
-    rel="stylesheet"
-    href="/assets/home-sections.css?v=6"
-  >
-
-
-  <!-- =====================================================
-       BASIC FALLBACK
-       Keeps page readable if a CSS file ever fails.
-  ====================================================== -->
+  <link rel="stylesheet" href="/assets/site.css?v=4">
+  <link rel="stylesheet" href="/assets/home.css?v=6">
+  <link rel="stylesheet" href="/assets/home-sections.css?v=6">
 
   <style>
-
     html,
     body {
       margin: 0;
@@ -60,722 +37,295 @@
       display: none;
     }
 
+    .home-hero-inner {
+      min-height: inherit;
+    }
+
+    .home-hero-copy {
+      position: relative;
+      z-index: 3;
+      max-width: min(760px, 58%);
+    }
+
+    .home-hero-character {
+      position: absolute;
+      z-index: 2;
+      right: clamp(-70px, -2vw, -20px);
+      bottom: -2px;
+      width: clamp(470px, 43vw, 760px);
+      max-width: 48vw;
+      height: auto;
+      object-fit: contain;
+      object-position: bottom right;
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .28));
+    }
+
+    @media (max-width: 1100px) {
+      .home-hero-copy {
+        max-width: 60%;
+      }
+
+      .home-hero-character {
+        right: -90px;
+        width: clamp(430px, 48vw, 620px);
+        max-width: 50vw;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .home-hero {
+        align-items: flex-start;
+      }
+
+      .home-hero-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: calc(100vh - 72px);
+        padding-top: 72px;
+        padding-bottom: 0;
+      }
+
+      .home-hero-copy {
+        max-width: 100%;
+        padding-bottom: 390px;
+      }
+
+      .home-hero-character {
+        right: -68px;
+        bottom: -8px;
+        width: min(520px, 92vw);
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-hero-copy {
+        padding-bottom: 330px;
+      }
+
+      .home-hero-character {
+        right: -72px;
+        width: 440px;
+      }
+    }
   </style>
 
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-     SITE CONFIGURATION
-====================================================== -->
 
 <script src="/assets/site-config.js?v=4"></script>
 
-
-<!-- =====================================================
-     MUSIC
-====================================================== -->
-
-<audio
-  id="siteMusic"
-  preload="metadata">
-</audio>
-
-
-<!-- =====================================================
-     OPENING MUSIC SCREEN
-====================================================== -->
+<audio id="siteMusic" preload="metadata"></audio>
 
 <div id="intro">
-
   <div class="intro-inner">
-
-
-    <div class="intro-mark">
-
-      TV
-
-    </div>
-
-
-    <div
-      class="intro-kicker"
-      id="introTagline">
-    </div>
-
-
-    <div class="intro-title">
-
-      TERENCIO
-      <br>
-      VERDE
-
-    </div>
-
-
+    <div class="intro-mark">TV</div>
+    <div class="intro-kicker" id="introTagline"></div>
+    <div class="intro-title">TERENCIO<br>VERDE</div>
     <div class="intro-buttons">
-
-
-      <button
-        id="enterMusic"
-        type="button">
-
-        Enter with music
-
-      </button>
-
-
-      <button
-        id="enterQuiet"
-        type="button">
-
-        Enter quietly
-
-      </button>
-
-
+      <button id="enterMusic" type="button">Enter with music</button>
+      <button id="enterQuiet" type="button">Enter quietly</button>
     </div>
-
-
-    <div
-      class="music-credit"
-      id="musicCredit">
-    </div>
-
-
+    <div class="music-credit" id="musicCredit"></div>
   </div>
-
 </div>
 
-
-<!-- =====================================================
-     HEADER
-====================================================== -->
-
 <header class="site-header">
-
-
-  <a
-    class="site-brand"
-    href="/">
-
-    TERENCIO VERDE
-
-  </a>
-
-
-  <nav
-    class="site-nav"
-    aria-label="Main navigation">
-
-
-    <a href="/hometown.html">
-
-      Hometown
-
-    </a>
-
-
-    <a href="/collaborations.html">
-
-      Artist Collabs
-
-    </a>
-
-
-    <a href="/web3.html">
-
-      Web3
-
-    </a>
-
-
-    <a
-      id="interactiveNav"
-      href="/interactive.html">
-
-      Interactive
-
-    </a>
-
-
-    <a
-      id="storeNav"
-      href="/store.html">
-
-      Shop
-
-    </a>
-
-
+  <a class="site-brand" href="/">TERENCIO VERDE</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="/hometown.html">Hometown</a>
+    <a href="/collaborations.html">Artist Collabs</a>
+    <a href="/web3.html">Web3</a>
+    <a id="interactiveNav" href="/interactive.html">Interactive</a>
+    <a id="storeNav" href="/store.html">Shop</a>
   </nav>
-
-
 </header>
-
-
-<!-- =====================================================
-     MAIN CONTENT
-====================================================== -->
 
 <main>
 
-
-<!-- =====================================================
-     HERO
-====================================================== -->
-
 <section class="home-hero">
-
-
   <div class="home-hero-inner">
-
-
     <div class="home-hero-copy">
-
-
-      <div class="eyebrow">
-
-        Independent Apparel
-
-      </div>
-
-
+      <div class="eyebrow">Independent Apparel</div>
       <h1>
-
-        The Place
-        <br>
-        That Stays
-        <br>
+        The Place<br>
+        That Stays<br>
         With You.
-
       </h1>
-
-
       <p class="home-hero-subhead">
-
         Rooted in Central Texas.
         Made for every hometown
         worth remembering.
-
       </p>
-
-
       <p class="home-hero-note">
-
         Independent apparel shaped by
         art, music, memory and place.
-
       </p>
-
-
     </div>
 
-
+    <img
+      class="home-hero-character"
+      src="/assets/terencio-hero.png"
+      alt="Terencio presenting the Terencio Verde brand"
+      decoding="async"
+      fetchpriority="high"
+    >
   </div>
-
-
 </section>
 
-
-<!-- =====================================================
-     BRAND INTRODUCTION
-====================================================== -->
-
 <section class="home-intro">
-
-
   <div class="home-intro-inner">
-
-
     <div class="home-intro-content">
-
-
-      <div class="eyebrow">
-
-        Terencio Verde
-
-      </div>
-
-
+      <div class="eyebrow">Terencio Verde</div>
       <h2>
-
-        Rooted somewhere.
-        <br>
+        Rooted somewhere.<br>
         Limited nowhere.
-
       </h2>
-
-
       <p>
-
         Terencio Verde begins with a sense of place —
         familiar roads, old storefronts, live music,
         river towns and the things people remember
         long after they leave.
-
         <br><br>
-
         From there, the brand moves outward through
         independent artists, original artwork,
         digital characters, collaborations and
         interactive garments while keeping apparel
         at the center.
-
       </p>
-
-
     </div>
-
-
   </div>
-
-
 </section>
 
-
-<!-- =====================================================
-     COLLECTION DIRECTORY
-====================================================== -->
-
 <section class="home-collections">
-
-
   <div class="home-collections-inner">
-
-
     <div class="home-section-heading">
-
-
-      <div class="eyebrow">
-
-        Explore Terencio Verde
-
-      </div>
-
-
+      <div class="eyebrow">Explore Terencio Verde</div>
       <h2>
-
-        Different worlds.
-        <br>
+        Different worlds.<br>
         One label.
-
       </h2>
-
-
       <p>
-
         Each collection has its own identity,
         but everything belongs to the same
         Terencio Verde story.
-
       </p>
-
-
     </div>
 
-
     <div class="home-collection-grid">
-
-
-      <!-- HOMETOWN -->
-
-      <a
-        class="home-collection-card home-card-hometown"
-        href="/hometown.html">
-
-
+      <a class="home-collection-card home-card-hometown" href="/hometown.html">
         <div class="home-collection-content">
-
-
-          <small>
-
-            Collection 01
-
-          </small>
-
-
-          <h3>
-
-            Hometown
-
-          </h3>
-
-
+          <small>Collection 01</small>
+          <h3>Hometown</h3>
           <p>
-
             Familiar places, regional culture,
             Americana and the things people
             carry with them wherever they go.
-
           </p>
-
-
         </div>
-
-
       </a>
 
-
-      <!-- ARTIST COLLABORATIONS -->
-
-      <a
-        class="home-collection-card home-card-collabs"
-        href="/collaborations.html">
-
-
+      <a class="home-collection-card home-card-collabs" href="/collaborations.html">
         <div class="home-collection-content">
-
-
-          <small>
-
-            Collection 02
-
-          </small>
-
-
-          <h3>
-
-            Artist Collaborations
-
-          </h3>
-
-
+          <small>Collection 02</small>
+          <h3>Artist Collaborations</h3>
           <p>
-
             Limited apparel created with
             independent and international artists.
-
           </p>
-
-
         </div>
-
-
       </a>
 
-
-      <!-- WEB3 -->
-
-      <a
-        class="home-collection-card home-card-web3"
-        href="/web3.html">
-
-
+      <a class="home-collection-card home-card-web3" href="/web3.html">
         <div class="home-collection-content">
-
-
-          <small>
-
-            Collection 03
-
-          </small>
-
-
-          <h3>
-
-            Web3
-
-          </h3>
-
-
+          <small>Collection 03</small>
+          <h3>Web3</h3>
           <p>
-
             Digital characters, original artwork
             and strange worlds taking physical form.
-
           </p>
-
-
         </div>
-
-
       </a>
 
-
-      <!-- INTERACTIVE APPAREL -->
-
-      <a
-        id="interactiveCard"
-        class="home-collection-card home-card-interactive"
-        href="/interactive.html">
-
-
+      <a id="interactiveCard" class="home-collection-card home-card-interactive" href="/interactive.html">
         <div class="home-collection-content">
-
-
-          <small>
-
-            Technology
-
-          </small>
-
-
-          <h3>
-
-            Interactive Apparel
-
-          </h3>
-
-
+          <small>Technology</small>
+          <h3>Interactive Apparel</h3>
           <p>
-
             NFC-enabled garments connecting
             clothing with art, music,
             stories and digital experiences.
-
           </p>
-
-
         </div>
-
-
       </a>
-
-
     </div>
-
-
   </div>
-
-
 </section>
-
-
-<!-- =====================================================
-     HOMETOWN PREVIEW
-====================================================== -->
 
 <section class="home-hometown">
-
-
   <div class="home-hometown-inner">
-
-
-    <div class="eyebrow">
-
-      Hometown
-
-    </div>
-
-
+    <div class="eyebrow">Hometown</div>
     <h2>
-
-      Old roads.
-      <br>
-      Familiar places.
-      <br>
+      Old roads.<br>
+      Familiar places.<br>
       Things worth remembering.
-
     </h2>
 
-
     <div class="home-memory-grid">
-
-
-      <div
-        class="home-memory home-memory-river">
-
-        <span>
-
-          River Days
-
-        </span>
-
-      </div>
-
-
-      <div
-        class="home-memory home-memory-mainstreet">
-
-        <span>
-
-          Main Street
-
-        </span>
-
-      </div>
-
-
-      <div
-        class="home-memory home-memory-music">
-
-        <span>
-
-          Live Music
-
-        </span>
-
-      </div>
-
-
-      <div
-        class="home-memory home-memory-fire">
-
-        <span>
-
-          Fire & Smoke
-
-        </span>
-
-      </div>
-
-
+      <div class="home-memory home-memory-river"><span>River Days</span></div>
+      <div class="home-memory home-memory-mainstreet"><span>Main Street</span></div>
+      <div class="home-memory home-memory-music"><span>Live Music</span></div>
+      <div class="home-memory home-memory-fire"><span>Fire & Smoke</span></div>
     </div>
-
-
   </div>
-
-
 </section>
 
-
-<!-- =====================================================
-     GLOBAL BRAND MESSAGE
-====================================================== -->
-
 <section class="home-global">
-
-
   <div class="home-global-inner">
-
-
     <div class="home-global-content">
-
-
-      <div class="eyebrow">
-
-        Beyond Home
-
-      </div>
-
-
+      <div class="eyebrow">Beyond Home</div>
       <h2>
-
-        Local roots.
-        <br>
+        Local roots.<br>
         Global ideas.
-
       </h2>
-
-
       <p>
-
         Central Texas is part of the
         Terencio Verde story — not its boundary.
-
         <br><br>
-
         Artists, characters, designs and ideas
         can come from anywhere, and every
         collection gets room to carry
         its own identity.
-
       </p>
-
-
-      <div class="home-global-line">
-      </div>
-
-
+      <div class="home-global-line"></div>
     </div>
-
-
   </div>
-
-
 </section>
-
 
 </main>
 
-
-<!-- =====================================================
-     FOOTER
-====================================================== -->
-
 <footer class="site-footer">
-
-
   <div class="footer-inner">
-
-
-    <div class="footer-mark">
-
-      TV
-
-    </div>
-
-
-    <strong class="footer-brand">
-
-      Terencio Verde
-
-    </strong>
-
-
-    <span
-      class="footer-tagline"
-      id="footerTagline">
-    </span>
-
-
+    <div class="footer-mark">TV</div>
+    <strong class="footer-brand">Terencio Verde</strong>
+    <span class="footer-tagline" id="footerTagline"></span>
     <div class="footer-contact">
-
-
-      <div class="footer-label">
-
-        Contact
-
-      </div>
-
-
-      <a
-        class="footer-email"
-        href="mailto:verdeterencio@gmail.com">
-
-        verdeterencio@gmail.com
-
-      </a>
-
-
+      <div class="footer-label">Contact</div>
+      <a class="footer-email" href="mailto:verdeterencio@gmail.com">verdeterencio@gmail.com</a>
     </div>
-
-
     <div class="footer-copyright">
-
-      ©
-      <span id="footerYear">
-        2026
-      </span>
-      Terencio Verde
-
+      © <span id="footerYear">2026</span> Terencio Verde
     </div>
-
-
   </div>
-
-
 </footer>
 
-
-<!-- =====================================================
-     HOMEPAGE JAVASCRIPT
-====================================================== -->
-
-<script src="/assets/home.js?v=4"></script>
-
-
-<!-- =====================================================
-     MOBILE NAVIGATION
-====================================================== -->
-
+<script src="/assets/home.js?v=5"></script>
 <script src="/assets/mobile-nav.js?v=4"></script>
 
-
 </body>
-
 </html>
