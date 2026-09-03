@@ -290,24 +290,27 @@ body::before {
    ========================================================= */
 
 .home-card-hometown {
-  background:
-
-    linear-gradient(
-      rgba(14, 48, 33, .18),
-      rgba(8, 29, 20, .30)
-    ),
-
-    url("hometown-river.jpg"),
-
-    linear-gradient(
-      135deg,
-      #455f4d,
-      #78664d
-    );
-
+  background-image: url("/assets/Home%20Oak.png");
   background-size: cover;
-
   background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-card-hometown::before,
+.home-card-hometown::after {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.home-card-hometown .home-collection-content {
+  position: relative;
+  z-index: 2;
+}
+
+.home-card-hometown .home-collection-content h3,
+.home-card-hometown .home-collection-content p,
+.home-card-hometown .home-collection-content small {
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 
 
