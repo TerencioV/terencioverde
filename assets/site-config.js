@@ -125,6 +125,37 @@
     document.head.appendChild(style);
   }
 
+  function installMobileHardening() {
+    if (document.getElementById("tv-mobile-hardening")) return;
+    const style = document.createElement("style");
+    style.id = "tv-mobile-hardening";
+    style.textContent = `
+      html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+      img,video,svg,canvas{max-width:100%;height:auto}
+      button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+      @media(max-width:850px){
+        html,body{width:100%;max-width:100%;overflow-x:hidden}
+        main,section,header,footer{max-width:100%}
+        h1,h2,h3,p{overflow-wrap:break-word}
+        .merch-card,.card,.collab-card,.process-card,.feature-card,.step,.tap-card{min-width:0;max-width:100%}
+        .cdb-links a{min-height:48px}
+        header,.site-header{padding-left:max(5%,env(safe-area-inset-left))!important;padding-right:max(5%,env(safe-area-inset-right))!important}
+      }
+      @media(max-width:480px){
+        .hero,.merch,.cosmic,.physical,.collections,.collabs,.process,.features,.how-it-works,.principle,.origin,.global{padding-left:max(5%,env(safe-area-inset-left))!important;padding-right:max(5%,env(safe-area-inset-right))!important}
+      }
+      @supports(height:100dvh){
+        @media(max-width:760px){.home-hero-inner{min-height:calc(100dvh - 72px)!important}}
+      }
+      @supports(height:100svh){
+        @media(max-width:850px){
+          .hero.tv-web3-hero,.hero.tv-web3-hero.hero-no-art{padding-top:calc(54svh + 30px)!important;background-size:auto 54svh!important}
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   function installWeb3Hero() {
     if (location.pathname !== "/web3.html") return;
     if (document.getElementById("tv-web3-hero-styles")) return;
@@ -397,6 +428,7 @@
 
   addSeo();
   installResponsiveNavStyles();
+  installMobileHardening();
 
   document.addEventListener("DOMContentLoaded", () => {
     setupNavigation();
