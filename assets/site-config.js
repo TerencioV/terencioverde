@@ -108,8 +108,10 @@
       .tv-nav-toggle[aria-expanded="true"] span{opacity:0}
       .tv-nav-toggle[aria-expanded="true"]::before{transform:translateY(6px) rotate(45deg)}
       .tv-nav-toggle[aria-expanded="true"]::after{transform:translateY(-6px) rotate(-45deg)}
-      .hero.hero-no-art{grid-template-columns:minmax(0,900px)!important;justify-content:center;text-align:center}
-      .hero.hero-no-art .hero-copy{margin-left:auto;margin-right:auto}
+      .hero.hero-no-art{grid-template-columns:minmax(0,1040px)!important;justify-content:center;text-align:center}
+      .hero.hero-no-art .hero-copy{margin-left:auto;margin-right:auto;max-width:1040px!important;width:100%;text-align:center}
+      .hero.hero-no-art .hero-copy h1{max-width:980px;margin-left:auto;margin-right:auto;text-align:center;text-wrap:balance}
+      .hero.hero-no-art .hero-copy p{margin-left:auto;margin-right:auto;text-align:center}
       .hero.hero-no-art .character-zone{display:none!important}
       @media(max-width:850px){
         header,.site-header{position:sticky!important;top:0}
