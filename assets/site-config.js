@@ -138,20 +138,22 @@
         background-position:center!important;
         background-repeat:no-repeat!important;
       }
+      .merch-grid .merch-card:first-child::before { display:none!important; }
+      .merch-grid .merch-card:first-child h3,
+      .merch-grid .merch-card:first-child p {
+        z-index:2;
+        text-shadow:0 2px 8px rgba(0,0,0,.9);
+      }
+
       .merch-grid .merch-card:nth-child(2),
       .merch-grid .merch-card:nth-child(2):hover {
         background-color:#111827!important;
         background-image:url("/assets/Tee-02.png")!important;
-        background-size:cover!important;
-        background-position:center!important;
+        background-size:contain!important;
+        background-position:center center!important;
         background-repeat:no-repeat!important;
       }
-      .merch-grid .merch-card:first-child::before,
-      .merch-grid .merch-card:nth-child(2)::before {
-        display:none!important;
-      }
-      .merch-grid .merch-card:first-child h3,
-      .merch-grid .merch-card:first-child p,
+      .merch-grid .merch-card:nth-child(2)::before { display:none!important; }
       .merch-grid .merch-card:nth-child(2) h3,
       .merch-grid .merch-card:nth-child(2) p {
         z-index:2;
