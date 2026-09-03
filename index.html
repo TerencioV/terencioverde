@@ -1,236 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Terencio Verde</title>
-
-  <meta
-    name="description"
-    content="Terencio Verde — independent apparel, art, culture, collaborations and interactive clothing."
-  >
-
+  <meta name="description" content="Terencio Verde — independent apparel, art, culture, collaborations and interactive clothing.">
   <link rel="stylesheet" href="/assets/site.css?v=4">
   <link rel="stylesheet" href="/assets/home.css?v=6">
   <link rel="stylesheet" href="/assets/home-sections.css?v=7">
-
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-    }
-
-    body {
-      background: #18392b;
-    }
-
-    #storeNav {
-      display: none;
-    }
-
-    .home-hero-inner {
-      min-height: inherit;
-    }
-
-    .home-hero-copy {
-      position: relative;
-      z-index: 3;
-      max-width: min(760px, 58%);
-      transform: translate(18px, 120px);
-    }
-
-    .home-hero-copy h1 {
-      max-width: 760px;
-      font-size: clamp(4.2rem, 6.6vw, 7.15rem);
-    }
-
-    .home-hero-character {
-      position: absolute;
-      z-index: 2;
-      right: clamp(-95px, -3vw, -45px);
-      bottom: 170px;
-      width: clamp(500px, 44vw, 770px);
-      max-width: 49vw;
-      height: auto;
-      object-fit: contain;
-      object-position: bottom right;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-drag: none;
-      filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .28));
-    }
-
-    .home-card-hometown {
-      background-color: #f1ddba !important;
-      background-image: url("/assets/Home%20Oak.png") !important;
-      background-size: contain !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-    }
-
-    .home-card-hometown::before,
-    .home-card-hometown::after {
-      display: none !important;
-    }
-
-    .home-card-hometown .home-collection-content {
-      position: relative;
-      z-index: 3;
-    }
-
-    .home-card-hometown .home-collection-content small,
-    .home-card-hometown .home-collection-content h3,
-    .home-card-hometown .home-collection-content p {
-      text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
-    }
-
-    .home-card-collabs {
-      background-image: url("/assets/geez-5175-Pose66-1752293074988.png") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-    }
-
-    .home-card-collabs::before,
-    .home-card-collabs::after {
-      display: none !important;
-    }
-
-    .home-card-collabs .home-collection-content {
-      position: relative;
-      z-index: 3;
-    }
-
-    .home-card-collabs .home-collection-content small,
-    .home-card-collabs .home-collection-content h3,
-    .home-card-collabs .home-collection-content p {
-      text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
-    }
-
-    .home-card-web3 {
-      background-image: url("/assets/geez-3426-Pose%2010-1788458696954.png") !important;
-      background-size: cover !important;
-      background-position: center 34% !important;
-      background-repeat: no-repeat !important;
-    }
-
-    .home-card-web3::before,
-    .home-card-web3::after {
-      display: none !important;
-    }
-
-    .home-card-web3 .home-collection-content {
-      position: relative;
-      z-index: 3;
-    }
-
-    .home-card-web3 .home-collection-content small,
-    .home-card-web3 .home-collection-content h3,
-    .home-card-web3 .home-collection-content p {
-      text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
-    }
-
-    .home-card-interactive {
-      background-image: url("/assets/t-shirt%20image01.png") !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-    }
-
-    .home-card-interactive::before,
-    .home-card-interactive::after {
-      display: none !important;
-    }
-
-    .home-card-interactive .home-collection-content {
-      position: relative;
-      z-index: 3;
-    }
-
-    .home-card-interactive .home-collection-content small,
-    .home-card-interactive .home-collection-content h3,
-    .home-card-interactive .home-collection-content p {
-      text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
-    }
-
-    @media (max-width: 1100px) {
-      .home-hero-copy {
-        max-width: 60%;
-        transform: translate(10px, 95px);
-      }
-
-      .home-hero-copy h1 {
-        font-size: clamp(3.8rem, 7vw, 6rem);
-      }
-
-      .home-hero-character {
-        right: -100px;
-        bottom: 118px;
-        width: clamp(450px, 50vw, 640px);
-        max-width: 53vw;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .home-hero {
-        align-items: flex-start;
-      }
-
-      .home-hero-inner {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        min-height: calc(100vh - 72px);
-        padding-top: 72px;
-        padding-bottom: 0;
-      }
-
-      .home-hero-copy {
-        max-width: 100%;
-        padding-bottom: 390px;
-        transform: none;
-      }
-
-      .home-hero-copy h1 {
-        font-size: clamp(3.2rem, 14vw, 5rem);
-      }
-
-      .home-hero-character {
-        right: -68px;
-        bottom: 34px;
-        width: min(520px, 92vw);
-        max-width: none;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .home-hero-copy {
-        padding-bottom: 330px;
-      }
-
-      .home-hero-character {
-        right: -72px;
-        bottom: 20px;
-        width: 440px;
-      }
-    }
-  </style>
-
+  <link rel="stylesheet" href="/assets/home-overrides.css">
+  <link rel="stylesheet" href="/assets/site-enhancements.css">
 </head>
-
 <body>
-
-<script src="/assets/site-config.js?v=4"></script>
-
+<script src="/assets/site-config.js"></script>
 <audio id="siteMusic" preload="metadata"></audio>
 
 <div id="intro">
@@ -258,166 +40,67 @@
 </header>
 
 <main>
-
-<section class="home-hero">
-  <div class="home-hero-inner">
-    <div class="home-hero-copy">
-      <div class="eyebrow">Independent Apparel</div>
-      <h1>
-        The Place<br>
-        That Stays<br>
-        With You.
-      </h1>
-      <p class="home-hero-subhead">
-        Rooted in Central Texas.
-        Made for every hometown
-        worth remembering.
-      </p>
-      <p class="home-hero-note">
-        Independent apparel shaped by
-        art, music, memory and place.
-      </p>
+  <section class="home-hero">
+    <div class="home-hero-inner">
+      <div class="home-hero-copy">
+        <div class="eyebrow">Independent Apparel</div>
+        <h1>The Place<br>That Stays<br>With You.</h1>
+        <p class="home-hero-subhead">Rooted in Central Texas. Made for every hometown worth remembering.</p>
+        <p class="home-hero-note">Independent apparel shaped by art, music, memory and place.</p>
+      </div>
+      <img class="home-hero-character" src="/assets/terencio-hero.png" alt="Terencio presenting the Terencio Verde brand" decoding="async" fetchpriority="high">
     </div>
+  </section>
 
-    <img
-      class="home-hero-character"
-      src="/assets/terencio-hero.png"
-      alt="Terencio presenting the Terencio Verde brand"
-      decoding="async"
-      fetchpriority="high"
-    >
-  </div>
-</section>
-
-<section class="home-intro">
-  <div class="home-intro-inner">
-    <div class="home-intro-content">
-      <div class="eyebrow">Terencio Verde</div>
-      <h2>
-        Rooted somewhere.<br>
-        Limited nowhere.
-      </h2>
-      <p>
-        Terencio Verde begins with a sense of place —
-        familiar roads, old storefronts, live music,
-        river towns and the things people remember
-        long after they leave.
-        <br><br>
-        From there, the brand moves outward through
-        independent artists, original artwork,
-        digital characters, collaborations and
-        interactive garments while keeping apparel
-        at the center.
-      </p>
+  <section class="home-intro">
+    <div class="home-intro-inner">
+      <div class="home-intro-content">
+        <div class="eyebrow">Terencio Verde</div>
+        <h2>Rooted somewhere.<br>Limited nowhere.</h2>
+        <p>Terencio Verde begins with a sense of place — familiar roads, old storefronts, live music, river towns and the things people remember long after they leave.<br><br>From there, the brand moves outward through independent artists, original artwork, digital characters, collaborations and interactive garments while keeping apparel at the center.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="home-collections">
-  <div class="home-collections-inner">
-    <div class="home-section-heading">
-      <div class="eyebrow">Explore Terencio Verde</div>
-      <h2>
-        Different worlds.<br>
-        One label.
-      </h2>
-      <p>
-        Each collection has its own identity,
-        but everything belongs to the same
-        Terencio Verde story.
-      </p>
+  <section class="home-collections">
+    <div class="home-collections-inner">
+      <div class="home-section-heading">
+        <div class="eyebrow">Explore Terencio Verde</div>
+        <h2>Different worlds.<br>One label.</h2>
+        <p>Each collection has its own identity, but everything belongs to the same Terencio Verde story.</p>
+      </div>
+      <div class="home-collection-grid">
+        <a class="home-collection-card home-card-hometown" href="/hometown.html"><div class="home-collection-content"><small>Collection 01</small><h3>Hometown</h3><p>Familiar places, regional culture, Americana and the things people carry with them wherever they go.</p></div></a>
+        <a class="home-collection-card home-card-collabs" href="/collaborations.html"><div class="home-collection-content"><small>Collection 02</small><h3>Artist Collaborations</h3><p>Limited apparel created with independent and international artists.</p></div></a>
+        <a class="home-collection-card home-card-web3" href="/web3.html"><div class="home-collection-content"><small>Collection 03</small><h3>Web3</h3><p>Digital characters, original artwork and strange worlds taking physical form.</p></div></a>
+        <a id="interactiveCard" class="home-collection-card home-card-interactive" href="/interactive.html"><div class="home-collection-content"><small>Technology</small><h3>Interactive Apparel</h3><p>NFC-enabled garments connecting clothing with art, music, stories and digital experiences.</p></div></a>
+      </div>
     </div>
+  </section>
 
-    <div class="home-collection-grid">
-      <a class="home-collection-card home-card-hometown" href="/hometown.html">
-        <div class="home-collection-content">
-          <small>Collection 01</small>
-          <h3>Hometown</h3>
-          <p>
-            Familiar places, regional culture,
-            Americana and the things people
-            carry with them wherever they go.
-          </p>
-        </div>
-      </a>
-
-      <a class="home-collection-card home-card-collabs" href="/collaborations.html">
-        <div class="home-collection-content">
-          <small>Collection 02</small>
-          <h3>Artist Collaborations</h3>
-          <p>
-            Limited apparel created with
-            independent and international artists.
-          </p>
-        </div>
-      </a>
-
-      <a class="home-collection-card home-card-web3" href="/web3.html">
-        <div class="home-collection-content">
-          <small>Collection 03</small>
-          <h3>Web3</h3>
-          <p>
-            Digital characters, original artwork
-            and strange worlds taking physical form.
-          </p>
-        </div>
-      </a>
-
-      <a id="interactiveCard" class="home-collection-card home-card-interactive" href="/interactive.html">
-        <div class="home-collection-content">
-          <small>Technology</small>
-          <h3>Interactive Apparel</h3>
-          <p>
-            NFC-enabled garments connecting
-            clothing with art, music,
-            stories and digital experiences.
-          </p>
-        </div>
-      </a>
+  <section class="home-hometown">
+    <div class="home-hometown-inner">
+      <div class="eyebrow">Hometown</div>
+      <h2>Old roads.<br>Familiar places.<br>Things worth remembering.</h2>
+      <div class="home-memory-grid">
+        <div class="home-memory home-memory-river"><span>River Days</span></div>
+        <div class="home-memory home-memory-mainstreet"><span>Main Street</span></div>
+        <div class="home-memory home-memory-music"><span>Live Music</span></div>
+        <div class="home-memory home-memory-fire"><span>Fire & Smoke</span></div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="home-hometown">
-  <div class="home-hometown-inner">
-    <div class="eyebrow">Hometown</div>
-    <h2>
-      Old roads.<br>
-      Familiar places.<br>
-      Things worth remembering.
-    </h2>
-
-    <div class="home-memory-grid">
-      <div class="home-memory home-memory-river"><span>River Days</span></div>
-      <div class="home-memory home-memory-mainstreet"><span>Main Street</span></div>
-      <div class="home-memory home-memory-music"><span>Live Music</span></div>
-      <div class="home-memory home-memory-fire"><span>Fire & Smoke</span></div>
+  <section class="home-global">
+    <div class="home-global-inner">
+      <div class="home-global-content">
+        <div class="eyebrow">Beyond Home</div>
+        <h2>Local roots.<br>Global ideas.</h2>
+        <p>Central Texas is part of the Terencio Verde story — not its boundary.<br><br>Artists, characters, designs and ideas can come from anywhere, and every collection gets room to carry its own identity.</p>
+        <div class="home-global-line"></div>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="home-global">
-  <div class="home-global-inner">
-    <div class="home-global-content">
-      <div class="eyebrow">Beyond Home</div>
-      <h2>
-        Local roots.<br>
-        Global ideas.
-      </h2>
-      <p>
-        Central Texas is part of the
-        Terencio Verde story — not its boundary.
-        <br><br>
-        Artists, characters, designs and ideas
-        can come from anywhere, and every
-        collection gets room to carry
-        its own identity.
-      </p>
-      <div class="home-global-line"></div>
-    </div>
-  </div>
-</section>
-
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -425,18 +108,12 @@
     <div class="footer-mark">TV</div>
     <strong class="footer-brand">Terencio Verde</strong>
     <span class="footer-tagline" id="footerTagline"></span>
-    <div class="footer-contact">
-      <div class="footer-label">Contact</div>
-      <a class="footer-email" href="mailto:verdeterencio@gmail.com">verdeterencio@gmail.com</a>
-    </div>
-    <div class="footer-copyright">
-      © <span id="footerYear">2026</span> Terencio Verde
-    </div>
+    <div class="footer-contact"><div class="footer-label">Contact</div><a class="footer-email" href="mailto:verdeterencio@gmail.com">verdeterencio@gmail.com</a></div>
+    <div class="footer-copyright">© <span id="footerYear">2026</span> Terencio Verde</div>
   </div>
 </footer>
 
 <script src="/assets/home.js?v=5"></script>
 <script src="/assets/mobile-nav.js?v=4"></script>
-
 </body>
 </html>
