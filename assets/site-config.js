@@ -125,6 +125,154 @@
     document.head.appendChild(style);
   }
 
+  function installWeb3Hero() {
+    if (location.pathname !== "/web3.html") return;
+    if (document.getElementById("tv-web3-hero-styles")) return;
+
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+    hero.classList.add("tv-web3-hero");
+
+    const style = document.createElement("style");
+    style.id = "tv-web3-hero-styles";
+    style.textContent = `
+      .hero.tv-web3-hero,
+      .hero.tv-web3-hero.hero-no-art {
+        position:relative!important;
+        min-height:88vh!important;
+        display:grid!important;
+        grid-template-columns:minmax(0,1.45fr) minmax(360px,.85fr)!important;
+        align-items:center!important;
+        gap:32px!important;
+        padding:90px 6.5% 78px!important;
+        background-image:linear-gradient(90deg,rgba(2,6,12,.05) 0%,rgba(2,6,12,.04) 48%,rgba(2,6,12,.46) 72%,rgba(2,6,12,.72) 100%),url("/assets/ChatGPT%20Image%20Sep%203%2C%202026%2C%2003_38_52%20PM.png")!important;
+        background-size:cover!important;
+        background-position:center center!important;
+        background-repeat:no-repeat!important;
+        text-align:left!important;
+      }
+      .hero.tv-web3-hero::before,
+      .hero.tv-web3-hero::after { display:none!important; }
+      .hero.tv-web3-hero .character-zone { display:none!important; }
+      .hero.tv-web3-hero .hero-copy,
+      .hero.tv-web3-hero.hero-no-art .hero-copy {
+        grid-column:2!important;
+        justify-self:end!important;
+        align-self:center!important;
+        width:100%!important;
+        max-width:560px!important;
+        margin:0!important;
+        padding:0 0 0 10px!important;
+        text-align:left!important;
+        z-index:3!important;
+      }
+      .hero.tv-web3-hero .hero-copy .eyebrow {
+        text-align:left!important;
+        margin-left:0!important;
+        margin-right:0!important;
+        text-shadow:0 2px 12px rgba(0,0,0,.95);
+      }
+      .hero.tv-web3-hero .hero-copy h1,
+      .hero.tv-web3-hero.hero-no-art .hero-copy h1 {
+        max-width:560px!important;
+        margin:0 0 22px!important;
+        text-align:left!important;
+        text-wrap:balance;
+        font-size:clamp(3rem,4.35vw,5.4rem)!important;
+        line-height:.94!important;
+        text-shadow:0 3px 18px rgba(0,0,0,.95);
+      }
+      .hero.tv-web3-hero .hero-copy p,
+      .hero.tv-web3-hero.hero-no-art .hero-copy p {
+        max-width:520px!important;
+        margin:0!important;
+        text-align:left!important;
+        color:rgba(255,255,255,.92)!important;
+        text-shadow:0 2px 12px rgba(0,0,0,.95);
+      }
+      .tv-web3-photo-credit {
+        position:absolute;
+        left:6.5%;
+        bottom:18px;
+        z-index:5;
+        margin:0;
+        font-size:.68rem;
+        letter-spacing:.02em;
+        color:rgba(255,255,255,.72);
+        text-shadow:0 1px 6px rgba(0,0,0,.95);
+      }
+      .tv-web3-photo-credit a {
+        color:#77e3dc;
+        text-decoration:underline;
+        text-underline-offset:2px;
+      }
+      @media(max-width:1100px){
+        .hero.tv-web3-hero,
+        .hero.tv-web3-hero.hero-no-art {
+          grid-template-columns:minmax(0,1.2fr) minmax(330px,.8fr)!important;
+          background-position:46% center!important;
+        }
+        .hero.tv-web3-hero .hero-copy h1,
+        .hero.tv-web3-hero.hero-no-art .hero-copy h1 {
+          font-size:clamp(2.7rem,4.7vw,4.7rem)!important;
+        }
+      }
+      @media(max-width:850px){
+        .hero.tv-web3-hero,
+        .hero.tv-web3-hero.hero-no-art {
+          display:block!important;
+          min-height:auto!important;
+          padding:calc(58vh + 34px) 6% 72px!important;
+          background-color:#050914!important;
+          background-size:auto 58vh!important;
+          background-position:center top!important;
+          background-repeat:no-repeat!important;
+          text-align:center!important;
+        }
+        .hero.tv-web3-hero .hero-copy,
+        .hero.tv-web3-hero.hero-no-art .hero-copy {
+          max-width:680px!important;
+          margin:0 auto!important;
+          padding:0!important;
+          text-align:center!important;
+        }
+        .hero.tv-web3-hero .hero-copy .eyebrow,
+        .hero.tv-web3-hero .hero-copy h1,
+        .hero.tv-web3-hero.hero-no-art .hero-copy h1,
+        .hero.tv-web3-hero .hero-copy p,
+        .hero.tv-web3-hero.hero-no-art .hero-copy p {
+          text-align:center!important;
+          margin-left:auto!important;
+          margin-right:auto!important;
+        }
+        .hero.tv-web3-hero .hero-copy h1,
+        .hero.tv-web3-hero.hero-no-art .hero-copy h1 {
+          font-size:clamp(2.5rem,11vw,4rem)!important;
+        }
+        .tv-web3-photo-credit {
+          left:6%;
+          right:6%;
+          bottom:18px;
+          text-align:center;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    if (!hero.querySelector(".tv-web3-photo-credit")) {
+      const credit = document.createElement("p");
+      credit.className = "tv-web3-photo-credit";
+      credit.append("Photo was taken by Terencio in the ");
+      const link = document.createElement("a");
+      link.href = "https://launch.otherside.xyz";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "launch.otherside.xyz";
+      credit.appendChild(link);
+      hero.appendChild(credit);
+    }
+  }
+
   function installWeb3CardArt() {
     if (location.pathname !== "/web3.html") return;
     if (document.getElementById("tv-web3-card-art")) return;
@@ -249,11 +397,12 @@
 
   addSeo();
   installResponsiveNavStyles();
-  installWeb3CardArt();
 
   document.addEventListener("DOMContentLoaded", () => {
     setupNavigation();
     applyFeatureToggles();
     removeEmptyHeroArtZones();
+    installWeb3Hero();
+    installWeb3CardArt();
   });
 })();
