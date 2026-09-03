@@ -40,36 +40,23 @@
       text-decoration: none;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-
       min-height: 68px;
-
       padding: 0 6%;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
-
       background: rgba(4, 8, 16, 0.94);
-
       backdrop-filter: blur(12px);
-
-      border-bottom:
-        1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
     .brand {
       font-family: Georgia, serif;
-
       letter-spacing: 2px;
-
       font-size: 1rem;
     }
 
@@ -81,1052 +68,368 @@
 
     nav a {
       font-size: 0.74rem;
-
       text-transform: uppercase;
-
       letter-spacing: 1.1px;
-
       opacity: 0.75;
     }
 
-    nav a:hover {
-      opacity: 1;
-    }
-
-    #storeNav {
-      display: none;
-    }
-
-    /* =========================
-       HERO / THE OTHER SIDE
-    ========================= */
+    nav a:hover { opacity: 1; }
+    #storeNav { display: none; }
 
     .hero {
       position: relative;
-
       min-height: 88vh;
-
       padding: 90px 7%;
-
       display: grid;
-
-      grid-template-columns:
-        1.05fr 0.95fr;
-
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 50px;
-
       align-items: center;
-
       overflow: hidden;
-
       background:
-        radial-gradient(
-          circle at 78% 35%,
-          rgba(131, 63, 195, 0.38),
-          transparent 27%
-        ),
-
-        radial-gradient(
-          circle at 20% 70%,
-          rgba(28, 190, 182, 0.23),
-          transparent 30%
-        ),
-
-        radial-gradient(
-          circle at 50% 50%,
-          rgba(55, 36, 104, 0.20),
-          transparent 50%
-        ),
-
-        linear-gradient(
-          135deg,
-          #02060b,
-          #071422,
-          #12182f,
-          #30113f
-        );
+        radial-gradient(circle at 78% 35%, rgba(131, 63, 195, 0.38), transparent 27%),
+        radial-gradient(circle at 20% 70%, rgba(28, 190, 182, 0.23), transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(55, 36, 104, 0.20), transparent 50%),
+        linear-gradient(135deg, #02060b, #071422, #12182f, #30113f);
     }
 
     .hero::before {
       content: "";
-
       position: absolute;
-
       width: 720px;
       height: 720px;
-
       right: -190px;
       top: -150px;
-
       border-radius: 50%;
-
-      border:
-        2px solid rgba(87, 223, 215, 0.14);
-
-      box-shadow:
-        0 0 70px rgba(87, 223, 215, 0.10),
-        0 0 150px rgba(145, 69, 201, 0.13),
-        inset 0 0 100px rgba(80, 46, 160, 0.12);
+      border: 2px solid rgba(87, 223, 215, 0.14);
+      box-shadow: 0 0 70px rgba(87, 223, 215, 0.10), 0 0 150px rgba(145, 69, 201, 0.13), inset 0 0 100px rgba(80, 46, 160, 0.12);
     }
 
     .hero::after {
       content: "";
-
       position: absolute;
-
       inset: 0;
-
       pointer-events: none;
-
-      background-image:
-        radial-gradient(
-          rgba(255,255,255,0.20) 1px,
-          transparent 1px
-        );
-
-      background-size:
-        48px 48px;
-
+      background-image: radial-gradient(rgba(255,255,255,0.20) 1px, transparent 1px);
+      background-size: 48px 48px;
       opacity: 0.10;
     }
 
     .hero-copy {
       position: relative;
       z-index: 3;
-
       max-width: 760px;
     }
 
     .eyebrow {
       text-transform: uppercase;
-
       letter-spacing: 3px;
-
       font-size: 0.77rem;
-
       font-weight: bold;
-
       color: #77e3dc;
-
       margin-bottom: 20px;
     }
 
     h1 {
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size:
-        clamp(4rem, 9vw, 7.4rem);
-
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(4rem, 9vw, 7.4rem);
       line-height: 0.87;
-
       font-weight: normal;
-
       margin-bottom: 28px;
     }
 
     .hero p {
       max-width: 650px;
-
-      color:
-        rgba(255,255,255,0.72);
-
+      color: rgba(255,255,255,0.72);
       font-size: 1.16rem;
-
       line-height: 1.75;
     }
-
-    /* =========================
-       MARIA HERO AREA
-    ========================= */
 
     .character-zone {
       position: relative;
       z-index: 4;
-
       min-height: 560px;
-
       display: flex;
-
       justify-content: center;
-
       align-items: flex-end;
     }
 
-    /*
-      Maria should eventually be uploaded
-      as a transparent PNG:
-
-      assets/maria-main.png
-
-      That lets her actually LIVE inside
-      this environment instead of appearing
-      inside a square image.
-    */
-
     .character-zone img {
-      width:
-        min(550px, 95%);
-
+      width: min(550px, 95%);
       max-height: 650px;
-
       object-fit: contain;
-
-      filter:
-        drop-shadow(
-          0 32px 30px
-          rgba(0,0,0,0.42)
-        )
-        drop-shadow(
-          0 0 28px
-          rgba(80,215,210,0.10)
-        );
+      filter: drop-shadow(0 32px 30px rgba(0,0,0,0.42)) drop-shadow(0 0 28px rgba(80,215,210,0.10));
     }
-
-    /* =========================
-       MERCHANDISE
-    ========================= */
 
     .merch {
       padding: 95px 7%;
-
-      background:
-        linear-gradient(
-          180deg,
-          #070c16,
-          #101126
-        );
+      background: linear-gradient(180deg, #070c16, #101126);
     }
 
     .section-heading {
       max-width: 780px;
-
       margin-bottom: 50px;
     }
 
     .section-heading h2 {
       font-family: Georgia, serif;
-
-      font-size:
-        clamp(3rem, 6vw, 5rem);
-
+      font-size: clamp(3rem, 6vw, 5rem);
       line-height: 1;
-
       font-weight: normal;
-
       margin: 12px 0 20px;
     }
 
     .section-heading p {
       max-width: 700px;
-
-      color:
-        rgba(255,255,255,0.65);
-
+      color: rgba(255,255,255,0.65);
       line-height: 1.75;
     }
 
     .merch-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
     .merch-card {
       position: relative;
-
       min-height: 360px;
-
       padding: 30px;
-
       overflow: hidden;
-
       border-radius: 8px;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.08);
-
-      background:
-        radial-gradient(
-          circle at 80% 15%,
-          rgba(121, 74, 191, 0.22),
-          transparent 35%
-        ),
-        rgba(255,255,255,0.035);
-
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at 80% 15%, rgba(121, 74, 191, 0.22), transparent 35%), rgba(255,255,255,0.035);
       display: flex;
-
       flex-direction: column;
-
       justify-content: flex-end;
-
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+      transition: transform 0.25s ease, background 0.25s ease;
     }
 
     .merch-card:hover {
-      transform:
-        translateY(-4px);
-
-      background:
-        radial-gradient(
-          circle at 80% 15%,
-          rgba(121, 74, 191, 0.30),
-          transparent 35%
-        ),
-        rgba(255,255,255,0.055);
+      transform: translateY(-4px);
+      background: radial-gradient(circle at 80% 15%, rgba(121, 74, 191, 0.30), transparent 35%), rgba(255,255,255,0.055);
     }
 
     .merch-card::before {
       content: "";
-
       position: absolute;
-
       width: 200px;
       height: 200px;
-
       right: -80px;
       top: -80px;
-
       border-radius: 50%;
-
-      border:
-        1px solid
-        rgba(93,220,212,0.16);
+      border: 1px solid rgba(93,220,212,0.16);
     }
 
     .merch-card h3 {
       position: relative;
-
       font-family: Georgia, serif;
-
       font-size: 2rem;
-
       font-weight: normal;
-
       margin-bottom: 10px;
     }
 
     .merch-card p {
       position: relative;
-
-      color:
-        rgba(255,255,255,0.62);
-
+      color: rgba(255,255,255,0.62);
       line-height: 1.6;
     }
 
-    /* =========================
-       COSMIC DREAM BOG
-    ========================= */
-
     .cosmic {
       position: relative;
-
       padding: 100px 7%;
-
       display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
+      grid-template-columns: 1fr 1fr;
       gap: 65px;
-
       align-items: center;
-
       overflow: hidden;
-
-      background:
-        radial-gradient(
-          circle at 15% 40%,
-          rgba(29,145,151,0.18),
-          transparent 30%
-        ),
-        #050b11;
+      background: radial-gradient(circle at 15% 40%, rgba(29,145,151,0.18), transparent 30%), #050b11;
     }
 
-    .cosmic-copy {
-      position: relative;
-      z-index: 2;
-    }
+    .cosmic-copy { position: relative; z-index: 2; }
 
     .cosmic h2 {
       font-family: Georgia, serif;
-
-      font-size:
-        clamp(3rem, 6vw, 5rem);
-
+      font-size: clamp(3rem, 6vw, 5rem);
       font-weight: normal;
-
       line-height: 1;
-
       margin-bottom: 25px;
     }
 
     .cosmic p {
       max-width: 700px;
-
-      color:
-        rgba(255,255,255,0.68);
-
+      color: rgba(255,255,255,0.68);
       line-height: 1.8;
     }
 
     .cdb-links {
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 10px;
-
       margin-top: 28px;
     }
 
     .cdb-links a {
       min-height: 46px;
-
       display: inline-flex;
-
       align-items: center;
-
       padding: 11px 16px;
-
       border-radius: 4px;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.18);
-
-      background:
-        rgba(255,255,255,0.035);
-
-      transition:
-        background 0.2s ease;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.035);
+      transition: background 0.2s ease;
     }
 
-    .cdb-links a:hover {
-      background:
-        rgba(255,255,255,0.10);
-    }
-
-    /* =========================
-       MARIA CAMEO AREA
-    ========================= */
+    .cdb-links a:hover { background: rgba(255,255,255,0.10); }
 
     .maria-stage {
       position: relative;
-
       min-height: 500px;
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
     }
 
     .maria-stage img {
       position: absolute;
-
       max-height: 450px;
-
       max-width: 88%;
-
       object-fit: contain;
-
-      filter:
-        drop-shadow(
-          0 28px 28px
-          rgba(0,0,0,0.40)
-        );
+      filter: drop-shadow(0 28px 28px rgba(0,0,0,0.40));
     }
 
-    .maria-back {
-      opacity: 0.16;
-
-      transform:
-        translate(80px, -25px)
-        scale(1.05);
-    }
-
-    .maria-front {
-      z-index: 2;
-    }
-
-    /* =========================
-       PHYSICAL FIRST
-    ========================= */
+    .maria-back { opacity: 0.16; transform: translate(80px, -25px) scale(1.05); }
+    .maria-front { z-index: 2; }
 
     .physical {
       padding: 90px 7%;
-
       background: #0b1320;
-
-      border-top:
-        1px solid
-        rgba(255,255,255,0.07);
-
-      border-bottom:
-        1px solid
-        rgba(255,255,255,0.07);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
-    .physical-inner {
-      max-width: 900px;
-    }
+    .physical-inner { max-width: 900px; }
 
     .physical h2 {
       font-family: Georgia, serif;
-
-      font-size:
-        clamp(3rem, 6vw, 5rem);
-
+      font-size: clamp(3rem, 6vw, 5rem);
       font-weight: normal;
-
       line-height: 1;
-
       margin-bottom: 22px;
     }
 
     .physical p {
       max-width: 760px;
-
-      color:
-        rgba(255,255,255,0.66);
-
+      color: rgba(255,255,255,0.66);
       line-height: 1.8;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
     footer {
-      padding:
-        45px
-        max(7%, env(safe-area-inset-right))
-        calc(
-          45px +
-          env(safe-area-inset-bottom)
-        )
-        max(7%, env(safe-area-inset-left));
-
+      padding: 45px max(7%, env(safe-area-inset-right)) calc(45px + env(safe-area-inset-bottom)) max(7%, env(safe-area-inset-left));
       background: #020509;
-
-      color:
-        rgba(255,255,255,0.52);
+      color: rgba(255,255,255,0.52);
     }
 
     footer strong {
       display: block;
-
       color: white;
-
       font-family: Georgia, serif;
-
       font-size: 1.35rem;
-
       margin-bottom: 7px;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
-
     @media (max-width: 850px) {
-
-      .hero {
-        grid-template-columns: 1fr;
-
-        min-height: auto;
-
-        padding:
-          65px
-          6%
-          45px;
-      }
-
-      .hero-copy {
-        text-align: center;
-
-        margin: auto;
-      }
-
-      h1 {
-        font-size:
-          clamp(
-            3rem,
-            16vw,
-            5rem
-          );
-      }
-
-      .hero p {
-        margin: auto;
-
-        font-size: 1rem;
-      }
-
-      .character-zone {
-        min-height: 260px;
-
-        margin-top: 20px;
-      }
-
-      .merch {
-        padding:
-          70px
-          6%;
-      }
-
-      .merch-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .merch-card {
-        min-height: 285px;
-      }
-
-      .cosmic {
-        grid-template-columns: 1fr;
-
-        padding:
-          75px
-          6%;
-      }
-
-      .cosmic-copy {
-        text-align: center;
-      }
-
-      .cdb-links {
-        justify-content: center;
-      }
-
-      .maria-stage {
-        min-height: 340px;
-      }
-
-      .physical {
-        padding:
-          75px
-          6%;
-      }
-
-      .physical h2 {
-        font-size:
-          clamp(
-            2.7rem,
-            13vw,
-            4.2rem
-          );
-      }
-
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 65px 6% 45px; }
+      .hero-copy { text-align: center; margin: auto; }
+      h1 { font-size: clamp(3rem, 16vw, 5rem); }
+      .hero p { margin: auto; font-size: 1rem; }
+      .character-zone { min-height: 260px; margin-top: 20px; }
+      .merch { padding: 70px 6%; }
+      .merch-grid { grid-template-columns: 1fr; }
+      .merch-card { min-height: 285px; }
+      .cosmic { grid-template-columns: 1fr; padding: 75px 6%; }
+      .cosmic-copy { text-align: center; }
+      .cdb-links { justify-content: center; }
+      .maria-stage { min-height: 340px; }
+      .physical { padding: 75px 6%; }
+      .physical h2 { font-size: clamp(2.7rem, 13vw, 4.2rem); }
     }
 
-    @media
-    (max-width: 850px)
-    and
-    (orientation: landscape) {
-
-      .hero {
-        padding-top: 45px;
-      }
-
-      .character-zone {
-        min-height: 190px;
-      }
-
-      .maria-stage {
-        min-height: 260px;
-      }
-
+    @media (max-width: 850px) and (orientation: landscape) {
+      .hero { padding-top: 45px; }
+      .character-zone { min-height: 190px; }
+      .maria-stage { min-height: 260px; }
     }
-
   </style>
 </head>
-
-
 <body>
-
-<!-- GLOBAL SETTINGS -->
-
 <script src="assets/site-config.js"></script>
-
-
-<!-- HEADER -->
-
 <header>
-
-  <a
-    class="brand"
-    href="index.html">
-    TERENCIO VERDE
-  </a>
-
-
+  <a class="brand" href="index.html">TERENCIO VERDE</a>
   <nav>
-
-    <a href="hometown.html">
-      Hometown
-    </a>
-
-    <a href="collaborations.html">
-      Artist Collabs
-    </a>
-
-    <a href="web3.html">
-      Web3
-    </a>
-
-    <a
-      id="interactiveNav"
-      href="interactive.html">
-      Interactive
-    </a>
-
-    <a
-      id="storeNav"
-      href="store.html">
-      Shop
-    </a>
-
+    <a href="hometown.html">Hometown</a>
+    <a href="collaborations.html">Artist Collabs</a>
+    <a href="web3.html">Web3</a>
+    <a id="interactiveNav" href="interactive.html">Interactive</a>
+    <a id="storeNav" href="store.html">Shop</a>
   </nav>
-
 </header>
-
-
 <main>
-
-  <!-- =========================
-       WEB3 HERO
-  ========================== -->
-
   <section class="hero">
-
     <div class="hero-copy">
-
-      <div class="eyebrow">
-        Web3 Collection
-      </div>
-
-      <h1>
-        THE<br>
-        OTHER<br>
-        SIDE.
-      </h1>
-
-      <p>
-        Digital characters, strange worlds
-        and artwork born online become
-        physical pieces you can actually wear.
-      </p>
-
+      <div class="eyebrow">Web3 Collection</div>
+      <h1>THE<br>OTHER<br>SIDE.</h1>
+      <p>Digital characters, strange worlds and artwork born online become physical pieces you can actually wear.</p>
     </div>
-
-
-    <div class="character-zone">
-
-      <!--
-
-      When Maria's transparent image is ready:
-
-      <img
-        src="assets/maria-main.png"
-        alt="Maria Verde">
-
-      -->
-
-    </div>
-
+    <div class="character-zone"></div>
   </section>
-
-
-  <!-- =========================
-       MERCHANDISE
-  ========================== -->
 
   <section class="merch">
-
     <div class="section-heading">
-
-      <div class="eyebrow">
-        Wear the characters
-      </div>
-
-      <h2>
-        Digital art.
-        Physical goods.
-      </h2>
-
-      <p>
-        The Web3 collection takes characters,
-        digital illustrations, NFT artwork
-        and pieces from online worlds and
-        turns them into Terencio Verde apparel.
-      </p>
-
+      <div class="eyebrow">Wear the characters</div>
+      <h2>Digital art. Physical goods.</h2>
+      <p>The Web3 collection takes characters, digital illustrations, NFT artwork and pieces from online worlds and turns them into Terencio Verde apparel.</p>
     </div>
-
-
     <div class="merch-grid">
-
       <article class="merch-card">
-
-        <h3>
-          Maria Verde
-        </h3>
-
-        <p>
-          Character-driven apparel,
-          limited graphics and experimental
-          releases featuring Maria.
-        </p>
-
+        <h3>Maria Verde</h3>
+        <p>Character-driven apparel, limited graphics and experimental releases featuring Maria.</p>
       </article>
-
-
       <article class="merch-card">
-
-        <h3>
-          NFT Editions
-        </h3>
-
-        <p>
-          Selected digital characters
-          reworked as physical apparel,
-          graphics and limited pieces.
-        </p>
-
+        <h3>NFT Editions</h3>
+        <p>Selected digital characters reworked as physical apparel, graphics and limited pieces.</p>
       </article>
-
-
       <article class="merch-card">
-
-        <h3>
-          Cosmic Drops
-        </h3>
-
-        <p>
-          Merchandise emerging from
-          the stranger corners of
-          the Terencio Verde universe.
-        </p>
-
+        <h3>Cosmic Drops</h3>
+        <p>Emerging from the stranger corners of the Terencio Verde universe.</p>
       </article>
-
     </div>
-
   </section>
-
-
-  <!-- =========================
-       COSMIC DREAM BOG
-  ========================== -->
 
   <section class="cosmic">
-
     <div class="cosmic-copy">
-
-      <div class="eyebrow">
-        A connected world
-      </div>
-
-      <h2>
-        Cosmic Dream Bog
-      </h2>
-
-      <p>
-        Cosmic Dream Bog is a surreal,
-        character-driven digital world
-        built around strange personalities,
-        locations, stories and interconnected
-        ideas.
-
-        Characters and artwork from that world
-        can cross into Terencio Verde as
-        physical apparel, graphics and
-        limited merchandise.
-      </p>
-
-
-      <!--
-        THESE LINKS LIVE ONLY ON THIS WEB3 PAGE.
-
-        When you give me the real Discord
-        and Cosmic Dream Bog X URLs,
-        replace the # values below.
-      -->
-
+      <div class="eyebrow">A connected world</div>
+      <h2>Cosmic Dream Bog</h2>
+      <p>Cosmic Dream Bog is a surreal, character-driven digital world built around strange personalities, locations, stories and interconnected ideas. Characters and artwork from that world can cross into Terencio Verde as physical apparel, graphics and limited merchandise.</p>
       <div class="cdb-links">
-
-        <a
-          href="https://cosmicdreambog.com"
-          target="_blank"
-          rel="noopener noreferrer">
-          Cosmic Dream Bog Website
-        </a>
-
-
-        <a
-          href="#"
-          id="cdbDiscord"
-          target="_blank"
-          rel="noopener noreferrer">
-          Discord
-        </a>
-
-
-        <a
-          href="#"
-          id="cdbX"
-          target="_blank"
-          rel="noopener noreferrer">
-          X
-        </a>
-
+        <a href="https://cosmicdreambog.com" target="_blank" rel="noopener noreferrer">Cosmic Dream Bog Website</a>
+        <a href="#" id="cdbDiscord" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="#" id="cdbX" target="_blank" rel="noopener noreferrer">X</a>
       </div>
-
     </div>
-
-
-    <div class="maria-stage">
-
-      <!--
-
-      Later:
-
-      <img
-        class="maria-back"
-        src="assets/maria-easter-egg.png"
-        alt="">
-
-      <img
-        class="maria-front"
-        src="assets/maria-main.png"
-        alt="Maria Verde">
-
-      -->
-
-    </div>
-
+    <div class="maria-stage"></div>
   </section>
-
-
-  <!-- =========================
-       PHYSICAL FIRST
-  ========================== -->
 
   <section class="physical">
-
     <div class="physical-inner">
-
-      <div class="eyebrow">
-        Physical first
-      </div>
-
-      <h2>
-        Wear the weird.
-      </h2>
-
-      <p>
-        Terencio Verde's Web3 collection
-        is about artwork, characters
-        and merchandise.
-
-        There are no wallet connections
-        required anywhere on this website.
-
-        Visitors can discover the designs,
-        learn about the worlds behind them
-        and eventually purchase the apparel
-        like any other Terencio Verde collection.
-      </p>
-
+      <div class="eyebrow">Physical first</div>
+      <h2>Clothing first. Technology second.</h2>
+      <p>Terencio Verde pieces are designed to work as clothing on their own. Digital elements are optional layers — never requirements.</p>
     </div>
-
   </section>
-
 </main>
-
-
 <footer>
-
-  <strong>
-    Terencio Verde
-  </strong>
-
-  <span id="footerTagline"></span>
-
-  <br><br>
-
-  © 2026 Terencio Verde
-
+  <strong>Terencio Verde</strong>
+  Independent Apparel · Art · Culture · Technology
 </footer>
-
-
-<script>
-
-  const config =
-    window.TERENCIO_CONFIG || {};
-
-
-  /*
-    FOOTER TAGLINE
-  */
-
-  document.getElementById(
-    "footerTagline"
-  ).textContent =
-    config.tagline ||
-    "Independent Apparel · Art · Culture · Technology";
-
-
-  /*
-    STORE LINK
-  */
-
-  if (
-    config.storeEnabled === true
-  ) {
-
-    document.getElementById(
-      "storeNav"
-    ).style.display =
-      "inline";
-
-  }
-
-
-  /*
-    INTERACTIVE APPAREL LINK
-  */
-
-  if (
-    config.interactiveApparelEnabled === false
-  ) {
-
-    document.getElementById(
-      "interactiveNav"
-    ).style.display =
-      "none";
-
-  }
-
-</script>
-
-
-<!-- MOBILE MENU FOR iPHONE + ANDROID -->
-
-<script src="assets/mobile-nav.js"></script>
-
-
 </body>
 </html>
