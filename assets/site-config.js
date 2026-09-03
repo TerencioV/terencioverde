@@ -123,6 +123,31 @@
     document.head.appendChild(style);
   }
 
+  function installWeb3CardArt() {
+    if (location.pathname !== "/web3.html") return;
+    if (document.getElementById("tv-web3-card-art")) return;
+
+    const style = document.createElement("style");
+    style.id = "tv-web3-card-art";
+    style.textContent = `
+      .merch-grid .merch-card:first-child,
+      .merch-grid .merch-card:first-child:hover {
+        background-color:#111827!important;
+        background-image:url("/assets/geez-3426-Pose%2054-1788458747315.png")!important;
+        background-size:cover!important;
+        background-position:center!important;
+        background-repeat:no-repeat!important;
+      }
+      .merch-grid .merch-card:first-child::before { display:none!important; }
+      .merch-grid .merch-card:first-child h3,
+      .merch-grid .merch-card:first-child p {
+        z-index:2;
+        text-shadow:0 2px 8px rgba(0,0,0,.9);
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   function setupNavigation() {
     if (document.querySelector('script[src*="mobile-nav.js"]')) return;
 
@@ -192,6 +217,7 @@
 
   addSeo();
   installResponsiveNavStyles();
+  installWeb3CardArt();
 
   document.addEventListener("DOMContentLoaded", () => {
     setupNavigation();
