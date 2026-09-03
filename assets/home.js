@@ -298,6 +298,153 @@ document.addEventListener(
 
 
     /* =====================================================
+       HOMEPAGE HERO CHARACTER
+       ===================================================== */
+
+    const homeHero =
+      document.querySelector(
+        ".home-hero"
+      );
+
+
+    const homeHeroInner =
+      document.querySelector(
+        ".home-hero-inner"
+      );
+
+
+    if (
+      homeHero &&
+      homeHeroInner &&
+      !document.querySelector(
+        ".home-hero-character"
+      )
+    ) {
+
+      const heroCharacter =
+        document.createElement(
+          "img"
+        );
+
+
+      heroCharacter.className =
+        "home-hero-character";
+
+
+      heroCharacter.src =
+        "/assets/terencio-hero.png";
+
+
+      heroCharacter.alt =
+        "Terencio presenting the Terencio Verde brand";
+
+
+      heroCharacter.decoding =
+        "async";
+
+
+      heroCharacter.fetchPriority =
+        "high";
+
+
+      homeHeroInner.appendChild(
+        heroCharacter
+      );
+
+
+      const heroCharacterStyles =
+        document.createElement(
+          "style"
+        );
+
+
+      heroCharacterStyles.textContent = `
+        .home-hero-inner {
+          min-height: inherit;
+        }
+
+        .home-hero-copy {
+          position: relative;
+          z-index: 3;
+          max-width: min(760px, 58%);
+        }
+
+        .home-hero-character {
+          position: absolute;
+          z-index: 2;
+          right: clamp(-70px, -2vw, -20px);
+          bottom: -2px;
+          width: clamp(470px, 43vw, 760px);
+          max-width: 48vw;
+          height: auto;
+          object-fit: contain;
+          object-position: bottom right;
+          pointer-events: none;
+          user-select: none;
+          -webkit-user-drag: none;
+          filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .28));
+        }
+
+        @media (max-width: 1100px) {
+          .home-hero-copy {
+            max-width: 60%;
+          }
+
+          .home-hero-character {
+            right: -90px;
+            width: clamp(430px, 48vw, 620px);
+            max-width: 50vw;
+          }
+        }
+
+        @media (max-width: 760px) {
+          .home-hero {
+            align-items: flex-start;
+          }
+
+          .home-hero-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: calc(100vh - 72px);
+            padding-top: 72px;
+            padding-bottom: 0;
+          }
+
+          .home-hero-copy {
+            max-width: 100%;
+            padding-bottom: 390px;
+          }
+
+          .home-hero-character {
+            right: -68px;
+            bottom: -8px;
+            width: min(520px, 92vw);
+            max-width: none;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .home-hero-copy {
+            padding-bottom: 330px;
+          }
+
+          .home-hero-character {
+            right: -72px;
+            width: 440px;
+          }
+        }
+      `;
+
+
+      document.head.appendChild(
+        heroCharacterStyles
+      );
+
+    }
+
+
+    /* =====================================================
        FOOTER YEAR
        ===================================================== */
 
