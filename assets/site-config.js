@@ -164,7 +164,7 @@
       .merch-grid .merch-card:nth-child(3):hover {
         background-color:#111827!important;
         background-image:url("/assets/ChatGPT%20Image%20Aug%2031%2C%202026%2C%2008_30_27%20AM%20%284%29.png")!important;
-        background-size:cover!important;
+        background-size:contain!important;
         background-position:center center!important;
         background-repeat:no-repeat!important;
       }
