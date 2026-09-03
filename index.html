@@ -116,6 +116,29 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
     }
 
+    .home-card-interactive {
+      background-image: url("/assets/t-shirt%20image01.png") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+
+    .home-card-interactive::before,
+    .home-card-interactive::after {
+      display: none !important;
+    }
+
+    .home-card-interactive .home-collection-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .home-card-interactive .home-collection-content small,
+    .home-card-interactive .home-collection-content h3,
+    .home-card-interactive .home-collection-content p {
+      text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
+    }
+
     @media (max-width: 1100px) {
       .home-hero-copy {
         max-width: 60%;
