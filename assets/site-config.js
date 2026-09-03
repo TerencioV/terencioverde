@@ -159,6 +159,21 @@
         z-index:2;
         text-shadow:0 2px 8px rgba(0,0,0,.9);
       }
+
+      .merch-grid .merch-card:nth-child(3),
+      .merch-grid .merch-card:nth-child(3):hover {
+        background-color:#111827!important;
+        background-image:url("/assets/ChatGPT%20Image%20Aug%2031%2C%202026%2C%2008_30_27%20AM%20%284%29.png")!important;
+        background-size:cover!important;
+        background-position:center center!important;
+        background-repeat:no-repeat!important;
+      }
+      .merch-grid .merch-card:nth-child(3)::before { display:none!important; }
+      .merch-grid .merch-card:nth-child(3) h3,
+      .merch-grid .merch-card:nth-child(3) p {
+        z-index:2;
+        text-shadow:0 2px 8px rgba(0,0,0,.9);
+      }
     `;
     document.head.appendChild(style);
   }
