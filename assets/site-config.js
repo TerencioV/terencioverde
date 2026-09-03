@@ -124,6 +124,8 @@
   }
 
   function setupNavigation() {
+    if (document.querySelector('script[src*="mobile-nav.js"]')) return;
+
     const header = document.querySelector("header, .site-header");
     if (!header) return;
     const nav = header.querySelector("nav, .site-nav");
