@@ -14,6 +14,8 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -27,6 +29,12 @@ jobs:
           test -f robots.txt
           test -f sitemap.xml
 
+      - name: Validate Vercel configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m json.tool vercel.json > /dev/null
+
       - name: Check HTML files are non-empty
         shell: bash
         run: |
@@ -34,3 +42,21 @@ jobs:
           find . -maxdepth 1 -type f -name '*.html' -print0 | while IFS= read -r -d '' file; do
             test -s "$file"
           done
+
+      - name: Reject tracked secret files and private keys
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git ls-files | grep -E '(^|/).env($|.)|.pem$|.key$' >/dev/null; then
+            echo "Tracked secret-like file detected."
+            exit 1
+          fi
+
+      - name: Reject unresolved merge-conflict markers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -n -E '^(<<<<<<<|=======|>>>>>>>)' -- '*.html' '*.css' '*.js' '*.json' '*.yml' '*.yaml'; then
+            echo "Unresolved merge-conflict marker detected."
+            exit 1
+          fi
