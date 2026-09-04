@@ -134,6 +134,26 @@
     });
   }
 
+  function ensureLegalFooterLinks() {
+    const footer = document.querySelector("footer, .site-footer");
+    if (!footer) return;
+
+    const required = [
+      "/terms.html",
+      "/privacy.html",
+      "/shipping-returns.html",
+      "/interactive-product-policy.html"
+    ];
+    const existing = new Set(Array.from(footer.querySelectorAll("a[href]")).map(link => link.getAttribute("href")));
+    if (required.every(href => existing.has(href))) return;
+
+    const legal = document.createElement("div");
+    legal.className = "tv-legal-links";
+    legal.style.marginTop = "12px";
+    legal.innerHTML = '<a href="/terms.html">Terms of Use &amp; Sale</a> · <a href="/privacy.html">Privacy</a> · <a href="/shipping-returns.html">Shipping &amp; Returns</a> · <a href="/interactive-product-policy.html">Interactive Product Policy</a>';
+    footer.appendChild(legal);
+  }
+
   function markEmptyHeroArt() {
     document.querySelectorAll(".character-zone").forEach(zone => {
       if (!zone.querySelector("img, picture, video, svg")) {
@@ -170,6 +190,7 @@
     setupNavigation();
     applyFeatureToggles();
     applySharedText();
+    ensureLegalFooterLinks();
     markEmptyHeroArt();
     enhanceWeb3();
   });
