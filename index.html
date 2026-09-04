@@ -20,8 +20,28 @@
     .home-hero-character{grid-column:3!important;position:relative!important;z-index:3!important;right:auto!important;bottom:auto!important;width:116%!important;max-width:760px!important;max-height:min(82vh,740px)!important;height:auto!important;justify-self:center;align-self:center;transform:translate(-2%,10px);object-fit:contain;object-position:center}
     @media(max-width:1200px){.home-hero-inner{grid-template-columns:33% 38% 29%;column-gap:6px;width:100%;max-width:none;margin:0;padding-left:1.5vw;padding-right:1.5vw}.home-hero-brand-logo{width:164%;max-width:700px;height:min(86vh,720px)}.home-hero-brand-row .home-hero-copy{max-width:590px;transform:translateX(58px)!important}.home-hero-brand-row .home-hero-copy h1{font-size:clamp(3.55rem,5.25vw,5.65rem)}.home-hero-character{width:114%!important;max-width:620px!important;max-height:min(76vh,630px)!important;transform:translate(-1%,10px)}}
     @media(max-width:900px){.home-hero-inner{grid-template-columns:31% 42% 27%;column-gap:4px;padding-left:1vw;padding-right:1vw}.home-hero-brand-logo{width:148%;max-width:470px;height:min(72vh,560px)}.home-hero-brand-row .home-hero-copy{transform:translateX(26px)!important}.home-hero-brand-row .home-hero-copy h1{font-size:clamp(3.05rem,5.6vw,4.55rem)}.home-hero-character{width:110%!important;max-width:455px!important;max-height:min(64vh,490px)!important;transform:translate(0,8px)}}
-    @media(max-width:760px){.home-hero-inner{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:calc(100vh - 72px);width:100%;max-width:none;margin:0;padding-top:72px;padding-left:7%;padding-right:7%;padding-bottom:0;overflow:hidden}.home-hero-brand-row{display:flex;align-items:flex-start;gap:16px;transform:none}.home-hero-brand-logo{width:158px;height:auto;max-width:none;flex:0 0 auto;margin-top:8px;transform:none}.home-hero-brand-row .home-hero-copy{max-width:100%;transform:none!important;padding-bottom:425px}.home-hero-brand-row .home-hero-copy h1{font-size:clamp(3.25rem,14vw,5.2rem)}.home-hero-character{position:absolute!important;right:0!important;bottom:24px!important;width:min(515px,91vw)!important;max-width:none!important;max-height:none!important;transform:none}}
-    @media(max-width:480px){.home-hero-brand-row{gap:12px}.home-hero-brand-logo{width:128px}.home-hero-brand-row .home-hero-copy{padding-bottom:370px}.home-hero-character{right:0!important;bottom:14px!important;width:430px!important}}
+    @media(max-width:760px){
+      .home-hero{min-height:calc(100svh - 72px);align-items:stretch;overflow:hidden}
+      .home-hero-inner{position:relative;display:block;min-height:calc(100svh - 72px);width:100%;max-width:none;margin:0;padding:44px 5% 390px;overflow:hidden}
+      .home-hero-brand-row{display:block}
+      .home-hero-brand-logo{position:absolute;left:17%;top:70px;width:132px;max-width:27vw;height:auto;margin:0;transform:translate(-50%,-44%);z-index:5;filter:drop-shadow(0 10px 20px rgba(0,0,0,.22))}
+      .home-hero-brand-row .home-hero-copy{position:relative;z-index:6;width:62%;max-width:none;margin:0 0 0 34%;padding:0;transform:none!important}
+      .home-hero-brand-row .home-hero-copy .eyebrow{margin-bottom:12px;font-size:.64rem;letter-spacing:2.1px;white-space:nowrap}
+      .home-hero-brand-row .home-hero-copy h1{font-size:clamp(2.55rem,10.2vw,3.85rem);line-height:.92;max-width:none;margin-bottom:16px}
+      .home-hero-brand-row .home-hero-copy .home-hero-subhead{max-width:100%;font-size:.95rem;line-height:1.42}
+      .home-hero-brand-row .home-hero-copy .home-hero-note{max-width:100%;margin-top:12px;font-size:.76rem;line-height:1.38}
+      .home-hero-character{position:absolute!important;right:4%!important;bottom:16px!important;width:min(470px,76vw)!important;max-width:none!important;max-height:43vh!important;height:auto!important;z-index:4!important;justify-self:auto;align-self:auto;transform:none!important;object-fit:contain;object-position:center bottom}
+    }
+    @media(max-width:480px){
+      .home-hero-inner{padding:34px 4% 330px}
+      .home-hero-brand-logo{left:16%;top:68px;width:104px;max-width:25vw;transform:translate(-50%,-52%)}
+      .home-hero-brand-row .home-hero-copy{width:64%;margin-left:32%}
+      .home-hero-brand-row .home-hero-copy .eyebrow{font-size:.6rem;letter-spacing:1.85px}
+      .home-hero-brand-row .home-hero-copy h1{font-size:clamp(2.2rem,10.4vw,3.15rem);line-height:.93;margin-bottom:14px}
+      .home-hero-brand-row .home-hero-copy .home-hero-subhead{font-size:.88rem;line-height:1.4}
+      .home-hero-brand-row .home-hero-copy .home-hero-note{font-size:.72rem;line-height:1.35}
+      .home-hero-character{right:3%!important;bottom:8px!important;width:min(400px,74vw)!important;max-height:39vh!important}
+    }
   </style>
 </head>
 <body>
