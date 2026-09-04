@@ -11,12 +11,16 @@
   <link rel="stylesheet" href="/assets/home-overrides.css">
   <link rel="stylesheet" href="/assets/site-enhancements.css">
   <style>
-    .home-hero-brand-row{display:flex;align-items:center;gap:20px;position:relative;z-index:3;transform:translate(18px,120px)}
-    .home-hero-brand-logo{width:clamp(220px,17vw,300px);height:auto;flex:0 0 auto;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(0,0,0,.22));pointer-events:none;user-select:none;-webkit-user-drag:none}
-    .home-hero-brand-row .home-hero-copy{transform:none;max-width:min(760px,58vw)}
-    @media(max-width:1100px){.home-hero-brand-row{gap:18px;transform:translate(10px,95px)}.home-hero-brand-logo{width:clamp(170px,18vw,230px)}.home-hero-brand-row .home-hero-copy{transform:none;max-width:60vw}}
-    @media(max-width:760px){.home-hero-brand-row{align-items:flex-start;gap:14px;transform:none}.home-hero-brand-logo{width:120px;margin-top:8px}.home-hero-brand-row .home-hero-copy{max-width:100%;transform:none}}
-    @media(max-width:480px){.home-hero-brand-row{gap:10px}.home-hero-brand-logo{width:98px}}
+    .home-hero-inner{display:grid;grid-template-columns:28% 38% 34%;align-items:center;column-gap:clamp(18px,2vw,40px);padding-left:4%;padding-right:3%}
+    .home-hero-brand-row{display:contents}
+    .home-hero-brand-logo{grid-column:1;width:min(94%,430px);max-height:590px;height:auto;justify-self:center;align-self:center;object-fit:contain;filter:drop-shadow(0 14px 28px rgba(0,0,0,.26));pointer-events:none;user-select:none;-webkit-user-drag:none}
+    .home-hero-brand-row .home-hero-copy{grid-column:2;position:relative;z-index:4;transform:none!important;max-width:650px;margin:0}
+    .home-hero-brand-row .home-hero-copy h1{font-size:clamp(3.9rem,5.25vw,6.35rem);max-width:650px}
+    .home-hero-character{grid-column:3!important;position:relative!important;z-index:3!important;right:auto!important;bottom:auto!important;width:min(100%,620px)!important;max-width:none!important;height:auto!important;justify-self:end;align-self:end;transform:translateY(70px);object-fit:contain;object-position:bottom right}
+    @media(max-width:1200px){.home-hero-inner{grid-template-columns:27% 41% 32%;column-gap:14px;padding-left:3%;padding-right:2%}.home-hero-brand-logo{width:min(96%,330px);max-height:500px}.home-hero-brand-row .home-hero-copy{max-width:560px}.home-hero-brand-row .home-hero-copy h1{font-size:clamp(3.45rem,5.2vw,5.5rem)}.home-hero-character{width:min(100%,500px)!important;transform:translateY(55px)}}
+    @media(max-width:900px){.home-hero-inner{grid-template-columns:25% 47% 28%;column-gap:10px}.home-hero-brand-logo{width:min(96%,230px)}.home-hero-brand-row .home-hero-copy h1{font-size:clamp(3rem,5.5vw,4.5rem)}.home-hero-character{width:min(100%,390px)!important;transform:translateY(40px)}}
+    @media(max-width:760px){.home-hero-inner{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:calc(100vh - 72px);padding-top:72px;padding-left:7%;padding-right:7%;padding-bottom:0}.home-hero-brand-row{display:flex;align-items:flex-start;gap:16px;transform:none}.home-hero-brand-logo{width:124px;max-height:none;flex:0 0 auto;margin-top:8px}.home-hero-brand-row .home-hero-copy{max-width:100%;transform:none!important;padding-bottom:390px}.home-hero-brand-row .home-hero-copy h1{font-size:clamp(3.1rem,13.5vw,5rem)}.home-hero-character{position:absolute!important;right:-64px!important;bottom:30px!important;width:min(520px,92vw)!important;max-width:none!important;transform:none}}
+    @media(max-width:480px){.home-hero-brand-row{gap:12px}.home-hero-brand-logo{width:102px}.home-hero-brand-row .home-hero-copy{padding-bottom:340px}.home-hero-character{right:-70px!important;bottom:18px!important;width:445px!important}}
   </style>
 </head>
 <body>
